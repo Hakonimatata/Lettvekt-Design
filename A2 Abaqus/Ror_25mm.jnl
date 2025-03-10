@@ -1,0 +1,237 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(modelType=STANDARD_EXPLICIT, name='Pipe')
+mdb.models['Pipe'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Pipe'].sketches['__profile__'].ConstructionLine(point1=(0.0, 
+    -100.0), point2=(0.0, 100.0))
+mdb.models['Pipe'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[2])
+mdb.models['Pipe'].sketches['__profile__'].ConstructionLine(point1=(-25.0, 0.0)
+    , point2=(30.0, 0.0))
+mdb.models['Pipe'].sketches['__profile__'].HorizontalConstraint(addUndoState=
+    False, entity=mdb.models['Pipe'].sketches['__profile__'].geometry[3])
+mdb.models['Pipe'].sketches['__profile__'].rectangle(point1=(0.0, 15.0), 
+    point2=(10.0, 20.0))
+mdb.models['Pipe'].sketches['__profile__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Pipe'].sketches['__profile__'].vertices[0], 
+    entity2=mdb.models['Pipe'].sketches['__profile__'].geometry[2])
+mdb.models['Pipe'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[7], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[3], textPoint=(
+    -14.7357177734375, 6.7618408203125), value=7.65466)
+mdb.models['Pipe'].sketches['__profile__'].undo()
+mdb.models['Pipe'].sketches['__profile__'].FixedConstraint(entity=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[3])
+mdb.models['Pipe'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[7], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[3], textPoint=(
+    -15.8241500854492, 6.67678833007812), value=7.65466)
+mdb.models['Pipe'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[5], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[3], textPoint=(
+    -31.0622253417969, 4.89064407348633), value=12.5)
+mdb.models['Pipe'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[6], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[4], textPoint=(
+    0.365898132324219, 20.6243209838867), value=2.0)
+mdb.models['Pipe'].sketches['__profile__'].sketchOptions.setValues(
+    constructionGeometry=ON)
+mdb.models['Pipe'].sketches['__profile__'].assignCenterline(line=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[3])
+mdb.models['Pipe'].Part(dimensionality=THREE_D, name='pipe', type=
+    DEFORMABLE_BODY)
+mdb.models['Pipe'].parts['pipe'].BaseSolidRevolve(angle=180.0, 
+    flipRevolveDirection=OFF, sketch=
+    mdb.models['Pipe'].sketches['__profile__'])
+del mdb.models['Pipe'].sketches['__profile__']
+mdb.models['Pipe'].ConstrainedSketch(gridSpacing=0.63, name='__profile__', 
+    sheetSize=25.31, transform=
+    mdb.models['Pipe'].parts['pipe'].MakeSketchTransform(
+    sketchPlane=mdb.models['Pipe'].parts['pipe'].faces[4], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Pipe'].parts['pipe'].edges[0], 
+    sketchOrientation=RIGHT, origin=(1.0, -10.07733, 0.0)))
+mdb.models['Pipe'].parts['pipe'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Pipe'].sketches['__profile__'])
+mdb.models['Pipe'].sketches['__profile__'].Line(point1=(-1.0, 0.0), point2=(
+    1.0, 0.0))
+mdb.models['Pipe'].sketches['__profile__'].HorizontalConstraint(addUndoState=
+    False, entity=mdb.models['Pipe'].sketches['__profile__'].geometry[11])
+mdb.models['Pipe'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[4], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[11])
+mdb.models['Pipe'].sketches['__profile__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Pipe'].sketches['__profile__'].vertices[8], 
+    entity2=mdb.models['Pipe'].sketches['__profile__'].geometry[4])
+mdb.models['Pipe'].sketches['__profile__'].EqualDistanceConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Pipe'].sketches['__profile__'].vertices[2], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].vertices[3], midpoint=
+    mdb.models['Pipe'].sketches['__profile__'].vertices[8])
+mdb.models['Pipe'].sketches['__profile__'].CoincidentConstraint(addUndoState=
+    False, entity1=mdb.models['Pipe'].sketches['__profile__'].vertices[9], 
+    entity2=mdb.models['Pipe'].sketches['__profile__'].geometry[2])
+mdb.models['Pipe'].sketches['__profile__'].EqualDistanceConstraint(
+    addUndoState=False, entity1=
+    mdb.models['Pipe'].sketches['__profile__'].vertices[0], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].vertices[1], midpoint=
+    mdb.models['Pipe'].sketches['__profile__'].vertices[9])
+mdb.models['Pipe'].sketches['__profile__'].DistanceDimension(entity1=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[11], entity2=
+    mdb.models['Pipe'].sketches['__profile__'].geometry[5], textPoint=(
+    -2.53945779800415, 2.14866197784424), value=2.42267)
+mdb.models['Pipe'].sketches['__profile__'].undo()
+mdb.models['Pipe'].parts['pipe'].PartitionFaceBySketch(faces=
+    mdb.models['Pipe'].parts['pipe'].faces.getSequenceFromMask(('[#10 ]', ), ), 
+    sketch=mdb.models['Pipe'].sketches['__profile__'], sketchUpEdge=
+    mdb.models['Pipe'].parts['pipe'].edges[0])
+del mdb.models['Pipe'].sketches['__profile__']
+mdb.models['Pipe'].parts['pipe'].PartitionCellBySweepEdge(cells=
+    mdb.models['Pipe'].parts['pipe'].cells.getSequenceFromMask(('[#1 ]', ), ), 
+    edges=(mdb.models['Pipe'].parts['pipe'].edges[0], ), sweepPath=
+    mdb.models['Pipe'].parts['pipe'].edges[7])
+mdb.models['Pipe'].Material(name='Carbon/Epoxy(a)')
+mdb.models['Pipe'].materials['Carbon/Epoxy(a)'].Elastic(table=((130000.0, 
+    10000.0, 10000.0, 0.28, 0.28, 0.5, 4500.0, 4500.0, 3500.0), ), type=
+    ENGINEERING_CONSTANTS)
+mdb.models['Pipe'].HomogeneousSolidSection(material='Carbon/Epoxy(a)', name=
+    'Section-1', thickness=None)
+mdb.models['Pipe'].HomogeneousSolidSection(material='Carbon/Epoxy(a)', name=
+    'Section-2', thickness=None)
+mdb.models['Pipe'].parts['pipe'].Set(cells=
+    mdb.models['Pipe'].parts['pipe'].cells.getSequenceFromMask(('[#2 ]', ), ), 
+    name='Set-1')
+mdb.models['Pipe'].parts['pipe'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Pipe'].parts['pipe'].sets['Set-1'], sectionName='Section-1', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Pipe'].parts['pipe'].Set(cells=
+    mdb.models['Pipe'].parts['pipe'].cells.getSequenceFromMask(('[#1 ]', ), ), 
+    name='Set-2')
+mdb.models['Pipe'].parts['pipe'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Pipe'].parts['pipe'].sets['Set-2'], sectionName='Section-2', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Pipe'].parts['pipe'].Surface(name='Surf-1', side1Faces=
+    mdb.models['Pipe'].parts['pipe'].faces.getSequenceFromMask(('[#40 ]', ), ))
+mdb.models['Pipe'].parts['pipe'].Set(edges=
+    mdb.models['Pipe'].parts['pipe'].edges.getSequenceFromMask(('[#4000 ]', ), 
+    ), name='Set-3')
+mdb.models['Pipe'].parts['pipe'].MaterialOrientation(additionalRotationField=''
+    , additionalRotationType=ROTATION_NONE, angle=0.0, axis=AXIS_1, 
+    flipNormalDirection=False, flipPrimaryDirection=False, 
+    normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, normalAxisRegion=
+    mdb.models['Pipe'].parts['pipe'].surfaces['Surf-1'], orientationType=
+    DISCRETE, primaryAxisDefinition=EDGE, primaryAxisDirection=AXIS_1, 
+    primaryAxisRegion=mdb.models['Pipe'].parts['pipe'].sets['Set-3'], region=
+    Region(cells=mdb.models['Pipe'].parts['pipe'].cells.getSequenceFromMask(
+    mask=('[#2 ]', ), )), stackDirection=STACK_3)
+mdb.models['Pipe'].parts['pipe'].Surface(name='Surf-2', side1Faces=
+    mdb.models['Pipe'].parts['pipe'].faces.getSequenceFromMask(('[#40 ]', ), ))
+mdb.models['Pipe'].parts['pipe'].Set(edges=
+    mdb.models['Pipe'].parts['pipe'].edges.getSequenceFromMask(('[#20000 ]', ), 
+    ), name='Set-5')
+mdb.models['Pipe'].parts['pipe'].MaterialOrientation(additionalRotationField=''
+    , additionalRotationType=ROTATION_NONE, angle=0.0, axis=AXIS_1, 
+    flipNormalDirection=False, flipPrimaryDirection=False, 
+    normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, normalAxisRegion=
+    mdb.models['Pipe'].parts['pipe'].surfaces['Surf-2'], orientationType=
+    DISCRETE, primaryAxisDefinition=EDGE, primaryAxisDirection=AXIS_1, 
+    primaryAxisRegion=mdb.models['Pipe'].parts['pipe'].sets['Set-5'], region=
+    Region(cells=mdb.models['Pipe'].parts['pipe'].cells.getSequenceFromMask(
+    mask=('[#1 ]', ), )), stackDirection=STACK_3)
+mdb.models['Pipe'].parts['pipe'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=0.5)
+mdb.models['Pipe'].parts['pipe'].generateMesh()
+mdb.models['Pipe'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Pipe'].rootAssembly.Instance(dependent=ON, name='pipe-1', part=
+    mdb.models['Pipe'].parts['pipe'])
+mdb.models['Pipe'].rootAssembly.ReferencePoint(point=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].InterestingPoint(
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].edges[3], CENTER))
+mdb.models['Pipe'].rootAssembly.ReferencePoint(point=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].InterestingPoint(
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].edges[1], CENTER))
+mdb.models['Pipe'].rootAssembly.ReferencePoint(point=
+    mdb.models['Pipe'].rootAssembly.referencePoints[4])
+mdb.models['Pipe'].rootAssembly.ReferencePoint(point=
+    mdb.models['Pipe'].rootAssembly.referencePoints[6])
+mdb.models['Pipe'].rootAssembly.Set(name='set-rp', referencePoints=(
+    mdb.models['Pipe'].rootAssembly.referencePoints[5], ))
+mdb.models['Pipe'].rootAssembly.Set(faces=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].faces.getSequenceFromMask(
+    ('[#88 ]', ), ), name='set-x=L')
+mdb.models['Pipe'].Equation(name='Constraint-1', terms=((1.0, 'set-x=L', 1), (
+    -1.0, 'set-rp', 1)))
+mdb.models['Pipe'].rootAssembly.Set(faces=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].faces.getSequenceFromMask(
+    ('[#612 ]', ), ), name='Set-3')
+mdb.models['Pipe'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-1', 
+    region=mdb.models['Pipe'].rootAssembly.sets['Set-3'], u1=UNSET, u2=UNSET, 
+    u3=SET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['Pipe'].rootAssembly.Set(faces=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].faces.getSequenceFromMask(
+    ('[#24 ]', ), ), name='Set-4')
+mdb.models['Pipe'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-2', 
+    region=mdb.models['Pipe'].rootAssembly.sets['Set-4'], u1=SET, u2=UNSET, u3=
+    UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+# Save by hakon on 2025_03_07-10.11.32; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Pipe'].rootAssembly.Set(edges=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].edges.getSequenceFromMask(
+    ('[#2000 ]', ), ), name='Set-5')
+mdb.models['Pipe'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='BC-3', 
+    region=mdb.models['Pipe'].rootAssembly.sets['Set-5'], u1=UNSET, u2=SET, u3=
+    UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['Pipe'].StaticStep(name='Step-1', previous='Initial')
+mdb.models['Pipe'].rootAssembly.Surface(name='Surf-1', side1Faces=
+    mdb.models['Pipe'].rootAssembly.instances['pipe-1'].faces.getSequenceFromMask(
+    ('[#40 ]', ), ))
+mdb.models['Pipe'].Pressure(amplitude=UNSET, createStepName='Step-1', 
+    distributionType=UNIFORM, field='', magnitude=100.0, name='Load-1', region=
+    mdb.models['Pipe'].rootAssembly.surfaces['Surf-1'])
+mdb.models['Pipe'].rootAssembly.Set(name='Set-6', referencePoints=(
+    mdb.models['Pipe'].rootAssembly.referencePoints[5], ))
+mdb.models['Pipe'].ConcentratedForce(cf1=-24543.6926061703, createStepName=
+    'Step-1', distributionType=UNIFORM, field='', localCsys=None, name='Load-2'
+    , region=mdb.models['Pipe'].rootAssembly.sets['Set-6'])
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Pipe', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-1', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Fri Mar  7 10:22:49 2025', 
+    'jobName': 'Job-1'})
+# Save by hakon on 2025_03_07-10.34.37; build 2022 2021_09_15-19.57.30 176069
+# Save by hakon on 2025_03_07-11.45.28; build 2022 2021_09_15-19.57.30 176069
