@@ -1,0 +1,102 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/Viewer Release 2022 replay file
+# Internal Version: 2021_09_15-19.57.30 176069
+# Run by hakon on Sun Mar 23 18:51:40 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=185.368759155273, 
+    height=177.896286010742)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from viewerModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+o2 = session.openOdb(name='Job-1.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A3 Abaqus modelling/Job-1.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     5
+#: Number of Meshes:             6
+#: Number of Element Sets:       4
+#: Number of Node Sets:          12
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o2)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=456.042, 
+    farPlane=826.547, width=557.931, height=230.967, viewOffsetX=28.1715, 
+    viewOffsetY=8.35637)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=546.144, 
+    farPlane=805.757, width=668.163, height=276.599, cameraPosition=(608.198, 
+    274.122, 325.24), cameraUpVector=(-0.642429, 0.720999, -0.259703), 
+    cameraTarget=(18.9157, 3.64032, 178.862), viewOffsetX=33.7375, 
+    viewOffsetY=10.0074)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=409.697, 
+    farPlane=825.776, width=501.232, height=207.495, cameraPosition=(-518.128, 
+    129.901, 531.727), cameraUpVector=(0.209987, 0.799845, -0.562275), 
+    cameraTarget=(-19.3442, -15.5029, 117.103), viewOffsetX=25.3086, 
+    viewOffsetY=7.50719)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=429.326, 
+    farPlane=803.736, width=525.247, height=217.436, cameraPosition=(-550.822, 
+    -61.4709, 493.361), cameraUpVector=(0.0463358, 0.928769, -0.367751), 
+    cameraTarget=(-9.05182, -0.507931, 113.086), viewOffsetX=26.5212, 
+    viewOffsetY=7.86687)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=382.881, 
+    farPlane=824.162, width=468.426, height=193.914, cameraPosition=(-334.143, 
+    257.498, 650.437), cameraUpVector=(0.341015, 0.726115, -0.597048), 
+    cameraTarget=(-45.7542, -12.3958, 115.806), viewOffsetX=23.6521, 
+    viewOffsetY=7.01583)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=386.927, 
+    farPlane=822.305, width=473.376, height=195.963, cameraPosition=(-396.338, 
+    174.967, 641.092), cameraUpVector=(0.391289, 0.816568, -0.424394), 
+    cameraTarget=(-36.9411, -1.64812, 110.544), viewOffsetX=23.902, 
+    viewOffsetY=7.08996)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=493.311, 
+    farPlane=825.826, width=367.892, height=152.296, viewOffsetX=56.4402, 
+    viewOffsetY=10.6344)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=508.023, 
+    farPlane=832.492, width=378.864, height=156.838, cameraPosition=(355.103, 
+    106.708, 723.138), cameraUpVector=(-0.0766311, 0.852627, -0.51687), 
+    cameraTarget=(-40.1259, 12.1768, 197.116), viewOffsetX=58.1235, 
+    viewOffsetY=10.9515)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=604.636, 
+    farPlane=744.898, width=450.914, height=186.665, cameraPosition=(664.686, 
+    202.073, 142.403), cameraUpVector=(-0.607127, 0.788128, 0.101242), 
+    cameraTarget=(39.2162, -8.72427, 221.103), viewOffsetX=69.1771, 
+    viewOffsetY=13.0342)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=TIME_HISTORY)
+session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=SCALE_FACTOR)
+session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=NONE)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=SCALE_FACTOR)
+session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=HARMONIC)
+session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
+session.viewports['Viewport: 1'].animationController.setValues(
+    animationType=SCALE_FACTOR)
+session.viewports['Viewport: 1'].animationController.play(duration=UNLIMITED)
+session.animationOptions.setValues(frameRate=33)
+session.animationOptions.setValues(frameRate=45)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    DEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
