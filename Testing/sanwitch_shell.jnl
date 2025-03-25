@@ -1,0 +1,267 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='3-point-test-shell')
+mdb.models['3-point-test-shell'].Material('Carbon/Epoxy(a)')
+mdb.models['3-point-test-shell'].materials['Carbon/Epoxy(a)'].Density(table=((
+    1.6e-09, ), ))
+mdb.models['3-point-test-shell'].materials['Carbon/Epoxy(a)'].Elastic(table=((
+    130000, 10000, 10000, 0.28, 0.28, 0.5, 4500, 4500, 3500), ), type=
+    ENGINEERING_CONSTANTS)
+mdb.models['3-point-test-shell'].Material('H100')
+mdb.models['3-point-test-shell'].materials['H100'].Density(table=((1e-10, ), ))
+mdb.models['3-point-test-shell'].materials['H100'].Elastic(table=((100, 100, 
+    100, 0.3, 0.3, 0.3, 38.5, 38.5, 38.5), ), type=ENGINEERING_CONSTANTS)
+mdb.models['3-point-test-shell'].HomogeneousSolidSection(material=
+    'Carbon/Epoxy(a)', name='Carbon/Epoxy(a)', thickness=None)
+mdb.models['3-point-test-shell'].HomogeneousSolidSection(material='H100', name=
+    'H100', thickness=None)
+mdb.models['3-point-test-shell'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+mdb.models['3-point-test-shell'].sketches['__profile__'].rectangle(point1=(0.0, 
+    0.0), point2=(220, 30))
+mdb.models['3-point-test-shell'].Part(dimensionality=THREE_D, name='Specimen', 
+    type=DEFORMABLE_BODY)
+mdb.models['3-point-test-shell'].parts['Specimen'].BaseShell(sketch=
+    mdb.models['3-point-test-shell'].sketches['__profile__'])
+del mdb.models['3-point-test-shell'].sketches['__profile__']
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=15.0, principalPlane=XZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[2], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=10, principalPlane=YZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[4], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=110.0, principalPlane=YZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[6], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=210, principalPlane=YZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[8], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumCsysByDefault(
+    coordSysType=CARTESIAN)
+mdb.models['3-point-test-shell'].parts['Specimen'].CompositeLayup(elementType=
+    SHELL, name='Layup1', offsetType=MIDDLE_SURFACE)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].Section(
+    )
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].ReferenceOrientation(
+    axis=AXIS_3, localCsys=
+    mdb.models['3-point-test-shell'].parts['Specimen'].datums[10], 
+    orientationType=SYSTEM)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='Carbon/Epoxy(a)', orientationType=SPECIFY_ORIENT, 
+    orientationValue=0, plyName='Ply-1', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=1.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='H100', orientationType=SPECIFY_ORIENT, orientationValue=0, 
+    plyName='Ply-2', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=4.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='H100', orientationType=SPECIFY_ORIENT, orientationValue=0, 
+    plyName='Ply-3', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=4.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='Carbon/Epoxy(a)', orientationType=SPECIFY_ORIENT, 
+    orientationValue=0, plyName='Ply-4', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=1.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].seedPart(deviationFactor=0.1
+    , minSizeFactor=0.1, size=10)
+mdb.models['3-point-test-shell'].parts['Specimen'].generateMesh()
+mdb.models['3-point-test-shell'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['3-point-test-shell'].rootAssembly.Instance(dependent=ON, name=
+    'Specimen', part=mdb.models['3-point-test-shell'].parts['Specimen'])
+mdb.models['3-point-test-shell'].rootAssembly.translate(instanceList=(
+    'Specimen', ), vector=(-110.0, -15.0, 0.0))
+mdb.models['3-point-test-shell'].rootAssembly.Set(edges=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].edges.getSequenceFromMask(
+    mask=('[#911 ]', ), ), name='EDGES-SUPPORT')
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-SUPPORT', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['EDGES-SUPPORT'], u3=
+    SET)
+mdb.models['3-point-test-shell'].rootAssembly.Set(edges=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].edges.getSequenceFromMask(
+    mask=('[#44 ]', ), ), name='EDGES-LOADING')
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-LOADING', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['EDGES-LOADING'], u3=
+    SET)
+mdb.models['3-point-test-shell'].rootAssembly.Set(name='VERTICES-RB1', 
+    vertices=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].vertices.getSequenceFromMask(
+    mask=('[#28 ]', ), ))
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-RB1', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['VERTICES-RB1'], u1=SET)
+mdb.models['3-point-test-shell'].rootAssembly.Set(name='VERTICES-RB2', 
+    vertices=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].vertices.getSequenceFromMask(
+    mask=('[#4 ]', ), ))
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-RB2', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['VERTICES-RB2'], u2=SET)
+mdb.models['3-point-test-shell'].StaticStep(name='Step-1', previous='Initial')
+mdb.models['3-point-test-shell'].boundaryConditions['BC-LOADING'].setValuesInStep(
+    stepName='Step-1', u3=-10)
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='3-point-test-shell', modelPrint=
+    OFF, multiprocessingMode=DEFAULT, name='Job-1', nodalOutputPrecision=SINGLE
+    , numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.Model(name='3-point-test-shell')
+mdb.models['3-point-test-shell'].Material('Carbon/Epoxy(a)')
+mdb.models['3-point-test-shell'].materials['Carbon/Epoxy(a)'].Density(table=((
+    1.6e-09, ), ))
+mdb.models['3-point-test-shell'].materials['Carbon/Epoxy(a)'].Elastic(table=((
+    130000, 10000, 10000, 0.28, 0.28, 0.5, 4500, 4500, 3500), ), type=
+    ENGINEERING_CONSTANTS)
+mdb.models['3-point-test-shell'].Material('H100')
+mdb.models['3-point-test-shell'].materials['H100'].Density(table=((1e-10, ), ))
+mdb.models['3-point-test-shell'].materials['H100'].Elastic(table=((100, 100, 
+    100, 0.3, 0.3, 0.3, 38.5, 38.5, 38.5), ), type=ENGINEERING_CONSTANTS)
+mdb.models['3-point-test-shell'].HomogeneousSolidSection(material=
+    'Carbon/Epoxy(a)', name='Carbon/Epoxy(a)', thickness=None)
+mdb.models['3-point-test-shell'].HomogeneousSolidSection(material='H100', name=
+    'H100', thickness=None)
+mdb.models['3-point-test-shell'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+mdb.models['3-point-test-shell'].sketches['__profile__'].rectangle(point1=(0.0, 
+    0.0), point2=(220, 30))
+mdb.models['3-point-test-shell'].Part(dimensionality=THREE_D, name='Specimen', 
+    type=DEFORMABLE_BODY)
+mdb.models['3-point-test-shell'].parts['Specimen'].BaseShell(sketch=
+    mdb.models['3-point-test-shell'].sketches['__profile__'])
+del mdb.models['3-point-test-shell'].sketches['__profile__']
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=15.0, principalPlane=XZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[2], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=10, principalPlane=YZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[4], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=110.0, principalPlane=YZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[6], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumPlaneByPrincipalPlane(
+    offset=210, principalPlane=YZPLANE)
+mdb.models['3-point-test-shell'].parts['Specimen'].PartitionFaceByDatumPlane(
+    datumPlane=mdb.models['3-point-test-shell'].parts['Specimen'].datums[8], 
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces)
+mdb.models['3-point-test-shell'].parts['Specimen'].DatumCsysByDefault(
+    coordSysType=CARTESIAN)
+mdb.models['3-point-test-shell'].parts['Specimen'].CompositeLayup(elementType=
+    SHELL, name='Layup1', offsetType=MIDDLE_SURFACE)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].Section(
+    )
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].ReferenceOrientation(
+    axis=AXIS_3, localCsys=
+    mdb.models['3-point-test-shell'].parts['Specimen'].datums[10], 
+    orientationType=SYSTEM)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='Carbon/Epoxy(a)', orientationType=SPECIFY_ORIENT, 
+    orientationValue=0, plyName='Ply-1', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=1.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='H100', orientationType=SPECIFY_ORIENT, orientationValue=0, 
+    plyName='Ply-2', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=4.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='H100', orientationType=SPECIFY_ORIENT, orientationValue=0, 
+    plyName='Ply-3', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=4.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].compositeLayups['Layup1'].CompositePly(
+    material='Carbon/Epoxy(a)', orientationType=SPECIFY_ORIENT, 
+    orientationValue=0, plyName='Ply-4', region=Region(
+    faces=mdb.models['3-point-test-shell'].parts['Specimen'].faces.getSequenceFromMask(
+    mask=('[#ff ]', ), )), suppressed=False, thickness=1.0, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['3-point-test-shell'].parts['Specimen'].seedPart(deviationFactor=0.1
+    , minSizeFactor=0.1, size=2)
+mdb.models['3-point-test-shell'].parts['Specimen'].generateMesh()
+mdb.models['3-point-test-shell'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['3-point-test-shell'].rootAssembly.Instance(dependent=ON, name=
+    'Specimen', part=mdb.models['3-point-test-shell'].parts['Specimen'])
+mdb.models['3-point-test-shell'].rootAssembly.translate(instanceList=(
+    'Specimen', ), vector=(-110.0, -15.0, 0.0))
+mdb.models['3-point-test-shell'].rootAssembly.Set(edges=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].edges.getSequenceFromMask(
+    mask=('[#911 ]', ), ), name='EDGES-SUPPORT')
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-SUPPORT', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['EDGES-SUPPORT'], u3=
+    SET)
+mdb.models['3-point-test-shell'].rootAssembly.Set(edges=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].edges.getSequenceFromMask(
+    mask=('[#44 ]', ), ), name='EDGES-LOADING')
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-LOADING', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['EDGES-LOADING'], u3=
+    SET)
+mdb.models['3-point-test-shell'].rootAssembly.Set(name='VERTICES-RB1', 
+    vertices=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].vertices.getSequenceFromMask(
+    mask=('[#28 ]', ), ))
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-RB1', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['VERTICES-RB1'], u1=SET)
+mdb.models['3-point-test-shell'].rootAssembly.Set(name='VERTICES-RB2', 
+    vertices=
+    mdb.models['3-point-test-shell'].rootAssembly.instances['Specimen'].vertices.getSequenceFromMask(
+    mask=('[#4 ]', ), ))
+mdb.models['3-point-test-shell'].DisplacementBC(createStepName='Initial', name=
+    'BC-RB2', region=
+    mdb.models['3-point-test-shell'].rootAssembly.sets['VERTICES-RB2'], u2=SET)
+mdb.models['3-point-test-shell'].StaticStep(initialInc=0.1, maxInc=0.1, name=
+    'Step-1', nlgeom=ON, previous='Initial')
+mdb.models['3-point-test-shell'].boundaryConditions['BC-LOADING'].setValuesInStep(
+    stepName='Step-1', u3=-10)
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='3-point-test-shell', modelPrint=
+    OFF, multiprocessingMode=DEFAULT, name='Job-2', nodalOutputPrecision=SINGLE
+    , numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, 
+    resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=
+    0, waitMinutes=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+# Save by hakon on 2025_03_25-11.15.50; build 2022 2021_09_15-19.57.30 176069
+# Save by hakon on 2025_03_25-11.17.42; build 2022 2021_09_15-19.57.30 176069

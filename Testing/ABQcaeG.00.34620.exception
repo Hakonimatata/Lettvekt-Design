@@ -1,0 +1,31 @@
+<Description>
+   ABQcaeG.exe / rank 0 / thread 0  encountered an unhandled exception
+
+</Description>
+
+<Context>
+   ABQcaeG
+</Context>
+
+<Callstack>
+  1)  KERNELBASE.dll              RaiseException                          
+  2)  VCRUNTIME140_1.dll        unknown                                 
+</Callstack>
+
+<Memory>
+   <Current>             100 MB </Current>
+   <Resident>            161 MB </Resident>
+   <Physical>           8021 MB </Physical>
+   <Limit>                 0 MB </Limit>
+   <Accessible>         8021 MB </Accessible>
+   <Allocator>            DL    </Allocator>
+</Memory>
+
+<Directories>
+  <current> C:\Users\hakon\Skrivebord\Skole\Lettvekt Design\Testing </current> <free>    149 GB </free>   <used>    326 GB </used> 
+     <temp> C:\Users\hakon\AppData\Local\Temp </temp>    <free>    149 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+

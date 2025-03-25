@@ -1,0 +1,268 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2022 replay file
+# Internal Version: 2021_09_15-19.57.30 176069
+# Run by hakon on Tue Mar 25 11:01:27 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=137.516662597656, 
+    height=129.691665649414)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A3/3-point-test-shell.py', 
+    __main__.__dict__)
+#: The model "3-point-test-shell" has been created.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=296.301, 
+    farPlane=591.844, width=154.131, height=69.4038, cameraPosition=(118.955, 
+    26.1028, 444.072), cameraTarget=(118.955, 26.1028, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=296.878, 
+    farPlane=591.266, width=154.432, height=69.5391, cameraPosition=(111.889, 
+    26.1028, 444.072), cameraTarget=(111.889, 26.1028, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=339.144, 
+    farPlane=570, width=176.418, height=79.4393, cameraPosition=(233.155, 
+    425.42, 151.79), cameraUpVector=(0.252576, 0.275834, -0.927427), 
+    cameraTarget=(111.889, 26.1028, -2.00272e-05))
+a = mdb.models['3-point-test-shell'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+mdb.Job(name='Job-1', model='3-point-test-shell', description='', 
+    type=ANALYSIS, atTime=None, waitMinutes=0, waitHours=0, queue=None, 
+    memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=1, numGPUs=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: The job input file "Job-1.inp" has been submitted for analysis.
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-1.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-1.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          5
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=542.853, 
+    farPlane=838.614, width=388.383, height=174.885, cameraPosition=(393.681, 
+    398.185, 393.847), cameraTarget=(6.35202, 10.8567, 6.51852))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=574.987, 
+    farPlane=809.615, width=411.373, height=185.237, cameraPosition=(204.21, 
+    -578.845, 309.599), cameraUpVector=(-0.108529, 0.727453, 0.677521), 
+    cameraTarget=(0.904159, -17.2359, 4.09613))
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A3/3-point-test-shell.py', 
+    __main__.__dict__)
+#: The model "3-point-test-shell" has been created.
+a = mdb.models['3-point-test-shell'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='Job-2', model='3-point-test-shell', description='', 
+    type=ANALYSIS, atTime=None, waitMinutes=0, waitHours=0, queue=None, 
+    memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=1, numGPUs=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+#: The job input file "Job-2.inp" has been submitted for analysis.
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-1.odb'])
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-2.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          5
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=559.489, 
+    farPlane=820.322, width=400.286, height=180.245, cameraPosition=(314.826, 
+    -323.023, 517.235), cameraUpVector=(-0.450719, 0.828143, 0.333215), 
+    cameraTarget=(6.02416, -15.7706, 7.03152))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=554.858, 
+    farPlane=829.739, width=396.973, height=178.753, cameraPosition=(351.63, 
+    -499.333, 321.274), cameraUpVector=(-0.497278, 0.55466, 0.667133), 
+    cameraTarget=(7.03948, -20.6345, 1.62546))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=580.337, 
+    farPlane=804.259, width=251.004, height=113.024, viewOffsetX=9.08877, 
+    viewOffsetY=-0.524908)
+session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(
+    renderShellThickness=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=593.988, 
+    farPlane=790.608, width=170.505, height=76.7768, viewOffsetX=19.5768, 
+    viewOffsetY=-3.4973)
+session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(
+    renderShellThickness=OFF)
+session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(
+    bcDisplay=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=583.785, 
+    farPlane=800.812, width=230.674, height=103.87, viewOffsetX=-11.2613, 
+    viewOffsetY=0.99694)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(COMPONENT, 
+    'S11'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(COMPONENT, 
+    'S22'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(COMPONENT, 
+    'S33'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(COMPONENT, 
+    'S11'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=583.414, 
+    farPlane=800.441, width=230.528, height=103.804, cameraPosition=(351.63, 
+    -498.813, 321.274), cameraTarget=(7.03948, -20.1146, 1.62546), 
+    viewOffsetX=-11.2541, viewOffsetY=0.996306)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=613.065, 
+    farPlane=770.79, width=55.8249, height=25.1374, viewOffsetX=75.5119, 
+    viewOffsetY=-23.4114)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=612.344, 
+    farPlane=770.069, width=55.7593, height=25.1079, cameraPosition=(351.63, 
+    -497.803, 321.274), cameraTarget=(7.03948, -19.1042, 1.62546), 
+    viewOffsetX=75.4231, viewOffsetY=-23.3839)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=637.453, 
+    farPlane=848.926, width=58.0458, height=26.1375, cameraPosition=(645.569, 
+    -34.3026, 365.044), cameraUpVector=(-0.775458, 0.0762077, 0.626784), 
+    cameraTarget=(73.345, -43.4059, 14.9758), viewOffsetX=78.5159, 
+    viewOffsetY=-24.3428)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=625.591, 
+    farPlane=860.789, width=125.712, height=56.6067, viewOffsetX=37.7343, 
+    viewOffsetY=-14.4595)
+session.viewports['Viewport: 1'].view.setValues(width=113.479, height=51.0985, 
+    cameraPosition=(22.0967, 741.991, -40.9397), cameraUpVector=(0, 0, 1), 
+    cameraTarget=(22.0967, -1.19928, -40.9397), viewOffsetX=0, viewOffsetY=0)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=627.768, 
+    farPlane=891.482, width=113.874, height=51.2763, cameraPosition=(757.252, 
+    -49.2837, 46.6301), cameraUpVector=(-0.124928, -0.111823, 0.985844), 
+    cameraTarget=(20.9085, 0.0796551, -41.0812))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=635.802, 
+    farPlane=883.448, width=81.0038, height=36.4752, viewOffsetX=9.3287, 
+    viewOffsetY=27.9501)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=637.109, 
+    farPlane=883.254, width=81.1702, height=36.5502, cameraPosition=(759.272, 
+    -2.08502, 48.1092), cameraUpVector=(-0.118944, -0.0327994, 0.992359), 
+    cameraTarget=(21.3619, -1.56771, -40.3195), viewOffsetX=9.34787, 
+    viewOffsetY=28.0076)
+#: Length of path computed = 220, Number of iterations = 109
+session.viewports['Viewport: 1'].view.setValues(nearPlane=649.27, 
+    farPlane=871.092, width=9.28757, height=4.1821, viewOffsetX=6.46942, 
+    viewOffsetY=29.716)
+session.Path(name='Path-1', type=EDGE_LIST, expression=(('SPECIMEN', ((1755, 1, 
+    4, 1), (1747, 1, 4, 1), (1739, 1, 4, 1), (1731, 1, 4, 1), (1723, 1, 4, 1), 
+    (1595, 1, 4, 1), (1587, 1, 4, 1), (1579, 1, 4, 1), (1571, 1, 4, 1), (1563, 
+    1, 4, 1), (1555, 1, 4, 1), (1547, 1, 4, 1), (1539, 1, 4, 1), (1531, 1, 4, 
+    1), (1523, 1, 4, 1), (1515, 1, 4, 1), (1507, 1, 4, 1), (1499, 1, 4, 1), (
+    1491, 1, 4, 1), (1483, 1, 4, 1), (1475, 1, 4, 1), (1467, 1, 4, 1), (1459, 
+    1, 4, 1), (1451, 1, 4, 1), (1443, 1, 4, 1), (1435, 1, 4, 1), (1427, 1, 4, 
+    1), (1419, 1, 4, 1), (1411, 1, 4, 1), (1403, 1, 4, 1), (1395, 1, 4, 1), (
+    1387, 1, 4, 1), (1379, 1, 4, 1), (1371, 1, 4, 1), (1363, 1, 4, 1), (1355, 
+    1, 4, 1), (1347, 1, 4, 1), (1339, 1, 4, 1), (1331, 1, 4, 1), (1323, 1, 4, 
+    1), (1315, 1, 4, 1), (1307, 1, 4, 1), (1299, 1, 4, 1), (1291, 1, 4, 1), (
+    1283, 1, 4, 1), (1275, 1, 4, 1), (1267, 1, 4, 1), (1259, 1, 4, 1), (1251, 
+    1, 4, 1), (1243, 1, 4, 1), (1235, 1, 4, 1), (1227, 1, 4, 1), (1219, 1, 4, 
+    1), (1211, 1, 4, 1), (1203, 1, 4, 1), (795, 1, 4, 1), (787, 1, 4, 1), (779, 
+    1, 4, 1), (771, 1, 4, 1), (763, 1, 4, 1), (755, 1, 4, 1), (747, 1, 4, 1), (
+    739, 1, 4, 1), (731, 1, 4, 1), (723, 1, 4, 1), (715, 1, 4, 1), (707, 1, 4, 
+    1), (699, 1, 4, 1), (691, 1, 4, 1), (683, 1, 4, 1), (675, 1, 4, 1), (667, 
+    1, 4, 1), (659, 1, 4, 1), (651, 1, 4, 1), (643, 1, 4, 1), (635, 1, 4, 1), (
+    627, 1, 4, 1), (619, 1, 4, 1), (611, 1, 4, 1), (603, 1, 4, 1), (595, 1, 4, 
+    1), (587, 1, 4, 1), (579, 1, 4, 1), (571, 1, 4, 1), (563, 1, 4, 1), (555, 
+    1, 4, 1), (547, 1, 4, 1), (539, 1, 4, 1), (531, 1, 4, 1), (523, 1, 4, 1), (
+    515, 1, 4, 1), (507, 1, 4, 1), (499, 1, 4, 1), (491, 1, 4, 1), (483, 1, 4, 
+    1), (475, 1, 4, 1), (467, 1, 4, 1), (459, 1, 4, 1), (451, 1, 4, 1), (443, 
+    1, 4, 1), (435, 1, 4, 1), (427, 1, 4, 1), (419, 1, 4, 1), (411, 1, 4, 1), (
+    403, 1, 4, 1), (1606, 1, 2, 1), (1614, 1, 2, 1), (1622, 1, 2, 1), (1630, 1, 
+    2, 1), (1638, 1, 2, 1), )), ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(COMPONENT, 'U3'))
+xyp = session.XYPlot('XYPlot-1')
+chartName = xyp.charts.keys()[0]
+chart = xyp.charts[chartName]
+pth = session.paths['Path-1']
+xy1 = xyPlot.XYDataFromPath(path=pth, includeIntersections=False, 
+    projectOntoMesh=False, pathStyle=PATH_POINTS, numIntervals=10, 
+    projectionTolerance=0, shape=DEFORMED, labelType=TRUE_DISTANCE, 
+    removeDuplicateXYPairs=True, includeAllElements=False)
+c1 = session.Curve(xyData=xy1)
+chart.setValues(curvesToPlot=(c1, ), )
+session.charts[chartName].autoColor(lines=True, symbols=True)
+session.viewports['Viewport: 1'].setValues(displayedObject=xyp)
+xyp = session.xyPlots['XYPlot-1']
+chartName = xyp.charts.keys()[0]
+chart = xyp.charts[chartName]
+xy1 = session.xyDataObjects['_temp_1']
+c1 = session.Curve(xyData=xy1)
+chart.setValues(curvesToPlot=(c1, ), )
+session.charts[chartName].autoColor(lines=True, symbols=True)
+mdb.saveAs(
+    pathName='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/sanwitch_shell')
+#: The model database has been saved to "C:\Users\hakon\Skrivebord\Skole\Lettvekt Design\Testing\sanwitch_shell.cae".
+odb = session.odbs['C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-2.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=639.417, 
+    farPlane=880.945, width=67.389, height=30.3446, viewOffsetX=-5.39911, 
+    viewOffsetY=35.5813)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=639.414, 
+    farPlane=880.941, width=67.3886, height=30.3445, cameraPosition=(759.272, 
+    -0.85056, 48.0884), cameraTarget=(21.3619, -0.33325, -40.3403), 
+    viewOffsetX=-5.39908, viewOffsetY=35.5811)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=640.987, 
+    farPlane=871.731, width=67.5546, height=30.4192, cameraPosition=(669.353, 
+    352.628, 28.3001), cameraUpVector=(-0.0644306, -0.0773046, 0.994924), 
+    cameraTarget=(14.1835, 8.67615, -40.8529), viewOffsetX=-5.41236, 
+    viewOffsetY=35.6686)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=627.836, 
+    farPlane=884.883, width=144.944, height=65.267, viewOffsetX=-19.896, 
+    viewOffsetY=28.1374)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=615.777, 
+    farPlane=853.071, width=142.16, height=64.0134, cameraPosition=(-594.728, 
+    372.433, 217.047), cameraUpVector=(0.357252, -0.0712669, 0.931285), 
+    cameraTarget=(-23.3477, -31.6725, -33.0652), viewOffsetX=-19.5139, 
+    viewOffsetY=27.597)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=607.602, 
+    farPlane=861.247, width=193.155, height=86.9756, viewOffsetX=-34.7884, 
+    viewOffsetY=23.8964)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=619.693, 
+    farPlane=850.398, width=196.998, height=88.7064, cameraPosition=(-511.09, 
+    455.385, 267.334), cameraUpVector=(0.332895, -0.244137, 0.910812), 
+    cameraTarget=(-30.2565, -22.8954, -36.6065), viewOffsetX=-35.4807, 
+    viewOffsetY=24.3719)
+mdb.save()
+#: The model database has been saved to "C:\Users\hakon\Skrivebord\Skole\Lettvekt Design\Testing\sanwitch_shell.cae".
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A3/3-point-test-shell.py', 
+    __main__.__dict__)
+#: The model "3-point-test-shell" has been created.
+
+---------- RUNTIME EXCEPTION HAS OCCURRED ----------
+*** ERROR: ABAQUS/ABQcaeK rank 0 received the ABORT signal
