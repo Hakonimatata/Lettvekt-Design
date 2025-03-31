@@ -1,0 +1,568 @@
+1
+
+   Abaqus 2022                                  Date 31-mar-2025   Time 15:23:24
+   For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
+
+                                                                                 
+                                                                                 
+ STEP    1     INCREMENT     1     STEP TIME    0.00    
+
+
+                        S T E P       1     C A L C U L A T I O N   O F   E I G E N V A L U E S
+
+                                            F O R   B U C K L I N G   P R E D I C T I O N
+
+
+
+                                                                                          
+
+     THE SUBSPACE ITERATION METHOD IS USED FOR THIS ANALYSIS
+     NUMBER OF EIGENVALUES                      2
+     MAXIMUM NUMBER OF ITERATIONS                    500
+     NUMBER OF VECTORS IN ITERATION                    4
+     THE BUCKLING MODE CONSTRAINTS 
+      ARE DEFINED AS LOAD CASE 2
+                              ONLY INITIAL STRESS EFFECTS ARE INCLUDED IN THE
+                              STIFFNESS MATRIX
+
+     THIS IS A LINEAR PERTURBATION STEP.
+     ALL LOADS ARE DEFINED AS CHANGE IN LOAD TO THE REFERENCE STATE
+
+     EXTRAPOLATION WILL NOT BE USED
+
+     CHARACTERISTIC ELEMENT LENGTH      5.11    
+
+     DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
+
+     DETAILED OUTPUT OF DIAGNOSTICS TO DATABASE REQUESTED
+
+     PRINT OF INCREMENT NUMBER, TIME, ETC., TO THE MESSAGE FILE EVERY     1  INCREMENTS
+ 
+	SYMMETRIC DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST:        1 MPI RANK  x 1 THREAD
+ 	NUMBER OF EQUATIONS:     12756
+ 	NUMBER OF RHS:           1
+ 	NUMBER OF FLOPS:         5.453e+08
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =  0.20000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =  0.20000    
+       ELAPSED WALLCLOCK TIME (SEC) =          0
+ 
+     ITERATION 1
+      1       4.704835e+01     
+      2       9.533291e+01     
+      3       -1.214745e+02    
+      4       2.459401e+02     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 2
+      1       -4.641939e+00    
+      2       -8.449772e+00    
+      3       9.872769e+00     
+      4       2.147102e+01     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 3
+      1       -2.392010e+00    
+      2       -5.233406e+00    
+      3       9.711418e+00     
+      4       7.377233e+01     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 4
+      1       -1.818101e+00    
+      2       -4.749028e+00    
+      3       2.905031e+01     
+      4       -3.214504e+01    
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 5
+      1       -1.554606e+00    
+      2       -4.684845e+00    
+      3       -6.508312e+00    
+      4       2.355043e+01     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 6
+      1       -1.424467e+00    
+      2       -3.444455e+00    
+      3       -4.645427e+00    
+      4       8.691029e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 7
+      1       -1.362208e+00    
+      2       -2.397617e+00    
+      3       3.667991e+00     
+      4       -4.678330e+00    
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 8
+      1       -1.332894e+00    
+      2       -1.931207e+00    
+      3       2.227191e+00     
+      4       -5.221471e+00    
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 9
+      1       -1.318750e+00    
+      2       -1.696927e+00    
+      3       1.813484e+00     
+      4       -6.582331e+00    
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 10
+      1       -1.311421e+00    
+      2       -1.558287e+00    
+      3       1.672539e+00     
+      4       -9.744306e+00    
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 11
+      1       -1.307135e+00    
+      2       -1.467936e+00    
+      3       1.608102e+00     
+      4       -2.095189e+01    
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 12
+      1       -1.304196e+00    
+      2       -1.406768e+00    
+      3       1.570480e+00     
+      4       9.681843e+01     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 13
+      1       -1.301717e+00    
+      2       -1.364938e+00    
+      3       1.545145e+00     
+      4       1.438330e+01     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 14
+      1       -1.298945e+00    
+      2       -1.336778e+00    
+      3       1.526412e+00     
+      4       7.814074e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 15
+      1       -1.294733e+00    
+      2       -1.319287e+00    
+      3       1.511317e+00     
+      4       5.436337e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 16
+      1       -1.288273e+00    
+      2       -1.310484e+00    
+      3       1.498061e+00     
+      4       4.237801e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 17
+      1       -1.281310e+00    
+      2       -1.306704e+00    
+      3       1.485523e+00     
+      4       3.534509e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 18
+      1       -1.275557e+00    
+      2       -1.304897e+00    
+      3       1.473056e+00     
+      4       3.085495e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 19
+      1       -1.271257e+00    
+      2       -1.303879e+00    
+      3       1.460387e+00     
+      4       2.783957e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 20
+      1       -1.268158e+00    
+      2       -1.303240e+00    
+      3       1.447543e+00     
+      4       2.575100e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 21
+      1       -1.265960e+00    
+      2       -1.302812e+00    
+      3       1.434756e+00     
+      4       2.427758e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 22
+      1       -1.264415e+00    
+      2       -1.302514e+00    
+      3       1.422371e+00     
+      4       2.322796e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 23
+      1       -1.263333e+00    
+      2       -1.302302e+00    
+      3       1.410733e+00     
+      4       2.247799e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 24
+      1       -1.262580e+00    
+      2       -1.302149e+00    
+      3       1.400119e+00     
+      4       2.194393e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 25
+      1       -1.262055e+00    
+      2       -1.302038e+00    
+      3       1.390693e+00     
+      4       2.156783e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 26
+      1       -1.261692e+00    
+      2       -1.301956e+00    
+      3       1.382513e+00     
+      4       2.130885e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 27
+      1       -1.261440e+00    
+      2       -1.301896e+00    
+      3       1.375546e+00     
+      4       2.113780e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 28
+      1       -1.261265e+00    
+      2       -1.301852e+00    
+      3       1.369703e+00     
+      4       2.103352e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 29
+      1       -1.261145e+00    
+      2       -1.301819e+00    
+      3       1.364863e+00     
+      4       2.098046e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 30
+      1       -1.261062e+00    
+      2       -1.301795e+00    
+      3       1.360891e+00     
+      4       2.096707e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 31
+      1       -1.261004e+00    
+      2       -1.301777e+00    
+      3       1.357656e+00     
+      4       2.098458e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 32
+      1       -1.260965e+00    
+      2       -1.301764e+00    
+      3       1.355037e+00     
+      4       2.102628e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 33
+      1       -1.260938e+00    
+      2       -1.301755e+00    
+      3       1.352927e+00     
+      4       2.108696e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 34
+      1       -1.260919e+00    
+      2       -1.301747e+00    
+      3       1.351233e+00     
+      4       2.116252e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 35
+      1       -1.260906e+00    
+      2       -1.301742e+00    
+      3       1.349876e+00     
+      4       2.124968e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 36
+      1       -1.260897e+00    
+      2       -1.301738e+00    
+      3       1.348791e+00     
+      4       2.134581e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 37
+      1       -1.260891e+00    
+      2       -1.301735e+00    
+      3       1.347926e+00     
+      4       2.144880e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 38
+      1       -1.260887e+00    
+      2       -1.301733e+00    
+      3       1.347236e+00     
+      4       2.155689e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 39
+      1       -1.260884e+00    
+      2       -1.301732e+00    
+      3       1.346686e+00     
+      4       2.166868e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 40
+      1       -1.260882e+00    
+      2       -1.301730e+00    
+      3       1.346249e+00     
+      4       2.178297e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 41
+      1       -1.260881e+00    
+      2       -1.301730e+00    
+      3       1.345900e+00     
+      4       2.189881e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 42
+      1       -1.260880e+00    
+      2       -1.301729e+00    
+      3       1.345623e+00     
+      4       2.201538e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 2
+1
+
+   Abaqus 2022                                  Date 31-mar-2025   Time 15:23:28
+   For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
+
+                                                                                 
+                                                                                 
+ STEP    2     INCREMENT     1     STEP TIME    0.00    
+
+
+                        S T E P       2     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                 1.00    
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-05
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR FORCE    
+     CRITERION FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR DISP.    CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INIT. VALUE OF TIME AVG. FORCE     IS TIME AVG. FORCE     IN PREVIOUS STEP
+     AVERAGE FORCE     IS TIME AVERAGE FORCE    
+     ALTERNATE CRIT. FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO FORCE     RELATIVE TO TIME AVRG. FORCE         1.000E-05
+     CRITERION FOR RESIDUAL FORCE     WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR DISP.    CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL FORCE     FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO FORCE     REL. TO TIME AVRG. MAX. FORCE        1.000E-05
+     CRITERION FOR ZERO DISP.    RELATIVE TO CHARACTERISTIC LENGTH     1.000E-08
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR MOMENT   
+     CRITERION FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR ROTATION CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INIT. VALUE OF TIME AVG. MOMENT    IS TIME AVG. MOMENT    IN PREVIOUS STEP
+     AVERAGE MOMENT    IS TIME AVERAGE MOMENT   
+     ALTERNATE CRIT. FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO MOMENT    RELATIVE TO TIME AVRG. MOMENT        1.000E-05
+     CRITERION FOR RESIDUAL MOMENT    WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR ROTATION CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL MOMENT    FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO MOMENT    REL. TO TIME AVRG. MAX. MOMENT       1.000E-05
+
+     VOLUMETRIC STRAIN COMPATIBILITY TOLERANCE FOR HYBRID SOLIDS       1.000E-05
+     AXIAL STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS             1.000E-05
+     TRANS. SHEAR STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS      1.000E-05
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P>P0          5.000E-03
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P=0.0         0.100    
+     CONTACT FORCE ERROR TOLERANCE FOR CONVERT SDI=YES                 1.00    
+     DISPLACEMENT COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS           1.000E-05
+     ROTATION COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS               1.000E-05
+
+ EQUILIBRIUM WILL BE CHECKED FOR SEVERE DISCONTINUITY ITERATIONS
+
+ TIME INCREMENTATION CONTROL PARAMETERS:
+     FIRST EQUILIBRIUM ITERATION FOR CONSECUTIVE DIVERGENCE CHECK              4
+     EQUILIBRIUM ITERATION AT WHICH LOG. CONVERGENCE RATE CHECK BEGINS         8
+     EQUILIBRIUM ITERATION AFTER WHICH ALTERNATE RESIDUAL IS USED              9
+     MAXIMUM EQUILIBRIUM ITERATIONS ALLOWED                                   16
+     EQUILIBRIUM ITERATION COUNT FOR CUT-BACK IN NEXT INCREMENT               10
+     MAXIMUM EQUILIB. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      4
+     MAXIMUM ITERATIONS FOR SEVERE DISCONTINUITIES                            50
+     MAXIMUM ATTEMPTS ALLOWED IN AN INCREMENT                                  5
+     MAXIMUM DISCON. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      50
+     MAXIMUM CONTACT AUGMENTATIONS FOR *SURFACE BEHAVIOR,AUGMENTED LAGRANGE   50
+     CUT-BACK FACTOR AFTER DIVERGENCE                                 0.2500    
+     CUT-BACK FACTOR FOR TOO SLOW CONVERGENCE                         0.5000    
+     CUT-BACK FACTOR AFTER TOO MANY EQUILIBRIUM ITERATIONS            0.7500    
+     CUT-BACK FACTOR AFTER TOO MANY SEVERE DISCONTINUITY ITERATIONS   0.2500    
+     CUT-BACK FACTOR AFTER PROBLEMS IN ELEMENT ASSEMBLY               0.2500    
+     INCREASE FACTOR AFTER TWO INCREMENTS THAT CONVERGE QUICKLY        1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED                       1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DYNAMICS)            1.250    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DIFFUSION)           2.000    
+     MINIMUM TIME INCREMENT RATIO FOR EXTRAPOLATION TO OCCUR          0.1000    
+     MAX. RATIO OF TIME INCREMENT TO STABILITY LIMIT                   1.000    
+     FRACTION OF STABILITY LIMIT FOR NEW TIME INCREMENT               0.9500    
+     TIME INCREMENT INCREASE FACTOR BEFORE A TIME POINT                1.000    
+     GLOBAL STABILIZATION CONTROL IS NOT USED
+
+          PRINT OF INCREMENT NUMBER, TIME, ETC., EVERY    1  INCREMENTS
+
+     THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                     100
+
+     LINEAR EXTRAPOLATION WILL BE USED
+
+     CHARACTERISTIC ELEMENT LENGTH      5.11    
+
+     DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
+
+     DETAILED OUTPUT OF DIAGNOSTICS TO DATABASE REQUESTED
+
+     PRINT OF INCREMENT NUMBER, TIME, ETC., TO THE MESSAGE FILE EVERY     1  INCREMENTS
+
+     COLLECTING MODEL CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+     COLLECTING STEP CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+
+  INCREMENT     1 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   1.00    
+ 
+	SYMMETRIC DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST:        1 MPI RANK  x 1 THREAD
+ 	NUMBER OF EQUATIONS:     12756
+ 	NUMBER OF RHS:           1
+ 	NUMBER OF FLOPS:         5.564e+08
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =  0.10000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =  0.10000    
+       ELAPSED WALLCLOCK TIME (SEC) =          0
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       75.2       TIME AVG. FORCE        75.2    
+ LARGEST RESIDUAL FORCE            -8.330E-11   AT NODE       1917   DOF  3
+   INSTANCE: BOX                                                                             
+ LARGEST INCREMENT OF DISP.         -1.03       AT NODE       1381   DOF  3
+   INSTANCE: BOX                                                                             
+ LARGEST CORRECTION TO DISP.        -1.03       AT NODE       1381   DOF  3
+   INSTANCE: BOX                                                                             
+          THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
+
+ AVERAGE MOMENT                      3.71       TIME AVG. MOMENT       3.71    
+ LARGEST RESIDUAL MOMENT            7.554E-10   AT NODE          1   DOF  5
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.695E-02   AT NODE        172   DOF  4
+   INSTANCE: BOX                                                                             
+ LARGEST CORRECTION TO ROTATION    -2.695E-02   AT NODE        172   DOF  4
+   INSTANCE: BOX                                                                             
+          THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED   1.00    ,  FRACTION OF STEP COMPLETED   1.00    
+ STEP TIME COMPLETED        1.00    ,  TOTAL TIME COMPLETED         1.00    
+
+
+          THE ANALYSIS HAS BEEN COMPLETED
+
+
+
+     ANALYSIS SUMMARY:
+     TOTAL OF          2  INCREMENTS
+                       0  CUTBACKS IN AUTOMATIC INCREMENTATION
+                       2  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
+                       2  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
+                       2  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+                       0  DECOMPOSITION(S) OF THE MASS MATRIX
+                       1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
+                       0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
+                       0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
+                       0  WARNING MESSAGES DURING USER INPUT PROCESSING
+                       0  WARNING MESSAGES DURING ANALYSIS
+                       0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
+                       0  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
+                       0  ERROR MESSAGES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   4.3000    
+       SYSTEM TIME (SEC)    =  0.30000    
+       TOTAL CPU TIME (SEC) =   4.6000    
+       WALLCLOCK TIME (SEC) =          5
