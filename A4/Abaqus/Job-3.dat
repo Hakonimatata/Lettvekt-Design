@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:11:56
+   Abaqus 2022                                  Date 31-mar-2025   Time 18:52:33
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
 
@@ -83,20 +83,16 @@
   *Nset, nset=ASSEMBLY_BOX_FACES-ALL
   *Elset, elset=ASSEMBLY_BOX_FACES-ALL
   *Node
-  *Nset, nset=ASSEMBLY_CONTACT-SURFACE
+  *Nset, nset=ASSEMBLY_CONTACT-POINT
   *Nset, nset=ASSEMBLY_EDGES1
   *Nset, nset=ASSEMBLY_EDGES2
   *Nset, nset=ASSEMBLY_RF1
   *Nset, nset=ASSEMBLY_RF2
-  *Elset, elset=ASSEMBLY_CONTACT-SURFACE
+  *Elset, elset=ASSEMBLY_CONTACT-POINT
   *Elset, elset=ASSEMBLY_EDGES1
   *Elset, elset=ASSEMBLY_EDGES2
   *material, name=ALU
-  *density
   *elastic
-  *material, name=CARBON/EPOXY(A)
-  *density
-  *elastic, type=ENGINEERINGCONSTANTS
   *shellsection, elset=ASSEMBLY_BOX_FACES-ALL, material=ALU
   *shellsection, elset=ASSEMBLY_BOX_FACES-ALL, material=ALU
   *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
@@ -105,21 +101,27 @@
   *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
   *boundary
   *boundary
+  *boundary
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW
   *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary
   *boundary
   *boundary
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
   *mpc
   *mpc
-  *nonstructuralmass, elset=ASSEMBLY_CONTACT-SURFACE, units=TOTALMASS
   *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
   *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
   *output, field, variable=PRESELECT
@@ -135,6 +137,406 @@
  ***NOTE: MPCS (EXTERNAL or INTERNAL, including those generated from rigid body 
           definitions), KINEMATIC COUPLINGS, AND/OR EQUATIONS WILL ACTIVATE 
           ADDITIONAL DEGREES OF FREEDOM
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: The aspect ratio for 360 elements exceeds 100 to 1. The elements 
+             have been identified in element set WarnElemAspectRatio.
+  
+ --------------------------------------------------------------------------------
+ Elements with large aspect ratio
+  
+    Element    Adjusted nodes 
+ ------------- -------------- 
+         BOX.1       NO       
+         BOX.2       NO       
+         BOX.3       NO       
+         BOX.4       NO       
+         BOX.5       NO       
+         BOX.6       NO       
+         BOX.7       NO       
+         BOX.8       NO       
+         BOX.9       NO       
+        BOX.10       NO       
+        BOX.11       NO       
+        BOX.12       NO       
+        BOX.13       NO       
+        BOX.14       NO       
+        BOX.15       NO       
+        BOX.16       NO       
+        BOX.17       NO       
+        BOX.18       NO       
+        BOX.19       NO       
+        BOX.20       NO       
+        BOX.21       NO       
+        BOX.22       NO       
+        BOX.23       NO       
+        BOX.24       NO       
+        BOX.25       NO       
+        BOX.26       NO       
+        BOX.27       NO       
+        BOX.28       NO       
+        BOX.29       NO       
+        BOX.30       NO       
+        BOX.31       NO       
+        BOX.32       NO       
+        BOX.33       NO       
+        BOX.34       NO       
+        BOX.35       NO       
+        BOX.36       NO       
+        BOX.37       NO       
+        BOX.38       NO       
+        BOX.39       NO       
+        BOX.40       NO       
+        BOX.41       NO       
+        BOX.42       NO       
+        BOX.43       NO       
+        BOX.44       NO       
+        BOX.45       NO       
+        BOX.46       NO       
+        BOX.47       NO       
+        BOX.48       NO       
+        BOX.49       NO       
+        BOX.50       NO       
+        BOX.51       NO       
+        BOX.52       NO       
+        BOX.53       NO       
+        BOX.54       NO       
+        BOX.55       NO       
+        BOX.56       NO       
+        BOX.57       NO       
+        BOX.58       NO       
+        BOX.59       NO       
+        BOX.60       NO       
+       BOX.121       NO       
+       BOX.122       NO       
+       BOX.123       NO       
+       BOX.124       NO       
+       BOX.125       NO       
+       BOX.126       NO       
+       BOX.127       NO       
+       BOX.128       NO       
+       BOX.129       NO       
+       BOX.130       NO       
+       BOX.131       NO       
+       BOX.132       NO       
+       BOX.133       NO       
+       BOX.134       NO       
+       BOX.135       NO       
+       BOX.136       NO       
+       BOX.137       NO       
+       BOX.138       NO       
+       BOX.139       NO       
+       BOX.140       NO       
+       BOX.141       NO       
+       BOX.142       NO       
+       BOX.143       NO       
+       BOX.144       NO       
+       BOX.145       NO       
+       BOX.146       NO       
+       BOX.147       NO       
+       BOX.148       NO       
+       BOX.149       NO       
+       BOX.150       NO       
+       BOX.391       NO       
+       BOX.392       NO       
+       BOX.393       NO       
+       BOX.394       NO       
+       BOX.395       NO       
+       BOX.396       NO       
+       BOX.397       NO       
+       BOX.398       NO       
+       BOX.399       NO       
+       BOX.400       NO       
+       BOX.401       NO       
+       BOX.402       NO       
+       BOX.403       NO       
+       BOX.404       NO       
+       BOX.405       NO       
+       BOX.406       NO       
+       BOX.407       NO       
+       BOX.408       NO       
+       BOX.409       NO       
+       BOX.410       NO       
+       BOX.411       NO       
+       BOX.412       NO       
+       BOX.413       NO       
+       BOX.414       NO       
+       BOX.415       NO       
+       BOX.416       NO       
+       BOX.417       NO       
+       BOX.418       NO       
+       BOX.419       NO       
+       BOX.420       NO       
+       BOX.481       NO       
+       BOX.482       NO       
+       BOX.483       NO       
+       BOX.484       NO       
+       BOX.485       NO       
+       BOX.486       NO       
+       BOX.487       NO       
+       BOX.488       NO       
+       BOX.489       NO       
+       BOX.490       NO       
+       BOX.491       NO       
+       BOX.492       NO       
+       BOX.493       NO       
+       BOX.494       NO       
+       BOX.495       NO       
+       BOX.496       NO       
+       BOX.497       NO       
+       BOX.498       NO       
+       BOX.499       NO       
+       BOX.500       NO       
+       BOX.501       NO       
+       BOX.502       NO       
+       BOX.503       NO       
+       BOX.504       NO       
+       BOX.505       NO       
+       BOX.506       NO       
+       BOX.507       NO       
+       BOX.508       NO       
+       BOX.509       NO       
+       BOX.510       NO       
+       BOX.511       NO       
+       BOX.512       NO       
+       BOX.513       NO       
+       BOX.514       NO       
+       BOX.515       NO       
+       BOX.516       NO       
+       BOX.517       NO       
+       BOX.518       NO       
+       BOX.519       NO       
+       BOX.520       NO       
+       BOX.521       NO       
+       BOX.522       NO       
+       BOX.523       NO       
+       BOX.524       NO       
+       BOX.525       NO       
+       BOX.526       NO       
+       BOX.527       NO       
+       BOX.528       NO       
+       BOX.529       NO       
+       BOX.530       NO       
+       BOX.531       NO       
+       BOX.532       NO       
+       BOX.533       NO       
+       BOX.534       NO       
+       BOX.535       NO       
+       BOX.536       NO       
+       BOX.537       NO       
+       BOX.538       NO       
+       BOX.539       NO       
+       BOX.540       NO       
+      BOX.1681       NO       
+      BOX.1682       NO       
+      BOX.1683       NO       
+      BOX.1684       NO       
+      BOX.1685       NO       
+      BOX.1686       NO       
+      BOX.1687       NO       
+      BOX.1688       NO       
+      BOX.1689       NO       
+      BOX.1690       NO       
+      BOX.1691       NO       
+      BOX.1692       NO       
+      BOX.1693       NO       
+      BOX.1694       NO       
+      BOX.1695       NO       
+      BOX.1696       NO       
+      BOX.1697       NO       
+      BOX.1698       NO       
+      BOX.1699       NO       
+      BOX.1700       NO       
+      BOX.1701       NO       
+      BOX.1702       NO       
+      BOX.1703       NO       
+      BOX.1704       NO       
+      BOX.1705       NO       
+      BOX.1706       NO       
+      BOX.1707       NO       
+      BOX.1708       NO       
+      BOX.1709       NO       
+      BOX.1710       NO       
+      BOX.1711       NO       
+      BOX.1712       NO       
+      BOX.1713       NO       
+      BOX.1714       NO       
+      BOX.1715       NO       
+      BOX.1716       NO       
+      BOX.1717       NO       
+      BOX.1718       NO       
+      BOX.1719       NO       
+      BOX.1720       NO       
+      BOX.1721       NO       
+      BOX.1722       NO       
+      BOX.1723       NO       
+      BOX.1724       NO       
+      BOX.1725       NO       
+      BOX.1726       NO       
+      BOX.1727       NO       
+      BOX.1728       NO       
+      BOX.1729       NO       
+      BOX.1730       NO       
+      BOX.1731       NO       
+      BOX.1732       NO       
+      BOX.1733       NO       
+      BOX.1734       NO       
+      BOX.1735       NO       
+      BOX.1736       NO       
+      BOX.1737       NO       
+      BOX.1738       NO       
+      BOX.1739       NO       
+      BOX.1740       NO       
+      BOX.1741       NO       
+      BOX.1742       NO       
+      BOX.1743       NO       
+      BOX.1744       NO       
+      BOX.1745       NO       
+      BOX.1746       NO       
+      BOX.1747       NO       
+      BOX.1748       NO       
+      BOX.1749       NO       
+      BOX.1750       NO       
+      BOX.1751       NO       
+      BOX.1752       NO       
+      BOX.1753       NO       
+      BOX.1754       NO       
+      BOX.1755       NO       
+      BOX.1756       NO       
+      BOX.1757       NO       
+      BOX.1758       NO       
+      BOX.1759       NO       
+      BOX.1760       NO       
+      BOX.1761       NO       
+      BOX.1762       NO       
+      BOX.1763       NO       
+      BOX.1764       NO       
+      BOX.1765       NO       
+      BOX.1766       NO       
+      BOX.1767       NO       
+      BOX.1768       NO       
+      BOX.1769       NO       
+      BOX.1770       NO       
+      BOX.2431       NO       
+      BOX.2432       NO       
+      BOX.2433       NO       
+      BOX.2434       NO       
+      BOX.2435       NO       
+      BOX.2436       NO       
+      BOX.2437       NO       
+      BOX.2438       NO       
+      BOX.2439       NO       
+      BOX.2440       NO       
+      BOX.2441       NO       
+      BOX.2442       NO       
+      BOX.2443       NO       
+      BOX.2444       NO       
+      BOX.2445       NO       
+      BOX.2446       NO       
+      BOX.2447       NO       
+      BOX.2448       NO       
+      BOX.2449       NO       
+      BOX.2450       NO       
+      BOX.2451       NO       
+      BOX.2452       NO       
+      BOX.2453       NO       
+      BOX.2454       NO       
+      BOX.2455       NO       
+      BOX.2456       NO       
+      BOX.2457       NO       
+      BOX.2458       NO       
+      BOX.2459       NO       
+      BOX.2460       NO       
+      BOX.2461       NO       
+      BOX.2462       NO       
+      BOX.2463       NO       
+      BOX.2464       NO       
+      BOX.2465       NO       
+      BOX.2466       NO       
+      BOX.2467       NO       
+      BOX.2468       NO       
+      BOX.2469       NO       
+      BOX.2470       NO       
+      BOX.2471       NO       
+      BOX.2472       NO       
+      BOX.2473       NO       
+      BOX.2474       NO       
+      BOX.2475       NO       
+      BOX.2476       NO       
+      BOX.2477       NO       
+      BOX.2478       NO       
+      BOX.2479       NO       
+      BOX.2480       NO       
+      BOX.2481       NO       
+      BOX.2482       NO       
+      BOX.2483       NO       
+      BOX.2484       NO       
+      BOX.2485       NO       
+      BOX.2486       NO       
+      BOX.2487       NO       
+      BOX.2488       NO       
+      BOX.2489       NO       
+      BOX.2490       NO       
+      BOX.2731       NO       
+      BOX.2732       NO       
+      BOX.2733       NO       
+      BOX.2734       NO       
+      BOX.2735       NO       
+      BOX.2736       NO       
+      BOX.2737       NO       
+      BOX.2738       NO       
+      BOX.2739       NO       
+      BOX.2740       NO       
+      BOX.2741       NO       
+      BOX.2742       NO       
+      BOX.2743       NO       
+      BOX.2744       NO       
+      BOX.2745       NO       
+      BOX.2746       NO       
+      BOX.2747       NO       
+      BOX.2748       NO       
+      BOX.2749       NO       
+      BOX.2750       NO       
+      BOX.2751       NO       
+      BOX.2752       NO       
+      BOX.2753       NO       
+      BOX.2754       NO       
+      BOX.2755       NO       
+      BOX.2756       NO       
+      BOX.2757       NO       
+      BOX.2758       NO       
+      BOX.2759       NO       
+      BOX.2760       NO       
+  
+  
   *Step, name=Step-Buck, nlgeom=NO, perturbation
   *output, field, variable=PRESELECT
   *Step, name=Step-Stat, nlgeom=NO
@@ -148,23 +550,19 @@
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
-  *dload, op=NEW
-
- ***NOTE: ALL VALID ELEMENTS HAVE BEEN COLLECTED IN ELEMENT SET 
-          _Whole_Model_GRAV_Elset FOR APPLICATION OF LOAD TYPE GRAV.
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
   *output, field, variable=PRESELECT
   *endstep
   *Step, name=Step-Stat, nlgeom=NO
   *static
   *boundary, op=NEW
   *boundary, op=NEW
-  *dload, op=NEW
-
- ***NOTE: ALL VALID ELEMENTS HAVE BEEN COLLECTED IN ELEMENT SET 
-          _Whole_Model_GRAV_Elset FOR APPLICATION OF LOAD TYPE GRAV.
+  *boundary, op=NEW
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
+  *boundary
   *boundary
   *boundary
   *Step, name=Step-Buck, nlgeom=NO, perturbation
@@ -174,9 +572,12 @@
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
   *endstep
   *Step, name=Step-Stat, nlgeom=NO
   *static
+  *boundary, op=NEW
   *boundary, op=NEW
   *boundary, op=NEW
   *endstep
@@ -186,10 +587,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  2574
-          NUMBER OF NODES IS                                     2602
-          NUMBER OF NODES DEFINED BY THE USER                    2602
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                15612
+          NUMBER OF ELEMENTS IS                                  4320
+          NUMBER OF NODES IS                                     4006
+          NUMBER OF NODES DEFINED BY THE USER                    4006
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                24036
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -200,13 +601,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.20000    
+       USER TIME (SEC)      =  0.30000    
        SYSTEM TIME (SEC)    =  0.10000    
-       TOTAL CPU TIME (SEC) =  0.30000    
+       TOTAL CPU TIME (SEC) =  0.40000    
        WALLCLOCK TIME (SEC) =          0
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:13
+   Abaqus 2022                                  Date 31-mar-2025   Time 18:52:51
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -223,7 +624,7 @@
 
      THE SUBSPACE ITERATION METHOD IS USED FOR THIS ANALYSIS
      NUMBER OF EIGENVALUES                      2
-     MAXIMUM NUMBER OF ITERATIONS                    700
+     MAXIMUM NUMBER OF ITERATIONS                    500
      NUMBER OF VECTORS IN ITERATION                    4
      THE BUCKLING MODE CONSTRAINTS 
       ARE DEFINED AS LOAD CASE 2
@@ -232,41 +633,6 @@
 
      THIS IS A LINEAR PERTURBATION STEP.
      ALL LOADS ARE DEFINED AS CHANGE IN LOAD TO THE REFERENCE STATE
-
-
-
-                    TOTAL MASS OF MODEL
-
-                      5.2672989E-02
-
-
-                    LOCATION OF THE CENTER OF MASS OF THE MODEL
-
-                       1184.776          1.6120661E-14       35.67498    
-
-
-                    MOMENTS OF INERTIA ABOUT THE ORIGIN
-                           I(XX)               I(YY)               I(ZZ)
-
-                       92.02428           74989.44           74936.84    
-
-
-                    PRODUCTS OF INERTIA ABOUT THE ORIGIN
-                           I(XY)               I(XZ)               I(YZ)
-
-                     -7.1115336E-13      -2249.947         -2.3723211E-14
-
-
-                    MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
-                           I(XX)               I(YY)               I(ZZ)
-
-                       24.98715           985.6450           1000.079    
-
-
-                    PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
-                           I(XY)               I(XZ)               I(YZ)
-
-                      2.9486765E-13      -23.62533          6.5692484E-15
   
                    M E M O R Y   E S T I M A T E
   
@@ -274,7 +640,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.45E+08               24                 64
+     1          1.57E+09               27                 98
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -312,7 +678,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.63E+08               27                 68
+     1          1.54E+09               30                102
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -355,11 +721,11 @@
  MODE NO      EIGENVALUE
 
 
-       1      0.47495    
-       2      0.47769    
+       1       38.950    
+       2      -39.014    
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:18
+   Abaqus 2022                                  Date 31-mar-2025   Time 18:53:37
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    2  INCREMENT    1
@@ -385,7 +751,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.63E+08               22                 63
+     1          1.54E+09               25                 96
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -423,11 +789,12 @@
 
 
                               ANALYSIS COMPLETE
+                              WITH      1 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   4.2000    
-       SYSTEM TIME (SEC)    =  0.40000    
-       TOTAL CPU TIME (SEC) =   4.6000    
-       WALLCLOCK TIME (SEC) =          6
+       USER TIME (SEC)      =   43.100    
+       SYSTEM TIME (SEC)    =   3.6000    
+       TOTAL CPU TIME (SEC) =   46.700    
+       WALLCLOCK TIME (SEC) =         47

@@ -1,48 +1,123 @@
 from abaqus import *
 from abaqusConstants import *
+import numpy as np
 
-def boxpro(modelname, L, b, h, t, n_spars, esize, disp):
+mcfrp = {
+    "name": "Carbon/Epoxy(a)", 
+    "units": "MPa-mm-Mg", "type": "UD", "fiber": "Carbon",
+    "Vf": 0.55, 
+    "rho": 1.6E-9,
+    "description": "Typical low modulus carbon/Epoxy from TMM4175",  
+    "E1": 130000, 
+    "E2": 10000, 
+    "E3": 10000, 
+    "v12": 0.28, "v13": 0.28, "v23": 0.5, 
+    "G12": 4500, "G13": 4500, "G23": 3500, 
+    "a1": -0.5e-06, "a2": 3.0e-05, "a3": 3.0e-05, 
+    "XT": 1800, "YT": 40, "ZT": 40,
+    "XC": 1200, "YC": 180, "ZC": 180,
+    "S12": 70, "S13": 70, "S23": 40,
+    "f12":-0.5, "f13":-0.5, "f23":-0.5
+}
 
-    # length from edge to point load
+def matlib(modelname):
+    mod = mdb.models[modelname]
+    
+    # Definerer Carbon/Epoxy(a)
+    mat = mod.Material('Carbon/Epoxy(a)')
+    mat.Density(table=((mcfrp['rho'], ), ))
+    mat.Elastic(type=ENGINEERING_CONSTANTS, 
+                table=((mcfrp['E1'], mcfrp['E2'], mcfrp['E3'], 
+                        mcfrp['v12'], mcfrp['v13'], mcfrp['v23'], 
+                        mcfrp['G12'], mcfrp['G13'], mcfrp['G23']), ))
+
+
+def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
+
+    # Define length from edge to point load
     load_pos = (2.0 / 3.0) * L
-
-    
-    mod = mdb.Model(name=modelname, modelType=STANDARD_EXPLICIT)
-    
-    # Part
     # Correct h and b (due to offsetType = MIDDLE_SURFACE)
     b -= t
     h -= t
 
-    ske = mod.ConstrainedSketch(name='__profile__', sheetSize=200.0)
-    ske.rectangle(point1=(-b/2.0, -h/2.0), point2=(b/2.0, h/2.0))
+    # Create model 
+    mod = mdb.Model(name=modelname, modelType=STANDARD_EXPLICIT) 
+    matlib(modelname)
 
-    # create spars
-    if n_spars > 0:
-        spacing = b / (n_spars + 1)
-        x_pos = -b/2.0 + spacing
-        for _ in range(n_spars):
-            ske.Line(point1=(x_pos, h/2.0), point2=(x_pos, -h/2.0))
-            x_pos += spacing
+    # region Sketch 
+    if profile == 1:
+        # ------- Outer Sketch ---------- 
+        ske = mod.ConstrainedSketch(name='__profile__', sheetSize=200.0) 
+        ske.rectangle(point1=(-b/2.0, -h/2.0), point2=(b/2.0, h/2.0)) 
 
+
+        # ------- Inner Sketch ----------
+        
+        # Vertical Spars
+        if n_spars > 0:
+            spacing = b / (n_spars + 1)
+            x_pos = -b/2.0 + spacing
+            for _ in range(n_spars):
+                ske.Line(point1=(x_pos, h/2.0), point2=(x_pos, -h/2.0))
+                x_pos += spacing
+
+
+        # Calculate total length
+        total_length = 2*b + 2*h + n_spars*h
+        mass_factor = 550 # factor that will give simple box profile t=1
+        t = mass_factor / total_length # update t
+
+    elif profile == 2:
+        ske = mod.ConstrainedSketch(name='__profile__', sheetSize=200.0)
+        ske.Line(point1=(-b/2.0, h/2.0), point2=(b/2.0, h/2.0))
+
+        o1 = 10.0
+        o2 = 40.0
+
+        ske.Line(point1=(-b/2.0 + o1, h/2.0), point2=(-b/2.0 + o2, -h/2.0))
+        ske.Line(point1=(b/2.0 - o1, h/2.0), point2=(b/2.0 - o2, -h/2.0))
+        ske.Line(point1=(-b/2.0 + o2, -h/2.0), point2=(b/2.0 - o2, -h/2.0))
+
+        # Vertical Spars
+        if n_spars > 0:
+            spacing = (b - 2*o2) / (n_spars + 1)
+            x_pos = -b/2.0 + o2 + spacing
+            for _ in range(n_spars):
+                ske.Line(point1=(x_pos, h/2.0), point2=(x_pos, -h/2.0))
+                x_pos += spacing
+        
+        # Calculate total length
+        total_length = b + (b-2*o2) + 2*np.sqrt((o2-o1)**2 + h**2) + n_spars*h
+        mass_factor = 550 # factor that will give simple box profile t=1
+        t = mass_factor / total_length # update t 
+
+    elif profile == 3:
+        pass # Legg til profil her
+
+
+    # Create part from sketch
     prt = mod.Part(name='Box', dimensionality=THREE_D, type=DEFORMABLE_BODY)
     prt.BaseShellExtrude(sketch=ske, depth=L)
     del mod.sketches['__profile__']
-    
-    # Partition
-    id = prt.DatumPlaneByPrincipalPlane(principalPlane=XYPLANE, offset=load_pos).id
-    prt.PartitionFaceByDatumPlane(datumPlane=prt.datums[id], faces=prt.faces)
 
 
-    wheel_width = 0.2 * b + 0.1 # added small value
-    id = prt.DatumPlaneByPrincipalPlane(principalPlane=YZPLANE, offset=(wheel_width/2.0)).id
+    # Partition for load surface
+    wheel_width = 0.1 * b + 0.1 # added small value 
+    wheel_length = wheel_width * 2
+    id = prt.DatumPlaneByPrincipalPlane(principalPlane=YZPLANE, offset=(wheel_width)).id
     prt.PartitionFaceByDatumPlane(datumPlane=prt.datums[id], faces=prt.faces)
-    id = prt.DatumPlaneByPrincipalPlane(principalPlane=YZPLANE, offset=(-wheel_width/2.0)).id
+    id = prt.DatumPlaneByPrincipalPlane(principalPlane=YZPLANE, offset=(-wheel_width)).id
+    prt.PartitionFaceByDatumPlane(datumPlane=prt.datums[id], faces=prt.faces)
+
+    id = prt.DatumPlaneByPrincipalPlane(principalPlane=XYPLANE, offset=(load_pos + wheel_length)).id
+    prt.PartitionFaceByDatumPlane(datumPlane=prt.datums[id], faces=prt.faces)
+    id = prt.DatumPlaneByPrincipalPlane(principalPlane=XYPLANE, offset=(load_pos - wheel_length)).id
     prt.PartitionFaceByDatumPlane(datumPlane=prt.datums[id], faces=prt.faces)
 
 
     # Material and section 
     mat = mod.Material(name='Alu')
+    mat.Density(table=((2.7E-9, ), ))
     mat.Elastic(table=((70000.0, 0.33), ))
     mod.HomogeneousShellSection(name='Section-shell', 
         preIntegrate=OFF, material='Alu', thicknessType=UNIFORM, thickness=t, 
@@ -87,7 +162,7 @@ def boxpro(modelname, L, b, h, t, n_spars, esize, disp):
     bc2 = mod.DisplacementBC(name='BC2', createStepName='Initial', 
         region=regionRF2, u1=SET, u2=SET, u3=SET, ur1=SET, ur2=SET, ur3=SET)
 
-    mod.BuckleStep(name='Step-Buck', previous='Initial', numEigen=2, vectors=4, maxIterations=500)
+    mod.BuckleStep(name='Step-Buck', previous='Initial', numEigen=2, vectors=4, maxIterations=700)
     mod.StaticStep(name='Step-Stat', previous='Step-Buck') 
 
     
@@ -100,17 +175,30 @@ def boxpro(modelname, L, b, h, t, n_spars, esize, disp):
     bc2.setValuesInStep(stepName='Step-Stat', 
         u1=FREED, u3=FREED)
     
+    # Create load surface
+    faces = ins.faces.getByBoundingBox(
+        xMin=load_pos-wheel_length, xMax=load_pos+wheel_length, 
+        zMin=h/2.0, 
+        yMax=wheel_width, yMin=-wheel_width
+    )
+    region3 = ass.Set(name='CONTACT-SURFACE', faces=faces)
+    
+    # Add inertia to load surface
+    ass.engineeringFeatures.NonstructuralMass(
+        name='Inertia-1', region=region3, units=TOTAL_MASS, magnitude=applied_mass, 
+        distribution=MASS_PROPORTIONAL)
 
-    edges = ins.edges.getByBoundingBox(xMin=load_pos, xMax=load_pos, zMin=h/2.0, yMax=(wheel_width/2.0), yMin=(-wheel_width/2.0)) # added yMax=(wheel_width/2.0), yMin=(-wheel_width/2.0)
-    region3 = ass.Set(name='CONTACT-POINT', edges=edges)
+    # Add gravity
+    mod.Gravity(name='Load-1', createStepName='Step-Buck', 
+        comp3=-9810.0, distributionType=UNIFORM, field='')
+    mod.Gravity(name='Load-2', createStepName='Step-Stat', 
+        comp3=-9810.0, distributionType=UNIFORM, field='')
 
-    bc3 = mod.DisplacementBC(name='BC3', createStepName='Initial', region=region3, 
-        u1=UNSET, u2=UNSET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
-    bc3.setValuesInStep(stepName='Step-Buck', u3=-disp, buckleCase=PERTURBATION_AND_BUCKLING)
-    bc3.setValuesInStep(stepName='Step-Stat', u3=-disp)  
 
     # Job:
-    # job = mdb.Job(name=modelname, model=modelname)
-    # job.submit()
+    job = mdb.Job(name=modelname, model=modelname)
+    job.submit()
     
-boxpro(modelname='BP-1', L=1800, b=200, h=75, t=0.5, n_spars=4, esize=20, disp=1)
+boxpro(modelname='BP-1', L=1800, b=200, h=75, t=0.5, n_spars=0, esize=18, applied_mass=0.05, profile=2)
+boxpro(modelname='BP-2', L=1800, b=200, h=75, t=0.5, n_spars=1, esize=18, applied_mass=0.05, profile=2)
+boxpro(modelname='BP-3', L=1800, b=200, h=75, t=0.5, n_spars=2, esize=18, applied_mass=0.05, profile=2)

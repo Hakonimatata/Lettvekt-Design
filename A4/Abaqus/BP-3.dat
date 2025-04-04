@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:11:56
+   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:01
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
 
@@ -135,6 +135,442 @@
  ***NOTE: MPCS (EXTERNAL or INTERNAL, including those generated from rigid body 
           definitions), KINEMATIC COUPLINGS, AND/OR EQUATIONS WILL ACTIVATE 
           ADDITIONAL DEGREES OF FREEDOM
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: The aspect ratio for 396 elements exceeds 100 to 1. The elements 
+             have been identified in element set WarnElemAspectRatio.
+  
+ --------------------------------------------------------------------------------
+ Elements with large aspect ratio
+  
+    Element    Adjusted nodes 
+ ------------- -------------- 
+       BOX.285       NO       
+       BOX.286       NO       
+       BOX.287       NO       
+       BOX.288       NO       
+       BOX.289       NO       
+       BOX.290       NO       
+       BOX.291       NO       
+       BOX.292       NO       
+       BOX.557       NO       
+       BOX.558       NO       
+       BOX.559       NO       
+       BOX.560       NO       
+       BOX.833       NO       
+       BOX.834       NO       
+       BOX.835       NO       
+       BOX.836       NO       
+      BOX.1166       NO       
+      BOX.1167       NO       
+      BOX.1168       NO       
+      BOX.1169       NO       
+      BOX.1170       NO       
+      BOX.1171       NO       
+      BOX.1172       NO       
+      BOX.1173       NO       
+      BOX.1174       NO       
+      BOX.1175       NO       
+      BOX.1176       NO       
+      BOX.1177       NO       
+      BOX.1178       NO       
+      BOX.1179       NO       
+      BOX.1180       NO       
+      BOX.1181       NO       
+      BOX.1182       NO       
+      BOX.1183       NO       
+      BOX.1184       NO       
+      BOX.1185       NO       
+      BOX.1186       NO       
+      BOX.1187       NO       
+      BOX.1188       NO       
+      BOX.1189       NO       
+      BOX.1190       NO       
+      BOX.1191       NO       
+      BOX.1192       NO       
+      BOX.1193       NO       
+      BOX.1194       NO       
+      BOX.1195       NO       
+      BOX.1196       NO       
+      BOX.1197       NO       
+      BOX.1198       NO       
+      BOX.1199       NO       
+      BOX.1200       NO       
+      BOX.1201       NO       
+      BOX.1202       NO       
+      BOX.1203       NO       
+      BOX.1204       NO       
+      BOX.1205       NO       
+      BOX.1206       NO       
+      BOX.1207       NO       
+      BOX.1208       NO       
+      BOX.1209       NO       
+      BOX.1210       NO       
+      BOX.1211       NO       
+      BOX.1212       NO       
+      BOX.1213       NO       
+      BOX.1214       NO       
+      BOX.1215       NO       
+      BOX.1216       NO       
+      BOX.1217       NO       
+      BOX.1218       NO       
+      BOX.1219       NO       
+      BOX.1220       NO       
+      BOX.1221       NO       
+      BOX.1222       NO       
+      BOX.1223       NO       
+      BOX.1224       NO       
+      BOX.1225       NO       
+      BOX.1226       NO       
+      BOX.1227       NO       
+      BOX.1322       NO       
+      BOX.1323       NO       
+      BOX.1324       NO       
+      BOX.1325       NO       
+      BOX.1326       NO       
+      BOX.1327       NO       
+      BOX.1328       NO       
+      BOX.1329       NO       
+      BOX.1330       NO       
+      BOX.1331       NO       
+      BOX.1332       NO       
+      BOX.1333       NO       
+      BOX.1334       NO       
+      BOX.1335       NO       
+      BOX.1336       NO       
+      BOX.1337       NO       
+      BOX.1338       NO       
+      BOX.1339       NO       
+      BOX.1340       NO       
+      BOX.1341       NO       
+      BOX.1342       NO       
+      BOX.1343       NO       
+      BOX.1344       NO       
+      BOX.1345       NO       
+      BOX.1346       NO       
+      BOX.1347       NO       
+      BOX.1348       NO       
+      BOX.1349       NO       
+      BOX.1350       NO       
+      BOX.1351       NO       
+      BOX.1352       NO       
+      BOX.1477       NO       
+      BOX.1478       NO       
+      BOX.1479       NO       
+      BOX.1480       NO       
+      BOX.1481       NO       
+      BOX.1482       NO       
+      BOX.1483       NO       
+      BOX.1484       NO       
+      BOX.1485       NO       
+      BOX.1486       NO       
+      BOX.1487       NO       
+      BOX.1488       NO       
+      BOX.1489       NO       
+      BOX.1490       NO       
+      BOX.1491       NO       
+      BOX.1492       NO       
+      BOX.1493       NO       
+      BOX.1494       NO       
+      BOX.1495       NO       
+      BOX.1496       NO       
+      BOX.1497       NO       
+      BOX.1498       NO       
+      BOX.1499       NO       
+      BOX.1500       NO       
+      BOX.1501       NO       
+      BOX.1502       NO       
+      BOX.1503       NO       
+      BOX.1504       NO       
+      BOX.1505       NO       
+      BOX.1506       NO       
+      BOX.1507       NO       
+      BOX.2144       NO       
+      BOX.2145       NO       
+      BOX.2146       NO       
+      BOX.2147       NO       
+      BOX.2148       NO       
+      BOX.2149       NO       
+      BOX.2150       NO       
+      BOX.2151       NO       
+      BOX.2152       NO       
+      BOX.2153       NO       
+      BOX.2154       NO       
+      BOX.2155       NO       
+      BOX.2156       NO       
+      BOX.2157       NO       
+      BOX.2158       NO       
+      BOX.2159       NO       
+      BOX.2160       NO       
+      BOX.2161       NO       
+      BOX.2162       NO       
+      BOX.2163       NO       
+      BOX.2164       NO       
+      BOX.2165       NO       
+      BOX.2166       NO       
+      BOX.2167       NO       
+      BOX.2168       NO       
+      BOX.2169       NO       
+      BOX.2170       NO       
+      BOX.2171       NO       
+      BOX.2172       NO       
+      BOX.2173       NO       
+      BOX.2174       NO       
+      BOX.2175       NO       
+      BOX.2176       NO       
+      BOX.2177       NO       
+      BOX.2178       NO       
+      BOX.2179       NO       
+      BOX.2180       NO       
+      BOX.2181       NO       
+      BOX.2182       NO       
+      BOX.2183       NO       
+      BOX.2184       NO       
+      BOX.2185       NO       
+      BOX.2186       NO       
+      BOX.2187       NO       
+      BOX.2188       NO       
+      BOX.2189       NO       
+      BOX.2190       NO       
+      BOX.2191       NO       
+      BOX.2192       NO       
+      BOX.2193       NO       
+      BOX.2194       NO       
+      BOX.2195       NO       
+      BOX.2196       NO       
+      BOX.2197       NO       
+      BOX.2198       NO       
+      BOX.2199       NO       
+      BOX.2200       NO       
+      BOX.2201       NO       
+      BOX.2202       NO       
+      BOX.2203       NO       
+      BOX.2204       NO       
+      BOX.2205       NO       
+      BOX.2206       NO       
+      BOX.2207       NO       
+      BOX.2208       NO       
+      BOX.2209       NO       
+      BOX.2210       NO       
+      BOX.2211       NO       
+      BOX.2212       NO       
+      BOX.2213       NO       
+      BOX.2214       NO       
+      BOX.2215       NO       
+      BOX.2216       NO       
+      BOX.2217       NO       
+      BOX.2218       NO       
+      BOX.2219       NO       
+      BOX.2220       NO       
+      BOX.2221       NO       
+      BOX.2222       NO       
+      BOX.2223       NO       
+      BOX.2224       NO       
+      BOX.2225       NO       
+      BOX.2226       NO       
+      BOX.2227       NO       
+      BOX.2228       NO       
+      BOX.2229       NO       
+      BOX.2230       NO       
+      BOX.2231       NO       
+      BOX.2232       NO       
+      BOX.2233       NO       
+      BOX.2234       NO       
+      BOX.2235       NO       
+      BOX.2236       NO       
+      BOX.2237       NO       
+      BOX.2238       NO       
+      BOX.2239       NO       
+      BOX.2240       NO       
+      BOX.2241       NO       
+      BOX.2242       NO       
+      BOX.2243       NO       
+      BOX.2244       NO       
+      BOX.2245       NO       
+      BOX.2246       NO       
+      BOX.2247       NO       
+      BOX.2248       NO       
+      BOX.2249       NO       
+      BOX.2250       NO       
+      BOX.2251       NO       
+      BOX.2252       NO       
+      BOX.2253       NO       
+      BOX.2254       NO       
+      BOX.2255       NO       
+      BOX.2256       NO       
+      BOX.2257       NO       
+      BOX.2258       NO       
+      BOX.2259       NO       
+      BOX.2260       NO       
+      BOX.2261       NO       
+      BOX.2262       NO       
+      BOX.2263       NO       
+      BOX.2264       NO       
+      BOX.2265       NO       
+      BOX.2266       NO       
+      BOX.2267       NO       
+      BOX.2268       NO       
+      BOX.2269       NO       
+      BOX.2270       NO       
+      BOX.2271       NO       
+      BOX.2336       NO       
+      BOX.2337       NO       
+      BOX.2338       NO       
+      BOX.2339       NO       
+      BOX.2340       NO       
+      BOX.2341       NO       
+      BOX.2342       NO       
+      BOX.2343       NO       
+      BOX.2344       NO       
+      BOX.2345       NO       
+      BOX.2346       NO       
+      BOX.2347       NO       
+      BOX.2348       NO       
+      BOX.2349       NO       
+      BOX.2350       NO       
+      BOX.2351       NO       
+      BOX.2352       NO       
+      BOX.2353       NO       
+      BOX.2354       NO       
+      BOX.2355       NO       
+      BOX.2356       NO       
+      BOX.2357       NO       
+      BOX.2358       NO       
+      BOX.2359       NO       
+      BOX.2360       NO       
+      BOX.2361       NO       
+      BOX.2362       NO       
+      BOX.2363       NO       
+      BOX.2364       NO       
+      BOX.2365       NO       
+      BOX.2366       NO       
+      BOX.2367       NO       
+      BOX.2368       NO       
+      BOX.2369       NO       
+      BOX.2370       NO       
+      BOX.2371       NO       
+      BOX.2372       NO       
+      BOX.2373       NO       
+      BOX.2374       NO       
+      BOX.2375       NO       
+      BOX.2376       NO       
+      BOX.2377       NO       
+      BOX.2378       NO       
+      BOX.2379       NO       
+      BOX.2380       NO       
+      BOX.2381       NO       
+      BOX.2382       NO       
+      BOX.2383       NO       
+      BOX.2384       NO       
+      BOX.2385       NO       
+      BOX.2386       NO       
+      BOX.2387       NO       
+      BOX.2388       NO       
+      BOX.2389       NO       
+      BOX.2390       NO       
+      BOX.2391       NO       
+      BOX.2392       NO       
+      BOX.2393       NO       
+      BOX.2394       NO       
+      BOX.2395       NO       
+      BOX.2396       NO       
+      BOX.2397       NO       
+      BOX.2398       NO       
+      BOX.2399       NO       
+      BOX.2815       NO       
+      BOX.2816       NO       
+      BOX.2817       NO       
+      BOX.2818       NO       
+      BOX.2819       NO       
+      BOX.2820       NO       
+      BOX.2821       NO       
+      BOX.2822       NO       
+      BOX.2823       NO       
+      BOX.2824       NO       
+      BOX.2825       NO       
+      BOX.2826       NO       
+      BOX.2827       NO       
+      BOX.2828       NO       
+      BOX.2829       NO       
+      BOX.2830       NO       
+      BOX.2831       NO       
+      BOX.2832       NO       
+      BOX.2833       NO       
+      BOX.2834       NO       
+      BOX.2835       NO       
+      BOX.2836       NO       
+      BOX.2837       NO       
+      BOX.2838       NO       
+      BOX.2839       NO       
+      BOX.2840       NO       
+      BOX.2841       NO       
+      BOX.2842       NO       
+      BOX.2843       NO       
+      BOX.2844       NO       
+      BOX.2845       NO       
+      BOX.2846       NO       
+      BOX.2847       NO       
+      BOX.2848       NO       
+      BOX.2849       NO       
+      BOX.2850       NO       
+      BOX.2851       NO       
+      BOX.2852       NO       
+      BOX.2853       NO       
+      BOX.2854       NO       
+      BOX.2855       NO       
+      BOX.2856       NO       
+      BOX.2857       NO       
+      BOX.2858       NO       
+      BOX.2859       NO       
+      BOX.2860       NO       
+      BOX.2861       NO       
+      BOX.2862       NO       
+      BOX.2863       NO       
+      BOX.2864       NO       
+      BOX.2865       NO       
+      BOX.2866       NO       
+      BOX.2867       NO       
+      BOX.2868       NO       
+      BOX.2869       NO       
+      BOX.2870       NO       
+      BOX.2871       NO       
+      BOX.2872       NO       
+      BOX.2873       NO       
+      BOX.2874       NO       
+      BOX.2875       NO       
+      BOX.2876       NO       
+      BOX.2877       NO       
+      BOX.2878       NO       
+  
+  
   *Step, name=Step-Buck, nlgeom=NO, perturbation
   *output, field, variable=PRESELECT
   *Step, name=Step-Stat, nlgeom=NO
@@ -186,10 +622,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  2574
-          NUMBER OF NODES IS                                     2602
-          NUMBER OF NODES DEFINED BY THE USER                    2602
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                15612
+          NUMBER OF ELEMENTS IS                                  3762
+          NUMBER OF NODES IS                                     3602
+          NUMBER OF NODES DEFINED BY THE USER                    3602
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                21612
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -200,13 +636,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.20000    
-       SYSTEM TIME (SEC)    =  0.10000    
-       TOTAL CPU TIME (SEC) =  0.30000    
+       USER TIME (SEC)      =  0.40000    
+       SYSTEM TIME (SEC)    =   0.0000    
+       TOTAL CPU TIME (SEC) =  0.40000    
        WALLCLOCK TIME (SEC) =          0
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:13
+   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:18
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -237,36 +673,36 @@
 
                     TOTAL MASS OF MODEL
 
-                      5.2672989E-02
+                      5.2673001E-02
 
 
                     LOCATION OF THE CENTER OF MASS OF THE MODEL
 
-                       1184.776          1.6120661E-14       35.67498    
+                       1184.776          1.4552651E-14       35.60024    
 
 
                     MOMENTS OF INERTIA ABOUT THE ORIGIN
                            I(XX)               I(YY)               I(ZZ)
 
-                       92.02428           74989.44           74936.84    
+                       89.55184           74989.09           74934.74    
 
 
                     PRODUCTS OF INERTIA ABOUT THE ORIGIN
                            I(XY)               I(XZ)               I(YZ)
 
-                     -7.1115336E-13      -2249.947         -2.3723211E-14
+                     -7.0729880E-13      -2246.404         -2.5583810E-14
 
 
                     MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
                            I(XX)               I(YY)               I(ZZ)
 
-                       24.98715           985.6450           1000.079    
+                       22.79529           985.5618           997.9762    
 
 
                     PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
                            I(XY)               I(XZ)               I(YZ)
 
-                      2.9486765E-13      -23.62533          6.5692484E-15
+                      2.0086956E-13      -24.74644          1.7049033E-15
   
                    M E M O R Y   E S T I M A T E
   
@@ -274,7 +710,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.45E+08               24                 64
+     1          1.18E+09               27                 87
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -312,7 +748,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.63E+08               27                 68
+     1          1.20E+09               29                 91
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -355,11 +791,11 @@
  MODE NO      EIGENVALUE
 
 
-       1      0.47495    
-       2      0.47769    
+       1       1.6699    
+       2       1.6731    
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:18
+   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:41
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    2  INCREMENT    1
@@ -385,7 +821,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.63E+08               22                 63
+     1          1.20E+09               24                 86
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -423,11 +859,12 @@
 
 
                               ANALYSIS COMPLETE
+                              WITH      1 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   4.2000    
-       SYSTEM TIME (SEC)    =  0.40000    
-       TOTAL CPU TIME (SEC) =   4.6000    
-       WALLCLOCK TIME (SEC) =          6
+       USER TIME (SEC)      =   21.400    
+       SYSTEM TIME (SEC)    =   1.9000    
+       TOTAL CPU TIME (SEC) =   23.300    
+       WALLCLOCK TIME (SEC) =         24

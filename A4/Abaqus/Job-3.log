@@ -1,11 +1,11 @@
 Analysis initiated from SIMULIA established products
-Abaqus JOB BP-1
+Abaqus JOB Job-3
 Abaqus 2022
 Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server abaqus.lisens.ntnu.no.
-<755 out of 1000 licenses remain available>.
+<835 out of 1000 licenses remain available>.
 Begin Analysis Input File Processor
-04.04.2025 14:11:38
+31.03.2025 18:52:15
 Run pre.exe
 
  ***WARNING: Interactive messaging has been requested for this analysis run, 
@@ -13,10 +13,10 @@ Run pre.exe
              no messages will be sent to Abaqus/CAE for this phase of the 
              analysis.
 Warning: Failed initial connection to umbrella
-04.04.2025 14:11:57
+31.03.2025 18:52:34
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-04.04.2025 14:11:57
+31.03.2025 18:52:34
 Run standard.exe
 Warning: Failed initial connection to umbrella
 
@@ -24,11 +24,11 @@ Warning: Failed initial connection to umbrella
              but initialization of the messaging system has failed.  Therefore 
              no messages will be sent to Abaqus/CAE for this phase of the 
              analysis.
-04.04.2025 14:12:19
+31.03.2025 18:53:39
 End Abaqus/Standard Analysis
 Begin SIM Wrap-up
-04.04.2025 14:12:21
+31.03.2025 18:53:40
 Run SMASimUtility.exe
-04.04.2025 14:12:21
+31.03.2025 18:53:40
 End SIM Wrap-up
-Abaqus JOB BP-1 COMPLETED
+Abaqus JOB Job-3 COMPLETED

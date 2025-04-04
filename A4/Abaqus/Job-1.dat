@@ -1,0 +1,760 @@
+1
+
+   Abaqus 2022                                  Date 04-apr-2025   Time 09:56:22
+   For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes SIMULIA Corp.
+                           1301 Atwood Avenue, Suite 101W
+                              Johnston, RI 02919, USA
+ 
+
+
+                   The Abaqus Software is available only under license
+                   from Dassault Systemes or its subsidiary and may be
+                   used or reproduced only in accordance with the terms
+                   of such license.
+ 
+                          On machine Håkons_PC 
+                          you are authorized to run
+                          Abaqus/Standard until 30-Sep-2025
+
+                          Your site id is: 100000000001981 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.3ds.com/products/simulia/locations/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *                       Abaqus 2022                       * 
+                *                                                         * 
+                *          BUILD ID: 2021_09_15-19.57.30 176069           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using                         * 
+                *  release Abaqus 2022 manuals                            * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *   This program may not be used for commercial purposes  * 
+                *           without payment of a commercial fee.          * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=S4R
+  *Nset, nset=ASSEMBLY_BOX_FACES-ALL
+  *Elset, elset=ASSEMBLY_BOX_FACES-ALL
+  *Node
+  *Nset, nset=ASSEMBLY_CONTACT-SURFACE
+  *Nset, nset=ASSEMBLY_EDGES1
+  *Nset, nset=ASSEMBLY_EDGES2
+  *Nset, nset=ASSEMBLY_RF1
+  *Nset, nset=ASSEMBLY_RF2
+  *Elset, elset=ASSEMBLY_CONTACT-SURFACE
+  *Elset, elset=ASSEMBLY_EDGES1
+  *Elset, elset=ASSEMBLY_EDGES2
+  *material, name=ALU
+  *density
+  *elastic
+  *shellsection, elset=ASSEMBLY_BOX_FACES-ALL, material=ALU
+  *shellsection, elset=ASSEMBLY_BOX_FACES-ALL, material=ALU
+  *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
+  *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
+  *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
+  *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
+  *boundary
+  *boundary
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary
+  *boundary
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *mpc
+  *mpc
+  *nonstructuralmass, elset=ASSEMBLY_CONTACT-SURFACE, units=TOTALMASS
+  *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
+  *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+
+ ***NOTE: MPCS (EXTERNAL or INTERNAL, including those generated from rigid body 
+          definitions), KINEMATIC COUPLINGS, AND/OR EQUATIONS WILL ACTIVATE 
+          ADDITIONAL DEGREES OF FREEDOM
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: The aspect ratio for 360 elements exceeds 100 to 1. The elements 
+             have been identified in element set WarnElemAspectRatio.
+  
+ --------------------------------------------------------------------------------
+ Elements with large aspect ratio
+  
+    Element    Adjusted nodes 
+ ------------- -------------- 
+       BOX.521       NO       
+       BOX.522       NO       
+       BOX.523       NO       
+       BOX.524       NO       
+       BOX.525       NO       
+       BOX.526       NO       
+       BOX.527       NO       
+       BOX.528       NO       
+       BOX.529       NO       
+       BOX.530       NO       
+       BOX.531       NO       
+       BOX.532       NO       
+       BOX.533       NO       
+       BOX.534       NO       
+       BOX.535       NO       
+       BOX.536       NO       
+       BOX.537       NO       
+       BOX.538       NO       
+       BOX.539       NO       
+       BOX.540       NO       
+       BOX.541       NO       
+       BOX.542       NO       
+       BOX.543       NO       
+       BOX.544       NO       
+       BOX.545       NO       
+       BOX.546       NO       
+       BOX.547       NO       
+       BOX.548       NO       
+       BOX.549       NO       
+       BOX.550       NO       
+       BOX.551       NO       
+       BOX.552       NO       
+       BOX.553       NO       
+       BOX.554       NO       
+       BOX.555       NO       
+       BOX.556       NO       
+       BOX.557       NO       
+       BOX.558       NO       
+       BOX.559       NO       
+       BOX.560       NO       
+       BOX.561       NO       
+       BOX.562       NO       
+       BOX.563       NO       
+       BOX.564       NO       
+       BOX.565       NO       
+       BOX.566       NO       
+       BOX.567       NO       
+       BOX.568       NO       
+       BOX.569       NO       
+       BOX.570       NO       
+       BOX.571       NO       
+       BOX.572       NO       
+       BOX.573       NO       
+       BOX.574       NO       
+       BOX.575       NO       
+       BOX.576       NO       
+       BOX.577       NO       
+       BOX.578       NO       
+       BOX.695       NO       
+       BOX.696       NO       
+       BOX.697       NO       
+       BOX.698       NO       
+       BOX.831       NO       
+       BOX.832       NO       
+       BOX.833       NO       
+       BOX.834       NO       
+      BOX.1107       NO       
+      BOX.1108       NO       
+      BOX.1109       NO       
+      BOX.1110       NO       
+      BOX.1111       NO       
+      BOX.1112       NO       
+      BOX.1113       NO       
+      BOX.1114       NO       
+      BOX.1115       NO       
+      BOX.1116       NO       
+      BOX.1117       NO       
+      BOX.1118       NO       
+      BOX.1119       NO       
+      BOX.1120       NO       
+      BOX.1121       NO       
+      BOX.1122       NO       
+      BOX.1123       NO       
+      BOX.1124       NO       
+      BOX.1125       NO       
+      BOX.1126       NO       
+      BOX.1127       NO       
+      BOX.1128       NO       
+      BOX.1129       NO       
+      BOX.1130       NO       
+      BOX.1131       NO       
+      BOX.1132       NO       
+      BOX.1133       NO       
+      BOX.1134       NO       
+      BOX.1135       NO       
+      BOX.1136       NO       
+      BOX.1137       NO       
+      BOX.1138       NO       
+      BOX.1139       NO       
+      BOX.1140       NO       
+      BOX.1141       NO       
+      BOX.1142       NO       
+      BOX.1143       NO       
+      BOX.1144       NO       
+      BOX.1145       NO       
+      BOX.1146       NO       
+      BOX.1147       NO       
+      BOX.1148       NO       
+      BOX.1149       NO       
+      BOX.1150       NO       
+      BOX.1151       NO       
+      BOX.1152       NO       
+      BOX.1153       NO       
+      BOX.1154       NO       
+      BOX.1155       NO       
+      BOX.1156       NO       
+      BOX.1157       NO       
+      BOX.1158       NO       
+      BOX.1159       NO       
+      BOX.1160       NO       
+      BOX.1161       NO       
+      BOX.1162       NO       
+      BOX.1163       NO       
+      BOX.1164       NO       
+      BOX.1517       NO       
+      BOX.1518       NO       
+      BOX.1519       NO       
+      BOX.1520       NO       
+      BOX.1521       NO       
+      BOX.1522       NO       
+      BOX.1523       NO       
+      BOX.1524       NO       
+      BOX.1525       NO       
+      BOX.1526       NO       
+      BOX.1527       NO       
+      BOX.1528       NO       
+      BOX.1529       NO       
+      BOX.1530       NO       
+      BOX.1531       NO       
+      BOX.1532       NO       
+      BOX.1533       NO       
+      BOX.1534       NO       
+      BOX.1535       NO       
+      BOX.1536       NO       
+      BOX.1537       NO       
+      BOX.1538       NO       
+      BOX.1539       NO       
+      BOX.1540       NO       
+      BOX.1541       NO       
+      BOX.1542       NO       
+      BOX.1543       NO       
+      BOX.1544       NO       
+      BOX.1545       NO       
+      BOX.1546       NO       
+      BOX.1547       NO       
+      BOX.1548       NO       
+      BOX.1781       NO       
+      BOX.1782       NO       
+      BOX.1783       NO       
+      BOX.1784       NO       
+      BOX.1785       NO       
+      BOX.1786       NO       
+      BOX.1787       NO       
+      BOX.1788       NO       
+      BOX.1789       NO       
+      BOX.1790       NO       
+      BOX.1791       NO       
+      BOX.1792       NO       
+      BOX.1793       NO       
+      BOX.1794       NO       
+      BOX.1795       NO       
+      BOX.1796       NO       
+      BOX.1797       NO       
+      BOX.1798       NO       
+      BOX.1799       NO       
+      BOX.1800       NO       
+      BOX.1801       NO       
+      BOX.1802       NO       
+      BOX.1803       NO       
+      BOX.1804       NO       
+      BOX.1805       NO       
+      BOX.1806       NO       
+      BOX.1807       NO       
+      BOX.1808       NO       
+      BOX.1809       NO       
+      BOX.1810       NO       
+      BOX.1811       NO       
+      BOX.1812       NO       
+      BOX.1813       NO       
+      BOX.1814       NO       
+      BOX.1815       NO       
+      BOX.1816       NO       
+      BOX.1817       NO       
+      BOX.1818       NO       
+      BOX.1819       NO       
+      BOX.1820       NO       
+      BOX.1821       NO       
+      BOX.1822       NO       
+      BOX.1823       NO       
+      BOX.1824       NO       
+      BOX.1825       NO       
+      BOX.1826       NO       
+      BOX.1827       NO       
+      BOX.1828       NO       
+      BOX.1829       NO       
+      BOX.1830       NO       
+      BOX.1831       NO       
+      BOX.1832       NO       
+      BOX.1833       NO       
+      BOX.1834       NO       
+      BOX.1835       NO       
+      BOX.1836       NO       
+      BOX.1837       NO       
+      BOX.1838       NO       
+      BOX.1903       NO       
+      BOX.1904       NO       
+      BOX.1905       NO       
+      BOX.1906       NO       
+      BOX.1907       NO       
+      BOX.1908       NO       
+      BOX.1909       NO       
+      BOX.1910       NO       
+      BOX.1911       NO       
+      BOX.1912       NO       
+      BOX.1913       NO       
+      BOX.1914       NO       
+      BOX.1915       NO       
+      BOX.1916       NO       
+      BOX.1917       NO       
+      BOX.1918       NO       
+      BOX.1919       NO       
+      BOX.1920       NO       
+      BOX.1921       NO       
+      BOX.1922       NO       
+      BOX.1923       NO       
+      BOX.1924       NO       
+      BOX.1925       NO       
+      BOX.1926       NO       
+      BOX.1927       NO       
+      BOX.1928       NO       
+      BOX.1929       NO       
+      BOX.1930       NO       
+      BOX.2411       NO       
+      BOX.2412       NO       
+      BOX.2413       NO       
+      BOX.2414       NO       
+      BOX.2415       NO       
+      BOX.2416       NO       
+      BOX.2417       NO       
+      BOX.2418       NO       
+      BOX.2419       NO       
+      BOX.2420       NO       
+      BOX.2421       NO       
+      BOX.2422       NO       
+      BOX.2423       NO       
+      BOX.2424       NO       
+      BOX.2425       NO       
+      BOX.2426       NO       
+      BOX.2427       NO       
+      BOX.2428       NO       
+      BOX.2429       NO       
+      BOX.2430       NO       
+      BOX.2431       NO       
+      BOX.2432       NO       
+      BOX.2433       NO       
+      BOX.2434       NO       
+      BOX.2435       NO       
+      BOX.2436       NO       
+      BOX.2437       NO       
+      BOX.2438       NO       
+      BOX.2439       NO       
+      BOX.2440       NO       
+      BOX.2441       NO       
+      BOX.2442       NO       
+      BOX.2611       NO       
+      BOX.2612       NO       
+      BOX.2613       NO       
+      BOX.2614       NO       
+      BOX.2615       NO       
+      BOX.2616       NO       
+      BOX.2617       NO       
+      BOX.2618       NO       
+      BOX.2619       NO       
+      BOX.2620       NO       
+      BOX.2621       NO       
+      BOX.2622       NO       
+      BOX.2623       NO       
+      BOX.2624       NO       
+      BOX.2625       NO       
+      BOX.2626       NO       
+      BOX.2627       NO       
+      BOX.2628       NO       
+      BOX.2629       NO       
+      BOX.2630       NO       
+      BOX.2631       NO       
+      BOX.2632       NO       
+      BOX.2633       NO       
+      BOX.2634       NO       
+      BOX.2635       NO       
+      BOX.2636       NO       
+      BOX.2637       NO       
+      BOX.2638       NO       
+      BOX.2819       NO       
+      BOX.2820       NO       
+      BOX.2821       NO       
+      BOX.2822       NO       
+      BOX.2823       NO       
+      BOX.2824       NO       
+      BOX.2825       NO       
+      BOX.2826       NO       
+      BOX.2827       NO       
+      BOX.2828       NO       
+      BOX.2829       NO       
+      BOX.2830       NO       
+      BOX.2831       NO       
+      BOX.2832       NO       
+      BOX.2833       NO       
+      BOX.2834       NO       
+      BOX.2835       NO       
+      BOX.2836       NO       
+      BOX.2837       NO       
+      BOX.2838       NO       
+      BOX.2839       NO       
+      BOX.2840       NO       
+      BOX.2841       NO       
+      BOX.2842       NO       
+      BOX.2843       NO       
+      BOX.2844       NO       
+      BOX.2845       NO       
+      BOX.2846       NO       
+      BOX.2847       NO       
+      BOX.2848       NO       
+      BOX.2849       NO       
+      BOX.2850       NO       
+      BOX.2851       NO       
+      BOX.2852       NO       
+      BOX.2853       NO       
+      BOX.2854       NO       
+      BOX.2855       NO       
+      BOX.2856       NO       
+      BOX.2857       NO       
+      BOX.2858       NO       
+      BOX.2859       NO       
+      BOX.2860       NO       
+      BOX.2861       NO       
+      BOX.2862       NO       
+      BOX.2863       NO       
+      BOX.2864       NO       
+      BOX.2865       NO       
+      BOX.2866       NO       
+      BOX.2867       NO       
+      BOX.2868       NO       
+      BOX.2869       NO       
+      BOX.2870       NO       
+      BOX.2871       NO       
+      BOX.2872       NO       
+      BOX.2873       NO       
+      BOX.2874       NO       
+      BOX.2875       NO       
+      BOX.2876       NO       
+  
+  
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *output, field, variable=PRESELECT
+  *Step, name=Step-Stat, nlgeom=NO
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *Step, name=Step-Stat, nlgeom=NO
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *buckle
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *dload, op=NEW
+
+ ***NOTE: ALL VALID ELEMENTS HAVE BEEN COLLECTED IN ELEMENT SET 
+          _Whole_Model_GRAV_Elset FOR APPLICATION OF LOAD TYPE GRAV.
+  *output, field, variable=PRESELECT
+  *endstep
+  *Step, name=Step-Stat, nlgeom=NO
+  *static
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *dload, op=NEW
+
+ ***NOTE: ALL VALID ELEMENTS HAVE BEEN COLLECTED IN ELEMENT SET 
+          _Whole_Model_GRAV_Elset FOR APPLICATION OF LOAD TYPE GRAV.
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *endstep
+  *boundary
+  *boundary
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *buckle
+  *buckle
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *endstep
+  *Step, name=Step-Stat, nlgeom=NO
+  *static
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *endstep
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                  4320
+          NUMBER OF NODES IS                                     4006
+          NUMBER OF NODES DEFINED BY THE USER                    4006
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                24036
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =  0.40000    
+       SYSTEM TIME (SEC)    =  0.10000    
+       TOTAL CPU TIME (SEC) =  0.50000    
+       WALLCLOCK TIME (SEC) =          1
+1
+
+   Abaqus 2022                                  Date 04-apr-2025   Time 09:56:41
+   For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    1  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       1     C A L C U L A T I O N   O F   E I G E N V A L U E S
+
+                                            F O R   B U C K L I N G   P R E D I C T I O N
+
+
+
+                                                                                          
+
+     THE SUBSPACE ITERATION METHOD IS USED FOR THIS ANALYSIS
+     NUMBER OF EIGENVALUES                      2
+     MAXIMUM NUMBER OF ITERATIONS                    500
+     NUMBER OF VECTORS IN ITERATION                    4
+     THE BUCKLING MODE CONSTRAINTS 
+      ARE DEFINED AS LOAD CASE 2
+                              ONLY INITIAL STRESS EFFECTS ARE INCLUDED IN THE
+                              STIFFNESS MATRIX
+
+     THIS IS A LINEAR PERTURBATION STEP.
+     ALL LOADS ARE DEFINED AS CHANGE IN LOAD TO THE REFERENCE STATE
+
+
+
+                    TOTAL MASS OF MODEL
+
+                      5.2055780E-02
+
+
+                    LOCATION OF THE CENTER OF MASS OF THE MODEL
+
+                       1188.152          1.7728433E-14       35.77893    
+
+
+                    MOMENTS OF INERTIA ABOUT THE ORIGIN
+                           I(XX)               I(YY)               I(ZZ)
+
+                       89.61348           74321.82           74268.85    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE ORIGIN
+                           I(XY)               I(XZ)               I(YZ)
+
+                     -5.7964198E-13      -2235.000         -1.5101906E-14
+
+
+                    MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XX)               I(YY)               I(ZZ)
+
+                       22.97523           767.7127           781.3860    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XY)               I(XZ)               I(YZ)
+
+                      5.1686515E-13      -22.06608          1.7917299E-14
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION           (MB)               (MB)
+  
+     1          1.55E+09               27                 98
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION           (MB)               (MB)
+  
+     1          1.52E+09               30                102
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+
+
+          THE ANALYSIS IS ENDED BECAUSE OF THE PROBLEMS ENCOUNTERED
+          LOOK AT THE MSG FILE FOR THE CAUSE OF THE TERMINATION
+
+
+
+                              ANALYSIS IS ENDED
+                              WITH      1 ERROR MESSAGES ON THE MSG FILE
+                              AND       1 WARNING MESSAGES ON THE DAT FILE
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   60.300    
+       SYSTEM TIME (SEC)    =   5.7000    
+       TOTAL CPU TIME (SEC) =   66.000    
+       WALLCLOCK TIME (SEC) =         67
