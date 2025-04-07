@@ -216,3 +216,86 @@ c1 = session.Curve(xyData=xy1)
 chart.setValues(curvesToPlot=(c1, ), )
 session.charts[chartName].autoColor(lines=True, symbols=True)
 session.viewports['Viewport: 1'].setValues(displayedObject=xyp)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A3/3-point-test-shell.py', 
+    __main__.__dict__)
+#: The model "3-point-test-shell" has been created.
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+a = mdb.models['3-point-test-shell'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='Job-3', model='3-point-test-shell', description='', 
+    type=ANALYSIS, atTime=None, waitMinutes=0, waitHours=0, queue=None, 
+    memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numThreadsPerMpiProcess=1, 
+    multiprocessingMode=DEFAULT, numCpus=1, numGPUs=0)
+mdb.jobs['Job-3'].submit(consistencyChecking=OFF)
+#: The job input file "Job-3.inp" has been submitted for analysis.
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-3.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/Testing/Job-3.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          5
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(COMPONENT, 
+    'S11'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=535.674, 
+    farPlane=840.131, width=383.247, height=172.572, cameraPosition=(465.405, 
+    -227.259, 448.013), cameraUpVector=(-0.390454, 0.865201, 0.3146), 
+    cameraTarget=(6.65022, -15.3724, 6.74372))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=568.282, 
+    farPlane=819.41, width=406.577, height=183.077, cameraPosition=(283.551, 
+    -551.035, 307.353), cameraUpVector=(-0.210443, 0.70306, 0.67928), 
+    cameraTarget=(2.14829, -23.3877, 3.26157))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=564.995, 
+    farPlane=824.867, width=404.225, height=182.019, cameraPosition=(291.851, 
+    -619.791, 112.193), cameraUpVector=(-0.191926, 0.452079, 0.871085), 
+    cameraTarget=(2.42312, -25.6642, -3.20017))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=563.417, 
+    farPlane=823.19, width=403.097, height=181.511, cameraPosition=(294.874, 
+    -508.701, 362.611), cameraUpVector=(-0.479644, 0.623891, 0.61701), 
+    cameraTarget=(2.52776, -21.8184, 5.46898))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=556.676, 
+    farPlane=827.481, width=398.275, height=179.339, cameraPosition=(339.045, 
+    -429.616, 418.865), cameraUpVector=(-0.485876, 0.688373, 0.538579), 
+    cameraTarget=(3.95682, -19.2598, 7.28896))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=574.192, 
+    farPlane=809.965, width=283.403, height=127.614, viewOffsetX=-0.714298, 
+    viewOffsetY=-5.31545)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=584.705, 
+    farPlane=807.379, width=288.592, height=129.95, cameraPosition=(303.673, 
+    -577.673, 237.271), cameraUpVector=(-0.288368, 0.573834, 0.766524), 
+    cameraTarget=(4.12874, -25.1258, 2.67195), viewOffsetX=-0.727376, 
+    viewOffsetY=-5.41277)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=574.853, 
+    farPlane=810.437, width=283.729, height=127.761, cameraPosition=(351.06, 
+    -445.606, 392.649), cameraUpVector=(-0.365056, 0.739228, 0.565929), 
+    cameraTarget=(5.4459, -18.7979, 7.34727), viewOffsetX=-0.71512, 
+    viewOffsetY=-5.32157)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=571.573, 
+    farPlane=813.204, width=282.111, height=127.032, cameraPosition=(376.893, 
+    -433.925, 381.307), cameraUpVector=(-0.3589, 0.735649, 0.574466), 
+    cameraTarget=(6.36375, -18.403, 6.97972), viewOffsetX=-0.711039, 
+    viewOffsetY=-5.2912)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=565.848, 
+    farPlane=819.746, width=279.286, height=125.76, cameraPosition=(418.728, 
+    -450.307, 314.396), cameraUpVector=(-0.361627, 0.652101, 0.666326), 
+    cameraTarget=(7.74458, -19.4618, 5.30702), viewOffsetX=-0.703917, 
+    viewOffsetY=-5.2382)
+session.viewports['Viewport: 1'].view.setValues(width=262.764, height=118.32, 
+    viewOffsetX=-1.64827, viewOffsetY=-5.11268)
+session.graphicsOptions.setValues(backgroundStyle=SOLID, 
+    backgroundColor='#FFFFFF')

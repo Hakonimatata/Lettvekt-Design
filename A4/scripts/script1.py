@@ -196,9 +196,9 @@ def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
 
 
     # Job:
-    job = mdb.Job(name=modelname, model=modelname)
-    job.submit()
+    # job = mdb.Job(name=modelname, model=modelname)
+    # job.submit()
     
 boxpro(modelname='BP-1', L=1800, b=200, h=75, t=0.5, n_spars=0, esize=18, applied_mass=0.05, profile=2)
-boxpro(modelname='BP-2', L=1800, b=200, h=75, t=0.5, n_spars=1, esize=18, applied_mass=0.05, profile=2)
-boxpro(modelname='BP-3', L=1800, b=200, h=75, t=0.5, n_spars=2, esize=18, applied_mass=0.05, profile=2)
+# boxpro(modelname='BP-2', L=1800, b=200, h=75, t=0.5, n_spars=1, esize=18, applied_mass=0.05, profile=2)
+# boxpro(modelname='BP-3', L=1800, b=200, h=75, t=0.5, n_spars=2, esize=18, applied_mass=0.05, profile=2)
