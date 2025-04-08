@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2022                                  Date 08-apr-2025   Time 19:14:35
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:37:23
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
 
@@ -317,13 +317,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.60000    
+       USER TIME (SEC)      =  0.50000    
        SYSTEM TIME (SEC)    =  0.20000    
-       TOTAL CPU TIME (SEC) =  0.80000    
+       TOTAL CPU TIME (SEC) =  0.70000    
        WALLCLOCK TIME (SEC) =          1
 1
 
-   Abaqus 2022                                  Date 08-apr-2025   Time 19:14:53
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:37:41
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -472,11 +472,11 @@
  MODE NO      EIGENVALUE
 
 
-       1      -1.2367    
-       2      -1.2373    
+       1     -0.98189    
+       2     -0.98247    
 1
 
-   Abaqus 2022                                  Date 08-apr-2025   Time 19:15:03
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:37:52
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    2  INCREMENT    1
@@ -545,7 +545,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   9.5000    
-       SYSTEM TIME (SEC)    =  0.90000    
-       TOTAL CPU TIME (SEC) =   10.400    
-       WALLCLOCK TIME (SEC) =         11
+       USER TIME (SEC)      =   9.7000    
+       SYSTEM TIME (SEC)    =   1.6000    
+       TOTAL CPU TIME (SEC) =   11.300    
+       WALLCLOCK TIME (SEC) =         12

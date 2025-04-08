@@ -9345,14 +9345,14 @@ Ori-2-DiscOrient
  2835, 2836, 2837, 2838, 2839, 2840, 2841, 2842, 2843, 2844, 2845, 2846
 ** Section: CompositeLayup-SIDE1-1
 *Shell Section, elset=CompositeLayup-SIDE1-1, composite, orientation=Ori-2, layup=CompositeLayup-SIDE1
-0.25, 3, S-glass/Epoxy, 0., Ply-1
-0.25, 3, S-glass/Epoxy, 0., Ply-2
+0.25, 3, S-glass/Epoxy, 45., Ply-1
+0.25, 3, S-glass/Epoxy, -45., Ply-2
 0.25, 3, S-glass/Epoxy, 45., Ply-3
 0.25, 3, S-glass/Epoxy, -45., Ply-4
 0.25, 3, S-glass/Epoxy, -45., Ply-5
 0.25, 3, S-glass/Epoxy, 45., Ply-6
-0.25, 3, S-glass/Epoxy, 0., Ply-7
-0.25, 3, S-glass/Epoxy, 0., Ply-8
+0.25, 3, S-glass/Epoxy, -45., Ply-7
+0.25, 3, S-glass/Epoxy, 45., Ply-8
 *Orientation, name=Ori-5, system=RECTANGULAR
 Ori-5-DiscOrient
 3, 0.
@@ -9475,14 +9475,14 @@ Ori-4-DiscOrient
  2959, 2960, 2961, 2962, 2963, 2964, 2965, 2966, 2967, 2968, 2969, 2970
 ** Section: CompositeLayup-SPAR-1
 *Shell Section, elset=CompositeLayup-SPAR-1, composite, orientation=Ori-4, layup=CompositeLayup-SPAR
-0.25, 3, S-glass/Epoxy, 0., Ply-1
-0.25, 3, S-glass/Epoxy, 0., Ply-2
+0.25, 3, S-glass/Epoxy, 45., Ply-1
+0.25, 3, S-glass/Epoxy, -45., Ply-2
 0.25, 3, S-glass/Epoxy, 45., Ply-3
 0.25, 3, S-glass/Epoxy, -45., Ply-4
 0.25, 3, S-glass/Epoxy, -45., Ply-5
 0.25, 3, S-glass/Epoxy, 45., Ply-6
-0.25, 3, S-glass/Epoxy, 0., Ply-7
-0.25, 3, S-glass/Epoxy, 0., Ply-8
+0.25, 3, S-glass/Epoxy, -45., Ply-7
+0.25, 3, S-glass/Epoxy, 45., Ply-8
 *Orientation, name=Ori-3, system=RECTANGULAR
 Ori-3-DiscOrient
 3, 0.
@@ -9515,14 +9515,14 @@ Ori-3-DiscOrient
  2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2592, 2593, 2594
 ** Section: CompositeLayup-SIDE2-1
 *Shell Section, elset=CompositeLayup-SIDE2-1, composite, orientation=Ori-3, layup=CompositeLayup-SIDE2
-0.25, 3, S-glass/Epoxy, 0., Ply-1
+0.25, 3, S-glass/Epoxy, 45., Ply-1
 0.25, 3, S-glass/Epoxy, -45., Ply-2
 0.25, 3, S-glass/Epoxy, 45., Ply-3
 0.25, 3, S-glass/Epoxy, -45., Ply-4
 0.25, 3, S-glass/Epoxy, -45., Ply-5
 0.25, 3, S-glass/Epoxy, 45., Ply-6
-0.25, 3, S-glass/Epoxy, 0., Ply-7
-0.25, 3, S-glass/Epoxy, 0., Ply-8
+0.25, 3, S-glass/Epoxy, -45., Ply-7
+0.25, 3, S-glass/Epoxy, 45., Ply-8
 *End Part
 **  
 **

@@ -1220,3 +1220,806 @@ mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].Composite
     SPECIFY_THICKNESS)
 mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].resume()
 # Save by hakon on 2025_04_08-19.13.55; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-3'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-3']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:15:07 2025', 
+    'jobName': 'Job-3'})
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].resume(
+    )
+# Save by hakon on 2025_04_08-19.32.15; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].rootAssembly.regenerate()
+del mdb.jobs['Job-3']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-3'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-3']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:33:25 2025', 
+    'jobName': 'Job-3'})
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].resume()
+# Save by hakon on 2025_04_08-19.36.40; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].rootAssembly.regenerate()
+del mdb.jobs['Job-3']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-3', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-3'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-3']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:37:55 2025', 
+    'jobName': 'Job-3'})
+# Save by hakon on 2025_04_08-19.46.16; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].resume()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].resume()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].resume(
+    )
+# Save by hakon on 2025_04_08-19.50.01; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-4', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:51:06 2025', 
+    'jobName': 'Job-4'})
+# Save by hakon on 2025_04_08-19.53.50; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].steps['Step-Buck'].setValues(numEigen=4, vectors=8)
+# Save by hakon on 2025_04_08-19.54.19; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-4']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-4', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+# Save by hakon on 2025_04_08-19.55.26; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Job-4']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:55:34 2025', 
+    'jobName': 'Job-4'})
+mdb.models['BP-2'].steps['Step-Buck'].setValues(numEigen=6, vectors=12)
+mdb.models['BP-2'].steps['Step-Buck'].setValues(numEigen=8, vectors=16)
+mdb.models['BP-2'].steps['Step-Buck'].setValues(maxIterations=800)
+# Save by hakon on 2025_04_08-19.58.19; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-4']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-4', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:59:24 2025', 
+    'jobName': 'Job-4'})
+mdb.models['BP-2'].steps['Step-Buck'].setValues(maxEigen=None, numEigen=20, 
+    vectors=28)
+# Save by hakon on 2025_04_08-20.04.01; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-4']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-4', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 20:05:08 2025', 
+    'jobName': 'Job-4'})
+# Save by hakon on 2025_04_08-20.06.45; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].steps['Step-Buck'].setValues(numEigen=100, vectors=108)
+# Save by hakon on 2025_04_08-21.19.24; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-4']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-4', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 21:21:27 2025', 
+    'jobName': 'Job-4'})
+# Save by hakon on 2025_04_08-21.25.43; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-7-Copy2', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-7-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].resume()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-7-Copy2', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-7-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].resume()
+# Save by hakon on 2025_04_08-21.33.05; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].rootAssembly.regenerate()
+del mdb.jobs['Job-4']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-4', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-4'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-4']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 21:35:02 2025', 
+    'jobName': 'Job-4'})
+# Save by hakon on 2025_04_08-21.36.41; build 2022 2021_09_15-19.57.30 176069
+# Save by hakon on 2025_04_08-21.38.39; build 2022 2021_09_15-19.57.30 176069
