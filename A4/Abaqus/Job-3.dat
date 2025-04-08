@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2022                                  Date 31-mar-2025   Time 18:52:33
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:14:35
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
 
@@ -80,496 +80,213 @@
   *Heading
   *Node
   *Element, type=S4R
-  *Nset, nset=ASSEMBLY_BOX_FACES-ALL
-  *Elset, elset=ASSEMBLY_BOX_FACES-ALL
+  *Nset, nset=ASSEMBLY_BOX_SET-2
+  *Nset, nset=ASSEMBLY_BOX__PICKEDSET25
+  *Nset, nset=ASSEMBLY_BOX__PICKEDSET31
+  *Nset, nset=ASSEMBLY_BOX__PICKEDSET37
+  *Nset, nset=ASSEMBLY_BOX__PICKEDSET43
+  *Nset, nset=ASSEMBLY_BOX__PICKEDSET64
+  *Elset, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1
+  *Elset, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1
+  *Elset, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1
+  *Elset, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1
+  *Elset, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1
+  *Elset, elset=ASSEMBLY_BOX_SET-2
+  *Elset, elset=ASSEMBLY_BOX__PICKEDSET25
+  *Elset, elset=ASSEMBLY_BOX__PICKEDSET31
+  *Elset, elset=ASSEMBLY_BOX__PICKEDSET37
+  *Elset, elset=ASSEMBLY_BOX__PICKEDSET43
+  *Elset, elset=ASSEMBLY_BOX__PICKEDSET64
+  *Elset, elset=ASSEMBLY_BOX__SURF-2_SPOS
+  *Elset, elset=ASSEMBLY_BOX__TOP_
+  *Elset, elset=ASSEMBLY_BOX___PICKEDSURF30_SPOS
+  *Elset, elset=ASSEMBLY_BOX___PICKEDSURF36_SPOS
+  *Elset, elset=ASSEMBLY_BOX___PICKEDSURF42_SPOS
+  *Elset, elset=ASSEMBLY_BOX___PICKEDSURF63_SPOS
+  *distribution, name=ASSEMBLY_BOX_ORI-1-DISCORIENT, location=ELEMENT, table=ORI-1-DISCORIENT_TABLE
+  *distribution, name=ASSEMBLY_BOX_ORI-2-DISCORIENT, location=ELEMENT, table=ORI-2-DISCORIENT_TABLE
+  *distribution, name=ASSEMBLY_BOX_ORI-3-DISCORIENT, location=ELEMENT, table=ORI-3-DISCORIENT_TABLE
+  *distribution, name=ASSEMBLY_BOX_ORI-4-DISCORIENT, location=ELEMENT, table=ORI-4-DISCORIENT_TABLE
+  *distribution, name=ASSEMBLY_BOX_ORI-5-DISCORIENT, location=ELEMENT, table=ORI-5-DISCORIENT_TABLE
   *Node
-  *Nset, nset=ASSEMBLY_CONTACT-POINT
+  *Nset, nset=ASSEMBLY_CONTACT-SURFACE
   *Nset, nset=ASSEMBLY_EDGES1
   *Nset, nset=ASSEMBLY_EDGES2
   *Nset, nset=ASSEMBLY_RF1
   *Nset, nset=ASSEMBLY_RF2
-  *Elset, elset=ASSEMBLY_CONTACT-POINT
+  *Elset, elset=ASSEMBLY_CONTACT-SURFACE
   *Elset, elset=ASSEMBLY_EDGES1
   *Elset, elset=ASSEMBLY_EDGES2
-  *material, name=ALU
-  *elastic
-  *shellsection, elset=ASSEMBLY_BOX_FACES-ALL, material=ALU
-  *shellsection, elset=ASSEMBLY_BOX_FACES-ALL, material=ALU
+  *material, name=S-GLASS/EPOXY
+  *density
+  *elastic, type=LAMINA
+  *failstress
+
+ ***WARNING: COMPRESSIVE FAILURE VALUES MUST BE NEGATIVE. NEGATIVE OF INPUT 
+             TAKEN.
+ LINE IMAGE: *failstress
+
+ ***WARNING: NO BIAXIAL STRESS LIMIT GIVEN.  DEFAULT F12 USED.
+  *orientation, name=ASSEMBLY_BOX_ORI-1, system=RECTANGULAR
+
+ ***NOTE: TO ADJUST FOR A RECTANGULAR COORDINATE SYSTEM THE COORDINATES FOR 
+          POINT B ARE CHANGED TO: -1.10934E-31 0.0000 1.0000
+  *orientation, name=ASSEMBLY_BOX_ORI-2, system=RECTANGULAR
+
+ ***NOTE: TO ADJUST FOR A RECTANGULAR COORDINATE SYSTEM THE COORDINATES FOR 
+          POINT B ARE CHANGED TO: -1.10934E-31 0.0000 1.0000
+  *orientation, name=ASSEMBLY_BOX_ORI-5, system=RECTANGULAR
+
+ ***NOTE: TO ADJUST FOR A RECTANGULAR COORDINATE SYSTEM THE COORDINATES FOR 
+          POINT B ARE CHANGED TO: -1.10934E-31 0.0000 1.0000
+  *orientation, name=ASSEMBLY_BOX_ORI-4, system=RECTANGULAR
+
+ ***NOTE: TO ADJUST FOR A RECTANGULAR COORDINATE SYSTEM THE COORDINATES FOR 
+          POINT B ARE CHANGED TO: -1.10934E-31 0.0000 1.0000
+  *orientation, name=ASSEMBLY_BOX_ORI-3, system=RECTANGULAR
+
+ ***NOTE: TO ADJUST FOR A RECTANGULAR COORDINATE SYSTEM THE COORDINATES FOR 
+          POINT B ARE CHANGED TO: -1.10934E-31 0.0000 1.0000
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1, layup=COMPOSITELAYUP-BOTTOM, composite, orientation=ASSEMBLY_BOX_ORI-1
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, layup=COMPOSITELAYUP-SIDE1, composite, orientation=ASSEMBLY_BOX_ORI-2
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, layup=COMPOSITELAYUP-TOP, composite, orientation=ASSEMBLY_BOX_ORI-5
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, layup=COMPOSITELAYUP-SPAR, composite, orientation=ASSEMBLY_BOX_ORI-4
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, layup=COMPOSITELAYUP-SIDE2, composite, orientation=ASSEMBLY_BOX_ORI-3
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1, layup=COMPOSITELAYUP-BOTTOM, composite, orientation=ASSEMBLY_BOX_ORI-1
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, layup=COMPOSITELAYUP-SIDE1, composite, orientation=ASSEMBLY_BOX_ORI-2
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, layup=COMPOSITELAYUP-TOP, composite, orientation=ASSEMBLY_BOX_ORI-5
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, layup=COMPOSITELAYUP-SPAR, composite, orientation=ASSEMBLY_BOX_ORI-4
+  *shellsection, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, layup=COMPOSITELAYUP-SIDE2, composite, orientation=ASSEMBLY_BOX_ORI-3
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX_TOP
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX_SURF-2
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF30
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF36
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF42
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF63
   *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
   *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX_TOP
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX_SURF-2
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF30
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF36
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF42
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF63
   *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
   *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
   *boundary
   *boundary
-  *boundary
-  *boundary, op=NEW, loadcase=1
-  *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW
   *boundary, op=NEW
-  *boundary, op=NEW
   *boundary
   *boundary
-  *boundary
-  *boundary, op=NEW, loadcase=1
-  *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *mpc
   *mpc
+  *nonstructuralmass, elset=ASSEMBLY_CONTACT-SURFACE, units=TOTALMASS
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX_TOP
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX_SURF-2
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF30
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF36
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF42
+  *surface, type=ELEMENT, name=ASSEMBLY_BOX__PICKEDSURF63
   *surface, type=NODE, name=ASSEMBLY_EDGES1_CNS_
   *surface, type=NODE, name=ASSEMBLY_EDGES2_CNS_
   *output, field, variable=PRESELECT
+  *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
   *output, field, variable=PRESELECT
+  *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
   *output, field, variable=PRESELECT
+  *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
 
  ***NOTE: MPCS (EXTERNAL or INTERNAL, including those generated from rigid body 
           definitions), KINEMATIC COUPLINGS, AND/OR EQUATIONS WILL ACTIVATE 
           ADDITIONAL DEGREES OF FREEDOM
-  
-                               E L E M E N T   Q U A L I T Y  C H E C K S        
-  
-  
- ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
-           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
-  
-           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
-           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
-           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
-           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
-           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
-           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
-  
-           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
-           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
-           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
-           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
-  
-           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
-           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
-           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
-           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
-           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
-           THAN 160 DEGREES. 
-  
-           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
-           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
-           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *output, field, variable=PRESELECT
+  *Step, name=Step-Stat, nlgeom=NO
+  *output, field
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *Step, name=Step-Stat, nlgeom=NO
+  *Step, name=Step-Buck, nlgeom=NO, perturbation
+  *buckle
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *boundary, op=NEW, loadcase=1
+  *boundary, op=NEW, loadcase=2
+  *dload, op=NEW
 
- ***WARNING: The aspect ratio for 360 elements exceeds 100 to 1. The elements 
-             have been identified in element set WarnElemAspectRatio.
-  
- --------------------------------------------------------------------------------
- Elements with large aspect ratio
-  
-    Element    Adjusted nodes 
- ------------- -------------- 
-         BOX.1       NO       
-         BOX.2       NO       
-         BOX.3       NO       
-         BOX.4       NO       
-         BOX.5       NO       
-         BOX.6       NO       
-         BOX.7       NO       
-         BOX.8       NO       
-         BOX.9       NO       
-        BOX.10       NO       
-        BOX.11       NO       
-        BOX.12       NO       
-        BOX.13       NO       
-        BOX.14       NO       
-        BOX.15       NO       
-        BOX.16       NO       
-        BOX.17       NO       
-        BOX.18       NO       
-        BOX.19       NO       
-        BOX.20       NO       
-        BOX.21       NO       
-        BOX.22       NO       
-        BOX.23       NO       
-        BOX.24       NO       
-        BOX.25       NO       
-        BOX.26       NO       
-        BOX.27       NO       
-        BOX.28       NO       
-        BOX.29       NO       
-        BOX.30       NO       
-        BOX.31       NO       
-        BOX.32       NO       
-        BOX.33       NO       
-        BOX.34       NO       
-        BOX.35       NO       
-        BOX.36       NO       
-        BOX.37       NO       
-        BOX.38       NO       
-        BOX.39       NO       
-        BOX.40       NO       
-        BOX.41       NO       
-        BOX.42       NO       
-        BOX.43       NO       
-        BOX.44       NO       
-        BOX.45       NO       
-        BOX.46       NO       
-        BOX.47       NO       
-        BOX.48       NO       
-        BOX.49       NO       
-        BOX.50       NO       
-        BOX.51       NO       
-        BOX.52       NO       
-        BOX.53       NO       
-        BOX.54       NO       
-        BOX.55       NO       
-        BOX.56       NO       
-        BOX.57       NO       
-        BOX.58       NO       
-        BOX.59       NO       
-        BOX.60       NO       
-       BOX.121       NO       
-       BOX.122       NO       
-       BOX.123       NO       
-       BOX.124       NO       
-       BOX.125       NO       
-       BOX.126       NO       
-       BOX.127       NO       
-       BOX.128       NO       
-       BOX.129       NO       
-       BOX.130       NO       
-       BOX.131       NO       
-       BOX.132       NO       
-       BOX.133       NO       
-       BOX.134       NO       
-       BOX.135       NO       
-       BOX.136       NO       
-       BOX.137       NO       
-       BOX.138       NO       
-       BOX.139       NO       
-       BOX.140       NO       
-       BOX.141       NO       
-       BOX.142       NO       
-       BOX.143       NO       
-       BOX.144       NO       
-       BOX.145       NO       
-       BOX.146       NO       
-       BOX.147       NO       
-       BOX.148       NO       
-       BOX.149       NO       
-       BOX.150       NO       
-       BOX.391       NO       
-       BOX.392       NO       
-       BOX.393       NO       
-       BOX.394       NO       
-       BOX.395       NO       
-       BOX.396       NO       
-       BOX.397       NO       
-       BOX.398       NO       
-       BOX.399       NO       
-       BOX.400       NO       
-       BOX.401       NO       
-       BOX.402       NO       
-       BOX.403       NO       
-       BOX.404       NO       
-       BOX.405       NO       
-       BOX.406       NO       
-       BOX.407       NO       
-       BOX.408       NO       
-       BOX.409       NO       
-       BOX.410       NO       
-       BOX.411       NO       
-       BOX.412       NO       
-       BOX.413       NO       
-       BOX.414       NO       
-       BOX.415       NO       
-       BOX.416       NO       
-       BOX.417       NO       
-       BOX.418       NO       
-       BOX.419       NO       
-       BOX.420       NO       
-       BOX.481       NO       
-       BOX.482       NO       
-       BOX.483       NO       
-       BOX.484       NO       
-       BOX.485       NO       
-       BOX.486       NO       
-       BOX.487       NO       
-       BOX.488       NO       
-       BOX.489       NO       
-       BOX.490       NO       
-       BOX.491       NO       
-       BOX.492       NO       
-       BOX.493       NO       
-       BOX.494       NO       
-       BOX.495       NO       
-       BOX.496       NO       
-       BOX.497       NO       
-       BOX.498       NO       
-       BOX.499       NO       
-       BOX.500       NO       
-       BOX.501       NO       
-       BOX.502       NO       
-       BOX.503       NO       
-       BOX.504       NO       
-       BOX.505       NO       
-       BOX.506       NO       
-       BOX.507       NO       
-       BOX.508       NO       
-       BOX.509       NO       
-       BOX.510       NO       
-       BOX.511       NO       
-       BOX.512       NO       
-       BOX.513       NO       
-       BOX.514       NO       
-       BOX.515       NO       
-       BOX.516       NO       
-       BOX.517       NO       
-       BOX.518       NO       
-       BOX.519       NO       
-       BOX.520       NO       
-       BOX.521       NO       
-       BOX.522       NO       
-       BOX.523       NO       
-       BOX.524       NO       
-       BOX.525       NO       
-       BOX.526       NO       
-       BOX.527       NO       
-       BOX.528       NO       
-       BOX.529       NO       
-       BOX.530       NO       
-       BOX.531       NO       
-       BOX.532       NO       
-       BOX.533       NO       
-       BOX.534       NO       
-       BOX.535       NO       
-       BOX.536       NO       
-       BOX.537       NO       
-       BOX.538       NO       
-       BOX.539       NO       
-       BOX.540       NO       
-      BOX.1681       NO       
-      BOX.1682       NO       
-      BOX.1683       NO       
-      BOX.1684       NO       
-      BOX.1685       NO       
-      BOX.1686       NO       
-      BOX.1687       NO       
-      BOX.1688       NO       
-      BOX.1689       NO       
-      BOX.1690       NO       
-      BOX.1691       NO       
-      BOX.1692       NO       
-      BOX.1693       NO       
-      BOX.1694       NO       
-      BOX.1695       NO       
-      BOX.1696       NO       
-      BOX.1697       NO       
-      BOX.1698       NO       
-      BOX.1699       NO       
-      BOX.1700       NO       
-      BOX.1701       NO       
-      BOX.1702       NO       
-      BOX.1703       NO       
-      BOX.1704       NO       
-      BOX.1705       NO       
-      BOX.1706       NO       
-      BOX.1707       NO       
-      BOX.1708       NO       
-      BOX.1709       NO       
-      BOX.1710       NO       
-      BOX.1711       NO       
-      BOX.1712       NO       
-      BOX.1713       NO       
-      BOX.1714       NO       
-      BOX.1715       NO       
-      BOX.1716       NO       
-      BOX.1717       NO       
-      BOX.1718       NO       
-      BOX.1719       NO       
-      BOX.1720       NO       
-      BOX.1721       NO       
-      BOX.1722       NO       
-      BOX.1723       NO       
-      BOX.1724       NO       
-      BOX.1725       NO       
-      BOX.1726       NO       
-      BOX.1727       NO       
-      BOX.1728       NO       
-      BOX.1729       NO       
-      BOX.1730       NO       
-      BOX.1731       NO       
-      BOX.1732       NO       
-      BOX.1733       NO       
-      BOX.1734       NO       
-      BOX.1735       NO       
-      BOX.1736       NO       
-      BOX.1737       NO       
-      BOX.1738       NO       
-      BOX.1739       NO       
-      BOX.1740       NO       
-      BOX.1741       NO       
-      BOX.1742       NO       
-      BOX.1743       NO       
-      BOX.1744       NO       
-      BOX.1745       NO       
-      BOX.1746       NO       
-      BOX.1747       NO       
-      BOX.1748       NO       
-      BOX.1749       NO       
-      BOX.1750       NO       
-      BOX.1751       NO       
-      BOX.1752       NO       
-      BOX.1753       NO       
-      BOX.1754       NO       
-      BOX.1755       NO       
-      BOX.1756       NO       
-      BOX.1757       NO       
-      BOX.1758       NO       
-      BOX.1759       NO       
-      BOX.1760       NO       
-      BOX.1761       NO       
-      BOX.1762       NO       
-      BOX.1763       NO       
-      BOX.1764       NO       
-      BOX.1765       NO       
-      BOX.1766       NO       
-      BOX.1767       NO       
-      BOX.1768       NO       
-      BOX.1769       NO       
-      BOX.1770       NO       
-      BOX.2431       NO       
-      BOX.2432       NO       
-      BOX.2433       NO       
-      BOX.2434       NO       
-      BOX.2435       NO       
-      BOX.2436       NO       
-      BOX.2437       NO       
-      BOX.2438       NO       
-      BOX.2439       NO       
-      BOX.2440       NO       
-      BOX.2441       NO       
-      BOX.2442       NO       
-      BOX.2443       NO       
-      BOX.2444       NO       
-      BOX.2445       NO       
-      BOX.2446       NO       
-      BOX.2447       NO       
-      BOX.2448       NO       
-      BOX.2449       NO       
-      BOX.2450       NO       
-      BOX.2451       NO       
-      BOX.2452       NO       
-      BOX.2453       NO       
-      BOX.2454       NO       
-      BOX.2455       NO       
-      BOX.2456       NO       
-      BOX.2457       NO       
-      BOX.2458       NO       
-      BOX.2459       NO       
-      BOX.2460       NO       
-      BOX.2461       NO       
-      BOX.2462       NO       
-      BOX.2463       NO       
-      BOX.2464       NO       
-      BOX.2465       NO       
-      BOX.2466       NO       
-      BOX.2467       NO       
-      BOX.2468       NO       
-      BOX.2469       NO       
-      BOX.2470       NO       
-      BOX.2471       NO       
-      BOX.2472       NO       
-      BOX.2473       NO       
-      BOX.2474       NO       
-      BOX.2475       NO       
-      BOX.2476       NO       
-      BOX.2477       NO       
-      BOX.2478       NO       
-      BOX.2479       NO       
-      BOX.2480       NO       
-      BOX.2481       NO       
-      BOX.2482       NO       
-      BOX.2483       NO       
-      BOX.2484       NO       
-      BOX.2485       NO       
-      BOX.2486       NO       
-      BOX.2487       NO       
-      BOX.2488       NO       
-      BOX.2489       NO       
-      BOX.2490       NO       
-      BOX.2731       NO       
-      BOX.2732       NO       
-      BOX.2733       NO       
-      BOX.2734       NO       
-      BOX.2735       NO       
-      BOX.2736       NO       
-      BOX.2737       NO       
-      BOX.2738       NO       
-      BOX.2739       NO       
-      BOX.2740       NO       
-      BOX.2741       NO       
-      BOX.2742       NO       
-      BOX.2743       NO       
-      BOX.2744       NO       
-      BOX.2745       NO       
-      BOX.2746       NO       
-      BOX.2747       NO       
-      BOX.2748       NO       
-      BOX.2749       NO       
-      BOX.2750       NO       
-      BOX.2751       NO       
-      BOX.2752       NO       
-      BOX.2753       NO       
-      BOX.2754       NO       
-      BOX.2755       NO       
-      BOX.2756       NO       
-      BOX.2757       NO       
-      BOX.2758       NO       
-      BOX.2759       NO       
-      BOX.2760       NO       
-  
-  
-  *Step, name=Step-Buck, nlgeom=NO, perturbation
-  *output, field, variable=PRESELECT
-  *Step, name=Step-Stat, nlgeom=NO
-  *output, field, variable=PRESELECT
-  *output, history, variable=PRESELECT
-  *Step, name=Step-Buck, nlgeom=NO, perturbation
-  *Step, name=Step-Stat, nlgeom=NO
-  *Step, name=Step-Buck, nlgeom=NO, perturbation
-  *buckle
-  *boundary, op=NEW, loadcase=1
-  *boundary, op=NEW, loadcase=2
-  *boundary, op=NEW, loadcase=1
-  *boundary, op=NEW, loadcase=2
-  *boundary, op=NEW, loadcase=1
-  *boundary, op=NEW, loadcase=2
+ ***NOTE: ALL VALID ELEMENTS HAVE BEEN COLLECTED IN ELEMENT SET 
+          _Whole_Model_GRAV_Elset FOR APPLICATION OF LOAD TYPE GRAV.
   *output, field, variable=PRESELECT
   *endstep
   *Step, name=Step-Stat, nlgeom=NO
   *static
   *boundary, op=NEW
   *boundary, op=NEW
-  *boundary, op=NEW
+  *dload, op=NEW
+
+ ***NOTE: ALL VALID ELEMENTS HAVE BEEN COLLECTED IN ELEMENT SET 
+          _Whole_Model_GRAV_Elset FOR APPLICATION OF LOAD TYPE GRAV.
+  *output, field
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-BOTTOM-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE1-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SIDE2-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-SPAR-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
+  *elementoutput, elset=ASSEMBLY_BOX_COMPOSITELAYUP-TOP-1, directions=YES
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
   *boundary
   *boundary
-  *boundary
   *Step, name=Step-Buck, nlgeom=NO, perturbation
   *buckle
   *buckle
-  *boundary, op=NEW, loadcase=1
-  *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
   *boundary, op=NEW, loadcase=2
   *boundary, op=NEW, loadcase=1
@@ -577,7 +294,6 @@
   *endstep
   *Step, name=Step-Stat, nlgeom=NO
   *static
-  *boundary, op=NEW
   *boundary, op=NEW
   *boundary, op=NEW
   *endstep
@@ -587,10 +303,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  4320
-          NUMBER OF NODES IS                                     4006
-          NUMBER OF NODES DEFINED BY THE USER                    4006
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                24036
+          NUMBER OF ELEMENTS IS                                  2970
+          NUMBER OF NODES IS                                     2902
+          NUMBER OF NODES DEFINED BY THE USER                    2902
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                17412
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -601,13 +317,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.30000    
-       SYSTEM TIME (SEC)    =  0.10000    
-       TOTAL CPU TIME (SEC) =  0.40000    
-       WALLCLOCK TIME (SEC) =          0
+       USER TIME (SEC)      =  0.60000    
+       SYSTEM TIME (SEC)    =  0.20000    
+       TOTAL CPU TIME (SEC) =  0.80000    
+       WALLCLOCK TIME (SEC) =          1
 1
 
-   Abaqus 2022                                  Date 31-mar-2025   Time 18:52:51
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:14:53
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -624,7 +340,7 @@
 
      THE SUBSPACE ITERATION METHOD IS USED FOR THIS ANALYSIS
      NUMBER OF EIGENVALUES                      2
-     MAXIMUM NUMBER OF ITERATIONS                    500
+     MAXIMUM NUMBER OF ITERATIONS                    700
      NUMBER OF VECTORS IN ITERATION                    4
      THE BUCKLING MODE CONSTRAINTS 
       ARE DEFINED AS LOAD CASE 2
@@ -633,6 +349,41 @@
 
      THIS IS A LINEAR PERTURBATION STEP.
      ALL LOADS ARE DEFINED AS CHANGE IN LOAD TO THE REFERENCE STATE
+
+
+
+                    TOTAL MASS OF MODEL
+
+                      5.3559514E-02
+
+
+                    LOCATION OF THE CENTER OF MASS OF THE MODEL
+
+                       1180.062         -4.6770941E-15       35.47420    
+
+
+                    MOMENTS OF INERTIA ABOUT THE ORIGIN
+                           I(XX)               I(YY)               I(ZZ)
+
+                       94.85353           75947.49           75896.63    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE ORIGIN
+                           I(XY)               I(XZ)               I(YZ)
+
+                     -6.5897167E-13      -2268.733         -1.5523466E-14
+
+
+                    MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XX)               I(YY)               I(ZZ)
+
+                       27.45322           1295.947           1312.485    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XY)               I(XZ)               I(YZ)
+
+                     -9.5458068E-13      -26.63699         -2.4409856E-14
   
                    M E M O R Y   E S T I M A T E
   
@@ -640,7 +391,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          1.57E+09               27                 98
+     1          6.20E+08               26                 81
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -678,7 +429,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          1.54E+09               30                102
+     1          6.08E+08               29                 89
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -721,11 +472,11 @@
  MODE NO      EIGENVALUE
 
 
-       1       38.950    
-       2      -39.014    
+       1      -1.2367    
+       2      -1.2373    
 1
 
-   Abaqus 2022                                  Date 31-mar-2025   Time 18:53:37
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:15:03
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    2  INCREMENT    1
@@ -751,7 +502,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          1.54E+09               25                 96
+     1          6.08E+08               24                 84
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -789,12 +540,12 @@
 
 
                               ANALYSIS COMPLETE
-                              WITH      1 WARNING MESSAGES ON THE DAT FILE
+                              WITH      2 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   43.100    
-       SYSTEM TIME (SEC)    =   3.6000    
-       TOTAL CPU TIME (SEC) =   46.700    
-       WALLCLOCK TIME (SEC) =         47
+       USER TIME (SEC)      =   9.5000    
+       SYSTEM TIME (SEC)    =  0.90000    
+       TOTAL CPU TIME (SEC) =   10.400    
+       WALLCLOCK TIME (SEC) =         11

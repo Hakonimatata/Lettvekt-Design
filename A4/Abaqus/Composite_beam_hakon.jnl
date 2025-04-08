@@ -1,0 +1,1222 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(modelType=STANDARD_EXPLICIT, name='BP-2')
+mdb.models['BP-2'].Material('Carbon/Epoxy(a)')
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].Density(table=((1.6e-09, ), ))
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].Elastic(table=((130000, 10000, 
+    10000, 0.28, 0.28, 0.5, 4500, 4500, 3500), ), type=ENGINEERING_CONSTANTS)
+mdb.models['BP-2'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-99.75, 37.25), point2=
+    (99.75, 37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-89.75, 37.25), point2=
+    (-59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(89.75, 37.25), point2=(
+    59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-59.75, -37.25), 
+    point2=(59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(0.0, 37.25), point2=(
+    0.0, -37.25))
+mdb.models['BP-2'].Part(dimensionality=THREE_D, name='Box', type=
+    DEFORMABLE_BODY)
+mdb.models['BP-2'].parts['Box'].BaseShellExtrude(depth=1800, sketch=
+    mdb.models['BP-2'].sketches['__profile__'])
+del mdb.models['BP-2'].sketches['__profile__']
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[2], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=-20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[4], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1240.1, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[6], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1159.9, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[8], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].Material(name='Alu')
+mdb.models['BP-2'].materials['Alu'].Density(table=((2.7e-09, ), ))
+mdb.models['BP-2'].materials['Alu'].Elastic(table=((70000.0, 0.33), ))
+mdb.models['BP-2'].HomogeneousShellSection(idealization=NO_IDEALIZATION, 
+    integrationRule=SIMPSON, material='Alu', name='Section-shell', 
+    nodalThicknessField='', numIntPts=5, poissonDefinition=DEFAULT, 
+    preIntegrate=OFF, temperature=GRADIENT, thickness=0.99255243356851, 
+    thicknessField='', thicknessModulus=None, thicknessType=UNIFORM, 
+    useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].Set(faces=mdb.models['BP-2'].parts['Box'].faces
+    , name='faces-all')
+mdb.models['BP-2'].parts['Box'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['BP-2'].parts['Box'].sets['faces-all'], sectionName=
+    'Section-shell', thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].setMeshControls(elemShape=QUAD, regions=
+    mdb.models['BP-2'].parts['Box'].faces, technique=STRUCTURED)
+mdb.models['BP-2'].parts['Box'].seedPart(deviationFactor=0.1, minSizeFactor=0.1
+    , size=18)
+mdb.models['BP-2'].parts['Box'].generateMesh()
+mdb.models['BP-2'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['BP-2'].rootAssembly.Instance(dependent=ON, name='Box', part=
+    mdb.models['BP-2'].parts['Box'])
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 1.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(1.0, 0.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(0.0, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(1800, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.Set(name='RF1', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[4], ))
+mdb.models['BP-2'].rootAssembly.Set(name='RF2', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[5], ))
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#800040 #200 #366550 ]', ), ), name='EDGES1')
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#0 #55292000 #c10003 ]', ), ), name='EDGES2')
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-1', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES1']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-2', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES2']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC1', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC2', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].BuckleStep(maxIterations=700, name='Step-Buck', numEigen=2, 
+    previous='Initial', vectors=4)
+mdb.models['BP-2'].StaticStep(name='Step-Stat', previous='Step-Buck')
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(stepName=
+    'Step-Stat', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', u1=FREED, u3=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(stepName=
+    'Step-Stat', u1=FREED, u3=FREED)
+mdb.models['BP-2'].rootAssembly.Set(faces=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].faces.getSequenceFromMask(
+    mask=('[#280 ]', ), ), name='CONTACT-SURFACE')
+mdb.models['BP-2'].rootAssembly.engineeringFeatures.NonstructuralMass(
+    distribution=MASS_PROPORTIONAL, magnitude=0.05, name='Inertia-1', region=
+    mdb.models['BP-2'].rootAssembly.sets['CONTACT-SURFACE'], units=TOTAL_MASS)
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Buck', 
+    distributionType=UNIFORM, field='', name='Load-1')
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Stat', 
+    distributionType=UNIFORM, field='', name='Load-2')
+mdb.Job(model='BP-2', name='BP-2')
+mdb.jobs['BP-2'].submit()
+mdb.jobs['BP-2']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 17:14:49 2025', 
+    'jobName': 'BP-2'})
+mdb.Model(modelType=STANDARD_EXPLICIT, name='BP-2')
+mdb.models['BP-2'].Material('Carbon/Epoxy(a)')
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].Density(table=((1.6e-09, ), ))
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].Elastic(table=((130000.0, 
+    10000.0, 10000.0, 0.28, 0.28, 0.5, 4500.0, 4500.0, 3500.0), ), type=
+    ENGINEERING_CONSTANTS)
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].elastic.FailStress(table=((
+    1800.0, 1200.0, 40.0, 180.0, 70.0, -0.5, 0.0), ))
+mdb.models['BP-2'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-99.75, 37.25), point2=
+    (99.75, 37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-89.75, 37.25), point2=
+    (-59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(89.75, 37.25), point2=(
+    59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-59.75, -37.25), 
+    point2=(59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(0.0, 37.25), point2=(
+    0.0, -37.25))
+mdb.models['BP-2'].Part(dimensionality=THREE_D, name='Box', type=
+    DEFORMABLE_BODY)
+mdb.models['BP-2'].parts['Box'].BaseShellExtrude(depth=1800, sketch=
+    mdb.models['BP-2'].sketches['__profile__'])
+del mdb.models['BP-2'].sketches['__profile__']
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[2], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=-20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[4], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1240.1, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[6], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1159.9, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[8], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].Material(name='Alu')
+mdb.models['BP-2'].materials['Alu'].Density(table=((2.7e-09, ), ))
+mdb.models['BP-2'].materials['Alu'].Elastic(table=((70000.0, 0.33), ))
+mdb.models['BP-2'].HomogeneousShellSection(idealization=NO_IDEALIZATION, 
+    integrationRule=SIMPSON, material='Alu', name='Section-shell', 
+    nodalThicknessField='', numIntPts=5, poissonDefinition=DEFAULT, 
+    preIntegrate=OFF, temperature=GRADIENT, thickness=0.99255243356851, 
+    thicknessField='', thicknessModulus=None, thicknessType=UNIFORM, 
+    useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].Set(faces=mdb.models['BP-2'].parts['Box'].faces
+    , name='faces-all')
+mdb.models['BP-2'].parts['Box'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['BP-2'].parts['Box'].sets['faces-all'], sectionName=
+    'Section-shell', thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].setMeshControls(elemShape=QUAD, regions=
+    mdb.models['BP-2'].parts['Box'].faces, technique=STRUCTURED)
+mdb.models['BP-2'].parts['Box'].seedPart(deviationFactor=0.1, minSizeFactor=0.1
+    , size=18)
+mdb.models['BP-2'].parts['Box'].generateMesh()
+mdb.models['BP-2'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['BP-2'].rootAssembly.Instance(dependent=ON, name='Box', part=
+    mdb.models['BP-2'].parts['Box'])
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 1.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(1.0, 0.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(0.0, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(1800, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.Set(name='RF1', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[4], ))
+mdb.models['BP-2'].rootAssembly.Set(name='RF2', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[5], ))
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#800040 #200 #366550 ]', ), ), name='EDGES1')
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#0 #55292000 #c10003 ]', ), ), name='EDGES2')
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-1', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES1']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-2', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES2']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC1', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC2', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].BuckleStep(maxIterations=700, name='Step-Buck', numEigen=2, 
+    previous='Initial', vectors=4)
+mdb.models['BP-2'].StaticStep(name='Step-Stat', previous='Step-Buck')
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(stepName=
+    'Step-Stat', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', u1=FREED, u3=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(stepName=
+    'Step-Stat', u1=FREED, u3=FREED)
+mdb.models['BP-2'].rootAssembly.Set(faces=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].faces.getSequenceFromMask(
+    mask=('[#280 ]', ), ), name='CONTACT-SURFACE')
+mdb.models['BP-2'].rootAssembly.engineeringFeatures.NonstructuralMass(
+    distribution=MASS_PROPORTIONAL, magnitude=0.05, name='Inertia-1', region=
+    mdb.models['BP-2'].rootAssembly.sets['CONTACT-SURFACE'], units=TOTAL_MASS)
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Buck', 
+    distributionType=UNIFORM, field='', name='Load-1')
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Stat', 
+    distributionType=UNIFORM, field='', name='Load-2')
+mdb.Model(modelType=STANDARD_EXPLICIT, name='BP-2')
+mdb.models['BP-2'].Material('Carbon/Epoxy(a)')
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].Density(table=((1.6e-09, ), ))
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].Elastic(table=((130000.0, 
+    10000.0, 10000.0, 0.28, 0.28, 0.5, 4500.0, 4500.0, 3500.0), ), type=
+    ENGINEERING_CONSTANTS)
+mdb.models['BP-2'].materials['Carbon/Epoxy(a)'].elastic.FailStress(table=((
+    1800.0, 1200.0, 40.0, 180.0, 70.0, -0.5, 0.0), ))
+mdb.models['BP-2'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-99.75, 37.25), point2=
+    (99.75, 37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-89.75, 37.25), point2=
+    (-59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(89.75, 37.25), point2=(
+    59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-59.75, -37.25), 
+    point2=(59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(0.0, 37.25), point2=(
+    0.0, -37.25))
+mdb.models['BP-2'].Part(dimensionality=THREE_D, name='Box', type=
+    DEFORMABLE_BODY)
+mdb.models['BP-2'].parts['Box'].BaseShellExtrude(depth=1800, sketch=
+    mdb.models['BP-2'].sketches['__profile__'])
+del mdb.models['BP-2'].sketches['__profile__']
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[2], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=-20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[4], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1240.1, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[6], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1159.9, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[8], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].setMeshControls(elemShape=QUAD, regions=
+    mdb.models['BP-2'].parts['Box'].faces, technique=STRUCTURED)
+mdb.models['BP-2'].parts['Box'].seedPart(deviationFactor=0.1, minSizeFactor=0.1
+    , size=18)
+mdb.models['BP-2'].parts['Box'].generateMesh()
+mdb.models['BP-2'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['BP-2'].rootAssembly.Instance(dependent=ON, name='Box', part=
+    mdb.models['BP-2'].parts['Box'])
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 1.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(1.0, 0.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(0.0, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(1800, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.Set(name='RF1', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[4], ))
+mdb.models['BP-2'].rootAssembly.Set(name='RF2', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[5], ))
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#800040 #200 #366550 ]', ), ), name='EDGES1')
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#0 #55292000 #c10003 ]', ), ), name='EDGES2')
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-1', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES1']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-2', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES2']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC1', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC2', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].BuckleStep(maxIterations=700, name='Step-Buck', numEigen=2, 
+    previous='Initial', vectors=4)
+mdb.models['BP-2'].StaticStep(name='Step-Stat', previous='Step-Buck')
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(stepName=
+    'Step-Stat', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', u1=FREED, u3=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(stepName=
+    'Step-Stat', u1=FREED, u3=FREED)
+mdb.models['BP-2'].rootAssembly.Set(faces=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].faces.getSequenceFromMask(
+    mask=('[#280 ]', ), ), name='CONTACT-SURFACE')
+mdb.models['BP-2'].rootAssembly.engineeringFeatures.NonstructuralMass(
+    distribution=MASS_PROPORTIONAL, magnitude=0.05, name='Inertia-1', region=
+    mdb.models['BP-2'].rootAssembly.sets['CONTACT-SURFACE'], units=TOTAL_MASS)
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Buck', 
+    distributionType=UNIFORM, field='', name='Load-1')
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Stat', 
+    distributionType=UNIFORM, field='', name='Load-2')
+mdb.Model(modelType=STANDARD_EXPLICIT, name='BP-2')
+mdb.models['BP-2'].Material('S-glass/Epoxy')
+mdb.models['BP-2'].materials['S-glass/Epoxy'].Density(table=((2e-09, ), ))
+mdb.models['BP-2'].materials['S-glass/Epoxy'].Elastic(table=((48000, 11000, 
+    11000, 0.3, 0.3, 0.4, 4200, 4200, 3600), ), type=ENGINEERING_CONSTANTS)
+mdb.models['BP-2'].materials['S-glass/Epoxy'].elastic.FailStress(table=((1300, 
+    800, 40, 140, 70, -0.5, 0.0), ))
+mdb.models['BP-2'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-99.75, 37.25), point2=
+    (99.75, 37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-89.75, 37.25), point2=
+    (-59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(89.75, 37.25), point2=(
+    59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(-59.75, -37.25), 
+    point2=(59.75, -37.25))
+mdb.models['BP-2'].sketches['__profile__'].Line(point1=(0.0, 37.25), point2=(
+    0.0, -37.25))
+mdb.models['BP-2'].Part(dimensionality=THREE_D, name='Box', type=
+    DEFORMABLE_BODY)
+mdb.models['BP-2'].parts['Box'].BaseShellExtrude(depth=1800, sketch=
+    mdb.models['BP-2'].sketches['__profile__'])
+del mdb.models['BP-2'].sketches['__profile__']
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[2], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=-20.05, 
+    principalPlane=YZPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[4], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1240.1, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[6], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].DatumPlaneByPrincipalPlane(offset=1159.9, 
+    principalPlane=XYPLANE)
+mdb.models['BP-2'].parts['Box'].PartitionFaceByDatumPlane(datumPlane=
+    mdb.models['BP-2'].parts['Box'].datums[8], faces=
+    mdb.models['BP-2'].parts['Box'].faces)
+mdb.models['BP-2'].parts['Box'].setMeshControls(elemShape=QUAD, regions=
+    mdb.models['BP-2'].parts['Box'].faces, technique=STRUCTURED)
+mdb.models['BP-2'].parts['Box'].seedPart(deviationFactor=0.1, minSizeFactor=0.1
+    , size=18)
+mdb.models['BP-2'].parts['Box'].generateMesh()
+mdb.models['BP-2'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['BP-2'].rootAssembly.Instance(dependent=ON, name='Box', part=
+    mdb.models['BP-2'].parts['Box'])
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(0.0, 1.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.rotate(angle=90.0, axisDirection=(1.0, 0.0, 
+    0.0), axisPoint=(0.0, 0.0, 0.0), instanceList=('Box', ))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(0.0, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.ReferencePoint(point=(1800, 0.0, 0.0))
+mdb.models['BP-2'].rootAssembly.Set(name='RF1', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[4], ))
+mdb.models['BP-2'].rootAssembly.Set(name='RF2', referencePoints=(
+    mdb.models['BP-2'].rootAssembly.referencePoints[5], ))
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#800040 #200 #366550 ]', ), ), name='EDGES1')
+mdb.models['BP-2'].rootAssembly.Set(edges=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].edges.getSequenceFromMask(
+    mask=('[#0 #55292000 #c10003 ]', ), ), name='EDGES2')
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-1', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES1']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].MultipointConstraint(controlPoint=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], csys=None, mpcType=BEAM_MPC, 
+    name='Constraint-2', surface=mdb.models['BP-2'].rootAssembly.sets['EDGES2']
+    , userMode=DOF_MODE_MPC, userType=0)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC1', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF1'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].DisplacementBC(createStepName='Initial', name='BC2', region=
+    mdb.models['BP-2'].rootAssembly.sets['RF2'], u1=SET, u2=SET, u3=SET, ur1=
+    SET, ur2=SET, ur3=SET)
+mdb.models['BP-2'].BuckleStep(maxIterations=700, name='Step-Buck', numEigen=2, 
+    previous='Initial', vectors=4)
+mdb.models['BP-2'].StaticStep(name='Step-Stat', previous='Step-Buck')
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC1'].setValuesInStep(stepName=
+    'Step-Stat', ur2=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(buckleCase=
+    PERTURBATION_AND_BUCKLING, stepName='Step-Buck', u1=FREED, u3=FREED)
+mdb.models['BP-2'].boundaryConditions['BC2'].setValuesInStep(stepName=
+    'Step-Stat', u1=FREED, u3=FREED)
+mdb.models['BP-2'].rootAssembly.Set(faces=
+    mdb.models['BP-2'].rootAssembly.instances['Box'].faces.getSequenceFromMask(
+    mask=('[#280 ]', ), ), name='CONTACT-SURFACE')
+mdb.models['BP-2'].rootAssembly.engineeringFeatures.NonstructuralMass(
+    distribution=MASS_PROPORTIONAL, magnitude=0.05, name='Inertia-1', region=
+    mdb.models['BP-2'].rootAssembly.sets['CONTACT-SURFACE'], units=TOTAL_MASS)
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Buck', 
+    distributionType=UNIFORM, field='', name='Load-1')
+mdb.models['BP-2'].Gravity(comp3=-9810.0, createStepName='Step-Stat', 
+    distributionType=UNIFORM, field='', name='Load-2')
+mdb.models['BP-2'].parts['Box'].Surface(name='top', side12Faces=
+    mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask((
+    '[#d7529a94 #3 ]', ), ))
+mdb.models['BP-2'].parts['Box'].Surface(name='top', side2Faces=
+    mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask((
+    '[#d7529a94 #3 ]', ), ))
+mdb.models['BP-2'].parts['Box'].Surface(name='top', side12Faces=
+    mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask((
+    '[#d7529a94 #3 ]', ), ))
+mdb.models['BP-2'].parts['Box'].Set(edges=
+    mdb.models['BP-2'].parts['Box'].edges.getSequenceFromMask((
+    '[#0 #400 #8004 ]', ), ), name='Set-2')
+mdb.models['BP-2'].parts['Box'].CompositeLayup(description='', elementType=
+    SHELL, name='CompositeLayup-TOP', offsetType=MIDDLE_SURFACE, symmetric=
+    False, thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].Section(
+    integrationRule=SIMPSON, poissonDefinition=DEFAULT, preIntegrate=OFF, 
+    temperature=GRADIENT, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].resume()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, flipNormalDirection=False, flipPrimaryDirection=False, 
+    localCsys=None, normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, 
+    normalAxisRegion=mdb.models['BP-2'].parts['Box'].surfaces['top'], 
+    orientationType=DISCRETE, primaryAxisDefinition=EDGE, primaryAxisDirection=
+    AXIS_1, primaryAxisRegion=mdb.models['BP-2'].parts['Box'].sets['Set-2'], 
+    stackDirection=STACK_3)
+mdb.models['BP-2'].parts['Box'].Surface(name='Surf-2', side1Faces=
+    mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask((
+    '[#28294129 #14 ]', ), ))
+mdb.models['BP-2'].parts['Box'].CompositeLayup(description='', elementType=
+    SHELL, name='CompositeLayup-BOTTOM', offsetType=MIDDLE_SURFACE, symmetric=
+    False, thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].Section(
+    integrationRule=SIMPSON, poissonDefinition=DEFAULT, preIntegrate=OFF, 
+    temperature=GRADIENT, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, flipNormalDirection=False, flipPrimaryDirection=False, 
+    localCsys=None, normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, 
+    normalAxisRegion=mdb.models['BP-2'].parts['Box'].surfaces['Surf-2'], 
+    orientationType=DISCRETE, primaryAxisDefinition=EDGE, primaryAxisDirection=
+    AXIS_1, primaryAxisRegion=Region(
+    edges=mdb.models['BP-2'].parts['Box'].edges.getSequenceFromMask(mask=(
+    '[#88 #4000 ]', ), )), stackDirection=STACK_3)
+# Save by hakon on 2025_04_08-18.03.26; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].parts['Box'].CompositeLayup(description='', elementType=
+    SHELL, name='CompositeLayup-SIDE1', offsetType=MIDDLE_SURFACE, symmetric=
+    False, thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].Section(
+    integrationRule=SIMPSON, poissonDefinition=DEFAULT, preIntegrate=OFF, 
+    temperature=GRADIENT, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, flipNormalDirection=False, flipPrimaryDirection=False, 
+    localCsys=None, normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, 
+    normalAxisRegion=Region(
+    side1Faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), orientationType=DISCRETE, primaryAxisDefinition=EDGE
+    , primaryAxisDirection=AXIS_1, primaryAxisRegion=Region(
+    edges=mdb.models['BP-2'].parts['Box'].edges.getSequenceFromMask(mask=(
+    '[#800 #20000 #1000 ]', ), )), stackDirection=STACK_3)
+mdb.models['BP-2'].parts['Box'].CompositeLayup(description='', elementType=
+    SHELL, name='CompositeLayup-SIDE2', offsetType=MIDDLE_SURFACE, symmetric=
+    False, thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].Section(
+    integrationRule=SIMPSON, poissonDefinition=DEFAULT, preIntegrate=OFF, 
+    temperature=GRADIENT, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, flipNormalDirection=False, flipPrimaryDirection=False, 
+    localCsys=None, normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, 
+    normalAxisRegion=Region(
+    side1Faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), orientationType=DISCRETE, primaryAxisDefinition=
+    EDGE, primaryAxisDirection=AXIS_1, primaryAxisRegion=Region(
+    edges=mdb.models['BP-2'].parts['Box'].edges.getSequenceFromMask(mask=(
+    '[#0 #400 #8004 ]', ), )), stackDirection=STACK_3)
+mdb.models['BP-2'].parts['Box'].CompositeLayup(description='', elementType=
+    SHELL, name='CompositeLayup-SPAR', offsetType=MIDDLE_SURFACE, symmetric=
+    False, thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].Section(
+    integrationRule=SIMPSON, poissonDefinition=DEFAULT, preIntegrate=OFF, 
+    temperature=GRADIENT, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.5, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].resume()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, flipNormalDirection=False, flipPrimaryDirection=False, 
+    localCsys=None, normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, 
+    normalAxisRegion=Region(
+    side1Faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), orientationType=DISCRETE, primaryAxisDefinition=
+    EDGE, primaryAxisDirection=AXIS_1, primaryAxisRegion=Region(
+    edges=mdb.models['BP-2'].parts['Box'].edges.getSequenceFromMask(mask=(
+    '[#80000 #800000 #800 ]', ), )), stackDirection=STACK_3)
+# Save by hakon on 2025_04_08-18.07.26; build 2022 2021_09_15-19.57.30 176069
+# Save by hakon on 2025_04_08-18.07.43; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-2', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-2']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 18:08:53 2025', 
+    'jobName': 'Job-2'})
+# Save by hakon on 2025_04_08-18.23.27; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].FieldOutputRequest(createStepName='Step-Stat', 
+    layupLocationMethod=ALL_LOCATIONS, layupNames=('Box.CompositeLayup-TOP', ), 
+    name='fe_top', rebar=EXCLUDE, variables=('HSNFTCRT', 'HSNFCCRT', 
+    'HSNMTCRT', 'HSNMCCRT'))
+del mdb.jobs['Job-2']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-2', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-2']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 18:36:06 2025', 
+    'jobName': 'Job-2'})
+mdb.models['BP-2'].fieldOutputRequests['fe_top'].setValues(layupLocationMethod=
+    ALL_LOCATIONS, layupNames=('Box.CompositeLayup-TOP', ), rebar=EXCLUDE, 
+    variables=('HSNFCCRT', 'HSNFTCRT', 'HSNMCCRT', 'HSNMTCRT'))
+mdb.models['BP-2'].FieldOutputRequest(createStepName='Step-Stat', 
+    layupLocationMethod=ALL_LOCATIONS, layupNames=('Box.CompositeLayup-BOTTOM', 
+    ), name='fe_bottom', rebar=EXCLUDE, variables=('HSNFTCRT', 'HSNFCCRT', 
+    'HSNMTCRT', 'HSNMCCRT'))
+mdb.models['BP-2'].FieldOutputRequest(createStepName='Step-Stat', 
+    layupLocationMethod=ALL_LOCATIONS, layupNames=('Box.CompositeLayup-SIDE1', 
+    ), name='fe_side1', rebar=EXCLUDE, variables=('HSNFTCRT', 'HSNFCCRT', 
+    'HSNMTCRT', 'HSNMCCRT'))
+mdb.models['BP-2'].FieldOutputRequest(createStepName='Step-Stat', 
+    layupLocationMethod=ALL_LOCATIONS, layupNames=('Box.CompositeLayup-SIDE2', 
+    ), name='fe_side2', rebar=EXCLUDE, variables=('HSNFTCRT', 'HSNFCCRT', 
+    'HSNMTCRT', 'HSNMCCRT'))
+mdb.models['BP-2'].FieldOutputRequest(createStepName='Step-Stat', 
+    layupLocationMethod=ALL_LOCATIONS, layupNames=('Box.CompositeLayup-SPAR', )
+    , name='fe_spar', rebar=EXCLUDE, variables=('HSNFTCRT', 'HSNFCCRT', 
+    'HSNMTCRT', 'HSNMCCRT'))
+del mdb.jobs['Job-2']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-2', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-2']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 18:46:37 2025', 
+    'jobName': 'Job-2'})
+mdb.models['BP-2'].materials['S-glass/Epoxy'].elastic.setValues(table=((
+    48000.0, 11000.0, 0.3, 4200.0, 4200.0, 3600.0), ), type=LAMINA)
+# Save by hakon on 2025_04_08-18.55.21; build 2022 2021_09_15-19.57.30 176069
+# Save by hakon on 2025_04_08-18.55.21; build 2022 2021_09_15-19.57.30 176069
+# Save by hakon on 2025_04_08-18.56.00; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].fieldOutputRequests['fe_bottom'].setValues(
+    layupLocationMethod=ALL_LOCATIONS, variables=('CFAILURE', ))
+mdb.models['BP-2'].fieldOutputRequests['fe_side1'].setValues(
+    layupLocationMethod=ALL_LOCATIONS, variables=('CFAILURE', ))
+mdb.models['BP-2'].fieldOutputRequests['fe_side2'].setValues(
+    layupLocationMethod=ALL_LOCATIONS, variables=('CFAILURE', ))
+mdb.models['BP-2'].fieldOutputRequests['fe_spar'].setValues(
+    layupLocationMethod=ALL_LOCATIONS, variables=('CFAILURE', ))
+mdb.models['BP-2'].fieldOutputRequests['fe_top'].setValues(layupLocationMethod=
+    ALL_LOCATIONS, variables=('CFAILURE', ))
+# Save by hakon on 2025_04_08-19.00.01; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.jobs['Job-2']
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='BP-2', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Job-2', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, numThreadsPerMpiProcess=1, queue=None, resultsFormat=
+    ODB, scratch='', type=ANALYSIS, userSubroutine='', waitHours=0, 
+    waitMinutes=0)
+mdb.jobs['Job-2'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-2']._Message(JOB_COMPLETED, {'time': 'Tue Apr  8 19:01:09 2025', 
+    'jobName': 'Job-2'})
+# Save by hakon on 2025_04_08-19.04.51; build 2022 2021_09_15-19.57.30 176069
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#28294129 #14 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-BOTTOM'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1-Copy1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-2-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-3-Copy1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-4-Copy1', region=
+    Region(faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(
+    mask=('[#28294129 #14 ]', ), )), suppressed=False, thickness=0.25, 
+    thicknessType=SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+del mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP']
+mdb.models['BP-2'].parts['Box'].CompositeLayup(description='', elementType=
+    SHELL, name='CompositeLayup-TOP', offsetType=MIDDLE_SURFACE, symmetric=
+    False, thicknessAssignment=FROM_SECTION)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].Section(
+    integrationRule=SIMPSON, poissonDefinition=DEFAULT, preIntegrate=OFF, 
+    temperature=GRADIENT, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].resume()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-TOP'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, flipNormalDirection=False, flipPrimaryDirection=False, 
+    localCsys=None, normalAxisDefinition=SURFACE, normalAxisDirection=AXIS_3, 
+    normalAxisRegion=Region(
+    side1Faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#d7529a94 #3 ]', ), )), orientationType=DISCRETE, primaryAxisDefinition=
+    EDGE, primaryAxisDirection=AXIS_1, primaryAxisRegion=Region(
+    edges=mdb.models['BP-2'].parts['Box'].edges.getSequenceFromMask(mask=(
+    '[#220 #8000 ]', ), )), stackDirection=STACK_3)
+mdb.models['BP-2'].rootAssembly.regenerate()
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#2002 #20 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE1'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#800400 #8 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SIDE2'].resume(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].deletePlies(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].suppress(
+    )
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-2', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-3', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-4', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=-45.0, plyName='Ply-5', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=45.0, plyName='Ply-6', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-7', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='S-glass/Epoxy', numIntPoints=3, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-8', region=Region(
+    faces=mdb.models['BP-2'].parts['Box'].faces.getSequenceFromMask(mask=(
+    '[#40040 #40 ]', ), )), suppressed=False, thickness=0.25, thicknessType=
+    SPECIFY_THICKNESS)
+mdb.models['BP-2'].parts['Box'].compositeLayups['CompositeLayup-SPAR'].resume()
+# Save by hakon on 2025_04_08-19.13.55; build 2022 2021_09_15-19.57.30 176069

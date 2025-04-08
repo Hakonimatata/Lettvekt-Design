@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2022                                  Date 31-mar-2025   Time 15:23:24
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:00:57
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -18,7 +18,7 @@
 
      THE SUBSPACE ITERATION METHOD IS USED FOR THIS ANALYSIS
      NUMBER OF EIGENVALUES                      2
-     MAXIMUM NUMBER OF ITERATIONS                    500
+     MAXIMUM NUMBER OF ITERATIONS                    700
      NUMBER OF VECTORS IN ITERATION                    4
      THE BUCKLING MODE CONSTRAINTS 
       ARE DEFINED AS LOAD CASE 2
@@ -30,7 +30,7 @@
 
      EXTRAPOLATION WILL NOT BE USED
 
-     CHARACTERISTIC ELEMENT LENGTH      5.11    
+     CHARACTERISTIC ELEMENT LENGTH      18.5    
 
      DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
 
@@ -40,357 +40,541 @@
  
 	SYMMETRIC DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST:        1 MPI RANK  x 1 THREAD
- 	NUMBER OF EQUATIONS:     12756
+ 	NUMBER OF EQUATIONS:     17064
  	NUMBER OF RHS:           1
- 	NUMBER OF FLOPS:         5.453e+08
+ 	NUMBER OF FLOPS:         6.195e+08
 
      CHECK POINT   START OF SOLVER    
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =  0.20000    
-       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED USER TIME (SEC)      =  0.10000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
        ELAPSED TOTAL CPU TIME (SEC) =  0.20000    
        ELAPSED WALLCLOCK TIME (SEC) =          0
  
      ITERATION 1
-      1       4.704835e+01     
-      2       9.533291e+01     
-      3       -1.214745e+02    
-      4       2.459401e+02     
+      1       1.998141e+01     
+      2       -9.150305e+01    
+      3       -3.519317e+02    
+      4       7.907241e+02     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 2
-      1       -4.641939e+00    
-      2       -8.449772e+00    
-      3       9.872769e+00     
-      4       2.147102e+01     
+      1       5.225019e+00     
+      2       1.677706e+01     
+      3       2.723836e+01     
+      4       5.093744e+01     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 3
-      1       -2.392010e+00    
-      2       -5.233406e+00    
-      3       9.711418e+00     
-      4       7.377233e+01     
+      1       3.640400e+00     
+      2       5.436758e+00     
+      3       6.851948e+00     
+      4       8.395152e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 4
-      1       -1.818101e+00    
-      2       -4.749028e+00    
-      3       2.905031e+01     
-      4       -3.214504e+01    
+      1       3.143030e+00     
+      2       3.523698e+00     
+      3       4.314044e+00     
+      4       4.682298e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 5
-      1       -1.554606e+00    
-      2       -4.684845e+00    
-      3       -6.508312e+00    
-      4       2.355043e+01     
+      1       2.922184e+00     
+      2       2.994940e+00     
+      3       3.526814e+00     
+      4       3.634521e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 6
-      1       -1.424467e+00    
-      2       -3.444455e+00    
-      3       -4.645427e+00    
-      4       8.691029e+00     
+      1       2.799099e+00     
+      2       2.809966e+00     
+      3       3.112316e+00     
+      4       3.351380e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 7
-      1       -1.362208e+00    
-      2       -2.397617e+00    
-      3       3.667991e+00     
-      4       -4.678330e+00    
+      1       2.705037e+00     
+      2       2.749510e+00     
+      3       2.928119e+00     
+      4       3.235217e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 8
-      1       -1.332894e+00    
-      2       -1.931207e+00    
-      3       2.227191e+00     
-      4       -5.221471e+00    
+      1       2.650215e+00     
+      2       2.716461e+00     
+      3       2.839071e+00     
+      4       3.179345e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 9
-      1       -1.318750e+00    
-      2       -1.696927e+00    
-      3       1.813484e+00     
-      4       -6.582331e+00    
+      1       2.616815e+00     
+      2       2.693714e+00     
+      3       2.791695e+00     
+      4       3.149069e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 10
-      1       -1.311421e+00    
-      2       -1.558287e+00    
-      3       1.672539e+00     
-      4       -9.744306e+00    
+      1       2.595367e+00     
+      2       2.674755e+00     
+      3       2.765251e+00     
+      4       3.130596e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 11
-      1       -1.307135e+00    
-      2       -1.467936e+00    
-      3       1.608102e+00     
-      4       -2.095189e+01    
+      1       2.580855e+00     
+      2       2.658018e+00     
+      3       2.749944e+00     
+      4       3.117948e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 12
-      1       -1.304196e+00    
-      2       -1.406768e+00    
-      3       1.570480e+00     
-      4       9.681843e+01     
+      1       2.570648e+00     
+      2       2.643367e+00     
+      3       2.740591e+00     
+      4       3.108366e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 13
-      1       -1.301717e+00    
-      2       -1.364938e+00    
-      3       1.545145e+00     
-      4       1.438330e+01     
+      1       2.563299e+00     
+      2       2.630692e+00     
+      3       2.734512e+00     
+      4       3.100513e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 14
-      1       -1.298945e+00    
-      2       -1.336778e+00    
-      3       1.526412e+00     
-      4       7.814074e+00     
+      1       2.557940e+00     
+      2       2.619753e+00     
+      3       2.730339e+00     
+      4       3.093718e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 15
-      1       -1.294733e+00    
-      2       -1.319287e+00    
-      3       1.511317e+00     
-      4       5.436337e+00     
+      1       2.554008e+00     
+      2       2.610281e+00     
+      3       2.727347e+00     
+      4       3.087625e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 16
-      1       -1.288273e+00    
-      2       -1.310484e+00    
-      3       1.498061e+00     
-      4       4.237801e+00     
+      1       2.551116e+00     
+      2       2.602032e+00     
+      3       2.725127e+00     
+      4       3.082036e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 17
-      1       -1.281310e+00    
-      2       -1.306704e+00    
-      3       1.485523e+00     
-      4       3.534509e+00     
+      1       2.548987e+00     
+      2       2.594807e+00     
+      3       2.723437e+00     
+      4       3.076832e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 18
-      1       -1.275557e+00    
-      2       -1.304897e+00    
-      3       1.473056e+00     
-      4       3.085495e+00     
+      1       2.547419e+00     
+      2       2.588449e+00     
+      3       2.722121e+00     
+      4       3.071936e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 19
-      1       -1.271257e+00    
-      2       -1.303879e+00    
-      3       1.460387e+00     
-      4       2.783957e+00     
+      1       2.546264e+00     
+      2       2.582830e+00     
+      3       2.721080e+00     
+      4       3.067289e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 20
-      1       -1.268158e+00    
-      2       -1.303240e+00    
-      3       1.447543e+00     
-      4       2.575100e+00     
+      1       2.545413e+00     
+      2       2.577851e+00     
+      3       2.720243e+00     
+      4       3.062844e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 21
-      1       -1.265960e+00    
-      2       -1.302812e+00    
-      3       1.434756e+00     
-      4       2.427758e+00     
+      1       2.544785e+00     
+      2       2.573431e+00     
+      3       2.719562e+00     
+      4       3.058556e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 22
-      1       -1.264415e+00    
-      2       -1.302514e+00    
-      3       1.422371e+00     
-      4       2.322796e+00     
+      1       2.544319e+00     
+      2       2.569503e+00     
+      3       2.719001e+00     
+      4       3.054386e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 23
-      1       -1.263333e+00    
-      2       -1.302302e+00    
-      3       1.410733e+00     
-      4       2.247799e+00     
+      1       2.543972e+00     
+      2       2.566010e+00     
+      3       2.718535e+00     
+      4       3.050290e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 24
-      1       -1.262580e+00    
-      2       -1.302149e+00    
-      3       1.400119e+00     
-      4       2.194393e+00     
+      1       2.543710e+00     
+      2       2.562905e+00     
+      3       2.718143e+00     
+      4       3.046225e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 25
-      1       -1.262055e+00    
-      2       -1.302038e+00    
-      3       1.390693e+00     
-      4       2.156783e+00     
+      1       2.543511e+00     
+      2       2.560146e+00     
+      3       2.717811e+00     
+      4       3.042145e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 26
-      1       -1.261692e+00    
-      2       -1.301956e+00    
-      3       1.382513e+00     
-      4       2.130885e+00     
+      1       2.543354e+00     
+      2       2.557696e+00     
+      3       2.717527e+00     
+      4       3.037998e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 27
-      1       -1.261440e+00    
-      2       -1.301896e+00    
-      3       1.375546e+00     
-      4       2.113780e+00     
+      1       2.543228e+00     
+      2       2.555526e+00     
+      3       2.717281e+00     
+      4       3.033728e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 28
-      1       -1.261265e+00    
-      2       -1.301852e+00    
-      3       1.369703e+00     
-      4       2.103352e+00     
+      1       2.543120e+00     
+      2       2.553605e+00     
+      3       2.717067e+00     
+      4       3.029272e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 29
-      1       -1.261145e+00    
-      2       -1.301819e+00    
-      3       1.364863e+00     
-      4       2.098046e+00     
+      1       2.543023e+00     
+      2       2.551911e+00     
+      3       2.716879e+00     
+      4       3.024562e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 30
-      1       -1.261062e+00    
-      2       -1.301795e+00    
-      3       1.360891e+00     
-      4       2.096707e+00     
+      1       2.542928e+00     
+      2       2.550423e+00     
+      3       2.716711e+00     
+      4       3.019520e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 31
-      1       -1.261004e+00    
-      2       -1.301777e+00    
-      3       1.357656e+00     
-      4       2.098458e+00     
+      1       2.542828e+00     
+      2       2.549124e+00     
+      3       2.716561e+00     
+      4       3.014061e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 32
-      1       -1.260965e+00    
-      2       -1.301764e+00    
-      3       1.355037e+00     
-      4       2.102628e+00     
+      1       2.542715e+00     
+      2       2.547999e+00     
+      3       2.716424e+00     
+      4       3.008093e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 33
-      1       -1.260938e+00    
-      2       -1.301755e+00    
-      3       1.352927e+00     
-      4       2.108696e+00     
+      1       2.542580e+00     
+      2       2.547040e+00     
+      3       2.716299e+00     
+      4       3.001517e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 34
-      1       -1.260919e+00    
-      2       -1.301747e+00    
-      3       1.351233e+00     
-      4       2.116252e+00     
+      1       2.542413e+00     
+      2       2.546238e+00     
+      3       2.716182e+00     
+      4       2.994234e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 35
-      1       -1.260906e+00    
-      2       -1.301742e+00    
-      3       1.349876e+00     
-      4       2.124968e+00     
+      1       2.542204e+00     
+      2       2.545589e+00     
+      3       2.716072e+00     
+      4       2.986144e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 36
-      1       -1.260897e+00    
-      2       -1.301738e+00    
-      3       1.348791e+00     
-      4       2.134581e+00     
+      1       2.541952e+00     
+      2       2.545084e+00     
+      3       2.715967e+00     
+      4       2.977154e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 37
-      1       -1.260891e+00    
-      2       -1.301735e+00    
-      3       1.347926e+00     
-      4       2.144880e+00     
+      1       2.541660e+00     
+      2       2.544704e+00     
+      3       2.715865e+00     
+      4       2.967191e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 38
-      1       -1.260887e+00    
-      2       -1.301733e+00    
-      3       1.347236e+00     
-      4       2.155689e+00     
+      1       2.541343e+00     
+      2       2.544427e+00     
+      3       2.715766e+00     
+      4       2.956207e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 39
-      1       -1.260884e+00    
-      2       -1.301732e+00    
-      3       1.346686e+00     
-      4       2.166868e+00     
+      1       2.541018e+00     
+      2       2.544227e+00     
+      3       2.715668e+00     
+      4       2.944191e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 40
-      1       -1.260882e+00    
-      2       -1.301730e+00    
-      3       1.346249e+00     
-      4       2.178297e+00     
+      1       2.540699e+00     
+      2       2.544082e+00     
+      3       2.715569e+00     
+      4       2.931182e+00     
  
-     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
  
      ITERATION 41
-      1       -1.260881e+00    
-      2       -1.301730e+00    
-      3       1.345900e+00     
-      4       2.189881e+00     
+      1       2.540396e+00     
+      2       2.543974e+00     
+      3       2.715468e+00     
+      4       2.917276e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 42
+      1       2.540116e+00     
+      2       2.543893e+00     
+      3       2.715363e+00     
+      4       2.902626e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 43
+      1       2.539860e+00     
+      2       2.543831e+00     
+      3       2.715253e+00     
+      4       2.887446e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 44
+      1       2.539630e+00     
+      2       2.543783e+00     
+      3       2.715136e+00     
+      4       2.871991e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 45
+      1       2.539425e+00     
+      2       2.543745e+00     
+      3       2.715010e+00     
+      4       2.856548e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 46
+      1       2.539245e+00     
+      2       2.543715e+00     
+      3       2.714872e+00     
+      4       2.841407e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 47
+      1       2.539088e+00     
+      2       2.543690e+00     
+      3       2.714719e+00     
+      4       2.826844e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 48
+      1       2.538954e+00     
+      2       2.543671e+00     
+      3       2.714547e+00     
+      4       2.813095e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 49
+      1       2.538839e+00     
+      2       2.543655e+00     
+      3       2.714354e+00     
+      4       2.800348e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 50
+      1       2.538743e+00     
+      2       2.543643e+00     
+      3       2.714133e+00     
+      4       2.788730e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 51
+      1       2.538664e+00     
+      2       2.543632e+00     
+      3       2.713881e+00     
+      4       2.778311e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 52
+      1       2.538599e+00     
+      2       2.543624e+00     
+      3       2.713590e+00     
+      4       2.769108e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 53
+      1       2.538547e+00     
+      2       2.543618e+00     
+      3       2.713255e+00     
+      4       2.761094e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 54
+      1       2.538505e+00     
+      2       2.543613e+00     
+      3       2.712871e+00     
+      4       2.754213e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 55
+      1       2.538472e+00     
+      2       2.543609e+00     
+      3       2.712434e+00     
+      4       2.748382e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 56
+      1       2.538447e+00     
+      2       2.543606e+00     
+      3       2.711943e+00     
+      4       2.743505e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 0
+ 
+     ITERATION 57
+      1       2.538427e+00     
+      2       2.543604e+00     
+      3       2.711401e+00     
+      4       2.739479e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
  
-     ITERATION 42
-      1       -1.260880e+00    
-      2       -1.301729e+00    
-      3       1.345623e+00     
-      4       2.201538e+00     
+     ITERATION 58
+      1       2.538412e+00     
+      2       2.543602e+00     
+      3       2.710818e+00     
+      4       2.736196e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 59
+      1       2.538400e+00     
+      2       2.543601e+00     
+      3       2.710208e+00     
+      4       2.733548e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 60
+      1       2.538392e+00     
+      2       2.543600e+00     
+      3       2.709589e+00     
+      4       2.731430e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 61
+      1       2.538385e+00     
+      2       2.543599e+00     
+      3       2.708980e+00     
+      4       2.729746e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 62
+      1       2.538381e+00     
+      2       2.543599e+00     
+      3       2.708399e+00     
+      4       2.728412e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 63
+      1       2.538377e+00     
+      2       2.543598e+00     
+      3       2.707859e+00     
+      4       2.727355e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 64
+      1       2.538375e+00     
+      2       2.543598e+00     
+      3       2.707367e+00     
+      4       2.726516e+00     
+ 
+     NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 1
+ 
+     ITERATION 65
+      1       2.538373e+00     
+      2       2.543598e+00     
+      3       2.706929e+00     
+      4       2.725847e+00     
  
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 2
 1
 
-   Abaqus 2022                                  Date 31-mar-2025   Time 15:23:28
+   Abaqus 2022                                  Date 08-apr-2025   Time 19:01:05
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -481,7 +665,7 @@
 
      LINEAR EXTRAPOLATION WILL BE USED
 
-     CHARACTERISTIC ELEMENT LENGTH      5.11    
+     CHARACTERISTIC ELEMENT LENGTH      18.5    
 
      DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
 
@@ -498,9 +682,9 @@
  
 	SYMMETRIC DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST:        1 MPI RANK  x 1 THREAD
- 	NUMBER OF EQUATIONS:     12756
+ 	NUMBER OF EQUATIONS:     17064
  	NUMBER OF RHS:           1
- 	NUMBER OF FLOPS:         5.564e+08
+ 	NUMBER OF FLOPS:         6.083e+08
 
      CHECK POINT   START OF SOLVER    
 
@@ -514,21 +698,21 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       75.2       TIME AVG. FORCE        75.2    
- LARGEST RESIDUAL FORCE            -8.330E-11   AT NODE       1917   DOF  3
+ AVERAGE FORCE                       23.4       TIME AVG. FORCE        23.4    
+ LARGEST RESIDUAL FORCE            -7.047E-09   AT NODE          2   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         -31.0       AT NODE       2899   DOF  3
    INSTANCE: BOX                                                                             
- LARGEST INCREMENT OF DISP.         -1.03       AT NODE       1381   DOF  3
-   INSTANCE: BOX                                                                             
- LARGEST CORRECTION TO DISP.        -1.03       AT NODE       1381   DOF  3
+ LARGEST CORRECTION TO DISP.        -31.0       AT NODE       2899   DOF  3
    INSTANCE: BOX                                                                             
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                      3.71       TIME AVG. MOMENT       3.71    
- LARGEST RESIDUAL MOMENT            7.554E-10   AT NODE          1   DOF  5
+ AVERAGE MOMENT                      2.35       TIME AVG. MOMENT       2.35    
+ LARGEST RESIDUAL MOMENT            1.316E-08   AT NODE          1   DOF  5
    INSTANCE:                                                                                 
- LARGEST INCREMENT OF ROTATION     -2.695E-02   AT NODE        172   DOF  4
+ LARGEST INCREMENT OF ROTATION      2.711E-02   AT NODE        275   DOF  5
    INSTANCE: BOX                                                                             
- LARGEST CORRECTION TO ROTATION    -2.695E-02   AT NODE        172   DOF  4
+ LARGEST CORRECTION TO ROTATION     2.711E-02   AT NODE        275   DOF  5
    INSTANCE: BOX                                                                             
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
@@ -553,7 +737,7 @@
                        1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
                        0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
                        0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
-                       0  WARNING MESSAGES DURING USER INPUT PROCESSING
+                       2  WARNING MESSAGES DURING USER INPUT PROCESSING
                        0  WARNING MESSAGES DURING ANALYSIS
                        0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
                        0  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
@@ -562,7 +746,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   4.3000    
-       SYSTEM TIME (SEC)    =  0.30000    
-       TOTAL CPU TIME (SEC) =   4.6000    
-       WALLCLOCK TIME (SEC) =          5
+       USER TIME (SEC)      =   7.3000    
+       SYSTEM TIME (SEC)    =  0.90000    
+       TOTAL CPU TIME (SEC) =   8.2000    
+       WALLCLOCK TIME (SEC) =          9

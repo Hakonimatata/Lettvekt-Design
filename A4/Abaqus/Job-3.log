@@ -3,9 +3,9 @@ Abaqus JOB Job-3
 Abaqus 2022
 Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server abaqus.lisens.ntnu.no.
-<835 out of 1000 licenses remain available>.
+<641 out of 1000 licenses remain available>.
 Begin Analysis Input File Processor
-31.03.2025 18:52:15
+08.04.2025 19:14:18
 Run pre.exe
 
  ***WARNING: Interactive messaging has been requested for this analysis run, 
@@ -13,10 +13,10 @@ Run pre.exe
              no messages will be sent to Abaqus/CAE for this phase of the 
              analysis.
 Warning: Failed initial connection to umbrella
-31.03.2025 18:52:34
+08.04.2025 19:14:37
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-31.03.2025 18:52:34
+08.04.2025 19:14:37
 Run standard.exe
 Warning: Failed initial connection to umbrella
 
@@ -24,11 +24,11 @@ Warning: Failed initial connection to umbrella
              but initialization of the messaging system has failed.  Therefore 
              no messages will be sent to Abaqus/CAE for this phase of the 
              analysis.
-31.03.2025 18:53:39
+08.04.2025 19:15:05
 End Abaqus/Standard Analysis
 Begin SIM Wrap-up
-31.03.2025 18:53:40
+08.04.2025 19:15:06
 Run SMASimUtility.exe
-31.03.2025 18:53:40
+08.04.2025 19:15:07
 End SIM Wrap-up
 Abaqus JOB Job-3 COMPLETED
