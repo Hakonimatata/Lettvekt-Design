@@ -30,15 +30,6 @@ def matlib(modelname):
     mat.elastic.FailStress(table=((mcfrp['XT'], mcfrp['XC'], mcfrp['YT'], mcfrp['YC'], mcfrp['S12'], mcfrp['f12'], 0.0), ))
 
 
-def matlib(modelname):
-    mod = mdb.models[modelname]
-    mat = mod.Material('Carbon/Epoxy(a)')
-    mat.Density(table=((1600e-12, ), ))
-    mat.Elastic(type=ENGINEERING_CONSTANTS, 
-        table=((130000.0, 10000.0, 10000.0, 0.28, 0.28, 0.5, 4500.0, 4500.0, 3500.0,), ))
-    mat.elastic.FailStress(table=((1800.0, 1200.0, 40.0, 180.0, 70.0, -0.5, 0.0), ))
-
-
 def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
 
     # Define length from edge to point load
