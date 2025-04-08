@@ -3,33 +3,40 @@ from abaqusConstants import *
 import numpy as np
 
 mcfrp = {
-    "name": "Carbon/Epoxy(a)", 
-    "units": "MPa-mm-Mg", "type": "UD", "fiber": "Carbon",
-    "Vf": 0.55, 
-    "rho": 1.6E-9,
-    "description": "Typical low modulus carbon/Epoxy from TMM4175",  
-    "E1": 130000, 
-    "E2": 10000, 
-    "E3": 10000, 
-    "v12": 0.28, "v13": 0.28, "v23": 0.5, 
-    "G12": 4500, "G13": 4500, "G23": 3500, 
-    "a1": -0.5e-06, "a2": 3.0e-05, "a3": 3.0e-05, 
-    "XT": 1800, "YT": 40, "ZT": 40,
-    "XC": 1200, "YC": 180, "ZC": 180,
+    "name": "S-glass/Epoxy", "units": "MPa-mm-Mg", "type": "UD", "fiber": "S-glass",
+    "Vf": 0.55, "rho": 2000E-12,
+    "description": "Typical UD S-glass/Epoxy from TMM4175",  
+    "E1": 48000, "E2": 11000, "E3": 11000, 
+    "v12": 0.3, "v13": 0.3, "v23": 0.4, 
+    "G12": 4200, "G13": 4200, "G23": 3600, 
+    "a1": 4e-06, "a2": 2.0e-05, "a3": 2.0e-05, 
+    "XT": 1300, "YT": 40, "ZT": 40,
+    "XC": 800, "YC": 140, "ZC": 140,
     "S12": 70, "S13": 70, "S23": 40,
     "f12":-0.5, "f13":-0.5, "f23":-0.5
-}
+} 
+
 
 def matlib(modelname):
     mod = mdb.models[modelname]
     
-    # Definerer Carbon/Epoxy(a)
-    mat = mod.Material('Carbon/Epoxy(a)')
+    # Definerer material
+    mat = mod.Material(mcfrp['name'])
     mat.Density(table=((mcfrp['rho'], ), ))
     mat.Elastic(type=ENGINEERING_CONSTANTS, 
                 table=((mcfrp['E1'], mcfrp['E2'], mcfrp['E3'], 
                         mcfrp['v12'], mcfrp['v13'], mcfrp['v23'], 
                         mcfrp['G12'], mcfrp['G13'], mcfrp['G23']), ))
+    mat.elastic.FailStress(table=((mcfrp['XT'], mcfrp['XC'], mcfrp['YT'], mcfrp['YC'], mcfrp['S12'], mcfrp['f12'], 0.0), ))
+
+
+def matlib(modelname):
+    mod = mdb.models[modelname]
+    mat = mod.Material('Carbon/Epoxy(a)')
+    mat.Density(table=((1600e-12, ), ))
+    mat.Elastic(type=ENGINEERING_CONSTANTS, 
+        table=((130000.0, 10000.0, 10000.0, 0.28, 0.28, 0.5, 4500.0, 4500.0, 3500.0,), ))
+    mat.elastic.FailStress(table=((1800.0, 1200.0, 40.0, 180.0, 70.0, -0.5, 0.0), ))
 
 
 def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
@@ -114,7 +121,7 @@ def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
     id = prt.DatumPlaneByPrincipalPlane(principalPlane=XYPLANE, offset=(load_pos - wheel_length)).id
     prt.PartitionFaceByDatumPlane(datumPlane=prt.datums[id], faces=prt.faces)
 
-
+    """
     # Material and section 
     mat = mod.Material(name='Alu')
     mat.Density(table=((2.7E-9, ), ))
@@ -129,6 +136,8 @@ def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
     prt.SectionAssignment(region=region, sectionName='Section-shell', offset=0.0, 
         offsetType=MIDDLE_SURFACE, offsetField='', thicknessAssignment=FROM_SECTION)
    
+   """
+
     # Mesh
     prt.setMeshControls(regions=prt.faces, elemShape=QUAD, technique=STRUCTURED)
     prt.seedPart(size=esize, deviationFactor=0.1, minSizeFactor=0.1)
@@ -198,7 +207,8 @@ def boxpro(modelname, L, b, h, t, n_spars, esize, applied_mass, profile=1):
     # Job:
     # job = mdb.Job(name=modelname, model=modelname)
     # job.submit()
+
     
-boxpro(modelname='BP-1', L=1800, b=200, h=75, t=0.5, n_spars=0, esize=18, applied_mass=0.05, profile=2)
-# boxpro(modelname='BP-2', L=1800, b=200, h=75, t=0.5, n_spars=1, esize=18, applied_mass=0.05, profile=2)
+# boxpro(modelname='BP-1', L=1800, b=200, h=75, t=0.5, n_spars=0, esize=18, applied_mass=0.05, profile=2)
+boxpro(modelname='BP-2', L=1800, b=200, h=75, t=0.5, n_spars=1, esize=18, applied_mass=0.05, profile=2)
 # boxpro(modelname='BP-3', L=1800, b=200, h=75, t=0.5, n_spars=2, esize=18, applied_mass=0.05, profile=2)

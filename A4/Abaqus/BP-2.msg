@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:16
+   Abaqus 2022                                  Date 08-apr-2025   Time 17:14:38
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -590,7 +590,7 @@
      NUMBER OF EIGENVALUES CONVERGED UPTO THIS ITERATION = 2
 1
 
-   Abaqus 2022                                  Date 04-apr-2025   Time 14:12:24
+   Abaqus 2022                                  Date 08-apr-2025   Time 17:14:46
    For use by NORGES TEKNISK NATURVITENSKAPELIGE UNIVERSITET under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -762,7 +762,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   7.3000    
-       SYSTEM TIME (SEC)    =   1.4000    
-       TOTAL CPU TIME (SEC) =   8.7000    
-       WALLCLOCK TIME (SEC) =          8
+       USER TIME (SEC)      =   7.6000    
+       SYSTEM TIME (SEC)    =   1.0000    
+       TOTAL CPU TIME (SEC) =   8.6000    
+       WALLCLOCK TIME (SEC) =          9
