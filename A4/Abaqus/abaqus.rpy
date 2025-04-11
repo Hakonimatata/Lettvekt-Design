@@ -633,3 +633,7 @@ session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
     'Magnitude'), )
 session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
     variableLabel='U', outputPosition=NODAL, refinement=(COMPONENT, 'U3'), )
+mdb.save()
+#: The model database has been saved to "C:\Users\hakon\Skrivebord\Skole\Lettvekt Design\A4\Abaqus\Composite_beam_hakon.cae".
+mdb.save()
+#: The model database has been saved to "C:\Users\hakon\Skrivebord\Skole\Lettvekt Design\A4\Abaqus\Composite_beam_hakon.cae".
