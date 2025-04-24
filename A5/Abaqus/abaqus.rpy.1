@@ -1,0 +1,205 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2022 replay file
+# Internal Version: 2021_09_15-19.57.30 176069
+# Run by hakon on Tue Apr 22 11:07:24 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=165.472229003906, 
+    height=145.69792175293)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#: The interaction property "Contact-properties" has been created.
+#: The interaction "ContactBolt" has been created.
+p = mdb.models['A4'].parts['Bolt']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1918.46, 
+    farPlane=2920.81, width=915.183, height=424.481, viewOffsetX=-2.83862, 
+    viewOffsetY=3.90994)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2011.86, 
+    farPlane=2845.49, width=959.737, height=445.146, cameraPosition=(1602.73, 
+    -801.504, 1990.16), cameraUpVector=(-0.20639, 0.972663, 0.106444), 
+    cameraTarget=(546.686, 24.0757, -24.247), viewOffsetX=-2.97681, 
+    viewOffsetY=4.10029)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1807.38, 
+    farPlane=2973.57, width=862.193, height=399.903, cameraPosition=(-1248.18, 
+    -851.906, 1358.88), cameraUpVector=(0.297099, 0.884833, 0.358891), 
+    cameraTarget=(534.692, 21.9045, -24.048), viewOffsetX=-2.67426, 
+    viewOffsetY=3.68355)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2146.03, 
+    farPlane=2659.77, width=1023.74, height=474.833, cameraPosition=(853.324, 
+    -1179.04, 2034.72), cameraUpVector=(-0.110906, 0.974161, 0.19675), 
+    cameraTarget=(510.782, 27.7827, -34.3206), viewOffsetX=-3.17534, 
+    viewOffsetY=4.37374)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1932.63, 
+    farPlane=2871.43, width=921.941, height=427.615, cameraPosition=(1738.94, 
+    -714.025, 1911.16), cameraUpVector=(-0.315203, 0.938347, 0.141957), 
+    cameraTarget=(504.532, 25.165, -34.2227), viewOffsetX=-2.85958, 
+    viewOffsetY=3.93881)
+#: Job A4 completed successfully. 
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/A4.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/A4.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       8
+#: Number of Node Sets:          9
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1762.94, 
+    farPlane=2568.5, width=919.748, height=426.598, cameraPosition=(-341.919, 
+    767.451, 1833.79), cameraUpVector=(-0.653855, 0.0920926, -0.750994), 
+    cameraTarget=(570.911, 33.0133, -27.0507))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1572.84, 
+    farPlane=2764.03, width=820.57, height=380.597, cameraPosition=(2318.53, 
+    -12.4515, 1259.87), cameraUpVector=(-0.817344, 0.0607684, 0.572936), 
+    cameraTarget=(530.09, 44.9799, -18.2446))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1500.03, 
+    farPlane=2837.47, width=782.586, height=362.979, cameraPosition=(2697.46, 
+    103.871, 328.201), cameraUpVector=(-0.474598, 0.168222, 0.863978), 
+    cameraTarget=(524.757, 43.3428, -5.13281))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1661.7, 
+    farPlane=2674.73, width=866.934, height=402.102, cameraPosition=(1882.34, 
+    -1546.85, 639.177), cameraUpVector=(-0.30692, 0.519014, 0.797763), 
+    cameraTarget=(536.109, 66.331, -9.46352))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1708.84, 
+    farPlane=2627.61, width=473.695, height=219.71, viewOffsetX=-114.402, 
+    viewOffsetY=32.0736)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1646.61, 
+    farPlane=2809.59, width=456.446, height=211.709, cameraPosition=(-1481.55, 
+    625.605, -728.101), cameraUpVector=(-0.11897, -0.457038, 0.881455), 
+    cameraTarget=(455.541, -155.08, -39.876), viewOffsetX=-110.237, 
+    viewOffsetY=30.9057)
+session.viewports['Viewport: 1'].view.setValues(session.views['Back'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2127.5, 
+    farPlane=2270.59, width=341.8, height=158.534, viewOffsetX=453.655, 
+    viewOffsetY=7.21901)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='TSAIW', outputPosition=INTEGRATION_POINT, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2134.29, 
+    farPlane=2263.8, width=296.743, height=137.635, viewOffsetX=467.74, 
+    viewOffsetY=5.79882)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2100.26, 
+    farPlane=2827.99, width=292.011, height=135.441, cameraPosition=(-735.548, 
+    -42.032, -2099.19), cameraUpVector=(0.00394319, 0.999098, -0.0422755), 
+    cameraTarget=(474.919, 30.8136, -264.725), viewOffsetX=460.283, 
+    viewOffsetY=5.70637)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2101.81, 
+    farPlane=2654.67, width=292.227, height=135.541, cameraPosition=(-280.994, 
+    -95.2405, -2224.03), cameraUpVector=(-0.0112982, 0.99825, -0.0580539), 
+    cameraTarget=(566.258, 32.1301, -198.752), viewOffsetX=460.622, 
+    viewOffsetY=5.71057)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1981.81, 
+    farPlane=2774.67, width=1087.8, height=504.546, viewOffsetX=369.223, 
+    viewOffsetY=2.41544)
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1887.15, 
+    farPlane=2950.43, width=900.247, height=417.553, cameraPosition=(2022.51, 
+    -1541.25, 1000.75), cameraUpVector=(-0.360281, 0.619801, 0.697169), 
+    cameraTarget=(502.178, 34.509, -28.9259), viewOffsetX=-2.79229, 
+    viewOffsetY=3.84613)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1953.85, 
+    farPlane=2883.73, width=486.224, height=225.521, viewOffsetX=-165.644, 
+    viewOffsetY=85.0562)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1889.07, 
+    farPlane=2901.35, width=470.103, height=218.043, cameraPosition=(2211.95, 
+    -1287.61, 1009.06), cameraUpVector=(-0.406191, 0.612516, 0.67811), 
+    cameraTarget=(487.022, 46.3292, -39.6932), viewOffsetX=-160.152, 
+    viewOffsetY=82.2362)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1914.91, 
+    farPlane=2875.5, width=314.86, height=146.039, viewOffsetX=-183.073, 
+    viewOffsetY=109.253)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2434.02, 
+    farPlane=2698.75, width=400.215, height=185.628, cameraPosition=(646.358, 
+    -1961, 1594.56), cameraUpVector=(0.154508, 0.871686, 0.46507), 
+    cameraTarget=(523.512, -156.454, -12.6748), viewOffsetX=-232.702, 
+    viewOffsetY=138.87)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2439.24, 
+    farPlane=2693.54, width=280.228, height=129.976, viewOffsetX=-398.951, 
+    viewOffsetY=81.4763)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2455.56, 
+    farPlane=2690.63, width=282.103, height=130.845, cameraPosition=(602.049, 
+    -1938.36, 1636.96), cameraUpVector=(0.167639, 0.87789, 0.44856), 
+    cameraTarget=(520.026, -164.292, -6.40092), viewOffsetX=-401.62, 
+    viewOffsetY=82.0213)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2483.23, 
+    farPlane=2891.26, width=285.281, height=132.319, cameraPosition=(-201.66, 
+    -199.193, 2596.05), cameraUpVector=(0.498325, 0.838255, -0.221361), 
+    cameraTarget=(404.826, -216.119, 253.71), viewOffsetX=-406.145, 
+    viewOffsetY=82.9454)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#* Shell extrude feature failed
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 128, in <module>
+#*     joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, 
+#* esize=5, Nx=1000)
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 28, in joint_4
+#*     prt.BaseShell(sketch=ske)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#* Shell extrude feature failed
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 128, in <module>
+#*     joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, 
+#* esize=5, Nx=1000)
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 28, in joint_4
+#*     prt.BaseShell(sketch=ske)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#* IndentationError: ('expected an indented block', 
+#* ('C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 27, 
+#* 7, "    prt = mod.Part(name='Plate', dimensionality=THREE_D, 
+#* type=DEFORMABLE_BODY)\n"))
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#: The interaction property "Contact-properties" has been created.
+#: The interaction "ContactBolt" has been created.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1823.89, 
+    farPlane=2903.36, width=954.034, height=442.501, cameraPosition=(-938.282, 
+    1437.94, 1261.73), cameraUpVector=(0.131309, 0.393301, -0.909985), 
+    cameraTarget=(547.7, 23.7132, -21.4125))

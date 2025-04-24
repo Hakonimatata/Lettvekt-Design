@@ -1,0 +1,1485 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2022 replay file
+# Internal Version: 2021_09_15-19.57.30 176069
+# Run by hakon on Thu Apr 24 10:25:06 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=223.052093505859, 
+    height=199.851852416992)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#* SyntaxError: ('invalid syntax', ('C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script.py', 77, 52, "            suppressed=False, 
+#* plyName=f'Ply-{plyno}', region=reg,\n"))
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#* SyntaxError: ('invalid syntax', ('C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script.py', 115, 31, "        inst_name = f'Bolt-{i}'\n"))
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#* ValueError: Given interaction property does not exist.
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 210, in <module>
+#*     joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, 
+#* esize=5, Nx=1000)
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 141, in joint_4
+#*     adjustMethod=NONE
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#* ValueError: Given interaction property does not exist.
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 210, in <module>
+#*     joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, 
+#* esize=5, Nx=1000)
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py", 
+#* line 141, in joint_4
+#*     adjustMethod=NONE, initialClearance=OMIT, datumAxis=None, 
+#* clearanceRegion=None
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#: The interaction property "Contact-properties" has been created.
+#: The interaction "ContactBolt-1" has been created.
+#: The interaction property "Contact-properties" has been created.
+#: The interaction "ContactBolt-2" has been created.
+p = mdb.models['A4'].parts['Bolt']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['A4'].parts['Plate']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['A4'].parts['Bolt']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1911.33, 
+    farPlane=2973.56, width=1128.96, height=463.716, cameraPosition=(2389.59, 
+    -11.5559, 1547.3), cameraUpVector=(-0.652285, 0.709137, 0.267673), 
+    cameraTarget=(547.7, 23.7128, -21.4125))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2287.89, 
+    farPlane=2633.67, width=1351.38, height=555.076, cameraPosition=(631.822, 
+    -2352.89, 516.489), cameraUpVector=(-0.327704, 0.513006, 0.793369), 
+    cameraTarget=(531.283, 1.84592, -31.0397))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2148.29, 
+    farPlane=2736.64, width=1268.93, height=521.209, cameraPosition=(1132.41, 
+    -1452.65, 1819.33), cameraUpVector=(-0.286741, 0.88615, 0.36403), 
+    cameraTarget=(539.652, 16.8957, -9.25926))
+mdb.Job(name='2_bolts', model='A4', description='', type=ANALYSIS, atTime=None, 
+    waitMinutes=0, waitHours=0, queue=None, memory=90, memoryUnits=PERCENTAGE, 
+    getMemoryFromAnalysis=True, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numThreadsPerMpiProcess=1, multiprocessingMode=DEFAULT, 
+    numCpus=1, numGPUs=0)
+mdb.jobs['2_bolts'].submit(consistencyChecking=OFF)
+#: The job input file "2_bolts.inp" has been submitted for analysis.
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#: The interaction property "Contact-properties" has been created.
+#: The interaction "ContactBolt-1" has been created.
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+#: Job 2_bolts completed successfully. 
+mdb.Job(name='1_bolt', model='A4', description='', type=ANALYSIS, atTime=None, 
+    waitMinutes=0, waitHours=0, queue=None, memory=90, memoryUnits=PERCENTAGE, 
+    getMemoryFromAnalysis=True, explicitPrecision=SINGLE, 
+    nodalOutputPrecision=SINGLE, echoPrint=OFF, modelPrint=OFF, 
+    contactPrint=OFF, historyPrint=OFF, userSubroutine='', scratch='', 
+    resultsFormat=ODB, numThreadsPerMpiProcess=1, multiprocessingMode=DEFAULT, 
+    numCpus=1, numGPUs=0)
+mdb.jobs['1_bolt'].submit(consistencyChecking=OFF)
+#: The job input file "1_bolt.inp" has been submitted for analysis.
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/2_bolts.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/2_bolts.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     3
+#: Number of Meshes:             4
+#: Number of Element Sets:       9
+#: Number of Node Sets:          11
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2015.42, 
+    farPlane=2332.55, width=1187.33, height=487.693, cameraPosition=(684.829, 
+    957.97, 1967.19), cameraUpVector=(-0.503753, 0.604885, -0.616723), 
+    cameraTarget=(543.328, 26.2499, -19.5776))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1668.3, 
+    farPlane=2608.57, width=982.833, height=403.697, cameraPosition=(-929.228, 
+    1136.66, 1162.03), cameraUpVector=(0.14251, 0.457247, -0.877848), 
+    cameraTarget=(561.862, 24.198, -10.3321))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1723.4, 
+    farPlane=2561.17, width=1015.29, height=417.03, cameraPosition=(-846.057, 
+    232.481, 1656.85), cameraUpVector=(-0.136807, 0.761834, -0.633161), 
+    cameraTarget=(559.509, 49.7831, -24.3337))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1831.63, 
+    farPlane=2467.77, width=1079.05, height=443.219, cameraPosition=(-397.076, 
+    211.267, 1947.13), cameraUpVector=(0.138108, 0.9151, -0.378837), 
+    cameraTarget=(547.634, 50.3441, -32.0111))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1793.54, 
+    farPlane=2499.59, width=1056.62, height=434.003, cameraPosition=(-493.148, 
+    -479.177, 1828.18), cameraUpVector=(0.132112, 0.990794, -0.0295423), 
+    cameraTarget=(549.835, 66.1624, -29.2858))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1874.01, 
+    farPlane=2428.53, width=1104.03, height=453.477, cameraPosition=(-164.13, 
+    -526.44, 1963.53), cameraUpVector=(0.0571017, 0.997094, -0.0504195), 
+    cameraTarget=(541.806, 67.3158, -32.5888))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1918.47, 
+    farPlane=2384.07, width=475.285, height=195.222, viewOffsetX=-254.253, 
+    viewOffsetY=0.913471)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1943.17, 
+    farPlane=2310.21, width=481.404, height=197.736, cameraPosition=(39.3508, 
+    -423.937, 2021.62), cameraUpVector=(0.0325802, 0.993783, -0.106465), 
+    cameraTarget=(545.01, 74.0864, -59.6494), viewOffsetX=-257.526, 
+    viewOffsetY=0.925231)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1951.4, 
+    farPlane=2289.29, width=483.443, height=198.573, cameraPosition=(92.7802, 
+    -289.824, 2053.16), cameraUpVector=(0.0551116, 0.98412, -0.168735), 
+    cameraTarget=(545.037, 65.7655, -69.2069), viewOffsetX=-258.617, 
+    viewOffsetY=0.929149)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1940.51, 
+    farPlane=2300.19, width=655.052, height=269.061, viewOffsetX=-244.374, 
+    viewOffsetY=4.70582)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1929.92, 
+    farPlane=2332.03, width=701.603, height=288.182, viewOffsetX=-255.309, 
+    viewOffsetY=-6.54771)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1933.31, 
+    farPlane=2328.65, width=702.834, height=288.688, cameraPosition=(87.5587, 
+    -245.851, 2059.41), cameraUpVector=(-0.0905657, 0.975345, -0.201248), 
+    cameraTarget=(539.816, 109.739, -62.9521), viewOffsetX=-255.757, 
+    viewOffsetY=-6.55919)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1931.87, 
+    farPlane=2327.97, width=702.31, height=288.472, cameraPosition=(161.914, 
+    -1217.51, 1668.63), cameraUpVector=(-0.241089, 0.933415, 0.26573), 
+    cameraTarget=(527.801, 142.931, -19.7814), viewOffsetX=-255.566, 
+    viewOffsetY=-6.55429)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1953.61, 
+    farPlane=2241.66, width=710.214, height=291.719, cameraPosition=(362.565, 
+    -919.46, 1851.27), cameraUpVector=(-0.146073, 0.979554, 0.138335), 
+    cameraTarget=(535.506, 126.667, -75.1542), viewOffsetX=-258.442, 
+    viewOffsetY=-6.62806)
+#: Job 1_bolt completed successfully. 
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    DEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.commonOptions.setValues(
+    visibleEdges=NONE)
+session.viewports['Viewport: 1'].odbDisplay.commonOptions.setValues(
+    visibleEdges=FREE)
+session.viewports['Viewport: 1'].odbDisplay.commonOptions.setValues(
+    visibleEdges=FEATURE)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1836.72, 
+    farPlane=2251.09, width=667.721, height=274.265, cameraPosition=(868.119, 
+    -1730.44, 955.584), cameraUpVector=(-0.309621, 0.664669, 0.679963), 
+    cameraTarget=(501.263, 203.718, -24.1389), viewOffsetX=-242.979, 
+    viewOffsetY=-6.23149)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1793.42, 
+    farPlane=2252.98, width=651.981, height=267.8, cameraPosition=(974.67, 
+    -1530.53, 1191.75), cameraUpVector=(-0.288681, 0.764146, 0.57684), 
+    cameraTarget=(493.51, 202.222, -73.7447), viewOffsetX=-237.251, 
+    viewOffsetY=-6.08459)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1762.98, 
+    farPlane=2790.87, width=640.914, height=263.254, cameraPosition=(-1120.84, 
+    -1404.09, 548.731), cameraUpVector=(0.431122, 0.370503, 0.822716), 
+    cameraTarget=(579.264, -132.428, -23.9105), viewOffsetX=-233.224, 
+    viewOffsetY=-5.9813)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1753.59, 
+    farPlane=2800.25, width=816.523, height=335.385, viewOffsetX=-228.846, 
+    viewOffsetY=-13.6761)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1749.54, 
+    farPlane=2810.67, width=814.638, height=334.611, cameraPosition=(-1196.48, 
+    -1060.75, 970.182), cameraUpVector=(0.641455, 0.334007, 0.690634), 
+    cameraTarget=(539.511, -146.702, -22.9228), viewOffsetX=-228.318, 
+    viewOffsetY=-13.6446)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1782.38, 
+    farPlane=2769.22, width=829.929, height=340.891, cameraPosition=(-1090.52, 
+    -738.258, 1376.59), cameraUpVector=(0.792045, 0.313052, 0.524083), 
+    cameraTarget=(515.716, -148.522, -4.57255), viewOffsetX=-232.603, 
+    viewOffsetY=-13.9007)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1740.57, 
+    farPlane=2811.02, width=1414.43, height=580.974, viewOffsetX=-125.862, 
+    viewOffsetY=-29.791)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1787.76, 
+    farPlane=2707.57, width=1452.78, height=596.726, cameraPosition=(-784.414, 
+    -402.927, 1759.82), cameraUpVector=(0.920393, 0.249308, 0.301201), 
+    cameraTarget=(515.706, -143.155, 5.50898), viewOffsetX=-129.275, 
+    viewOffsetY=-30.5988)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1690.43, 
+    farPlane=2804.91, width=2746.63, height=1128.17, viewOffsetX=6.58466, 
+    viewOffsetY=-54.345)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1677.21, 
+    farPlane=2977.82, width=2725.15, height=1119.35, cameraPosition=(-1111.53, 
+    -976.355, 1274.53), cameraUpVector=(0.686552, 0.44237, 0.577023), 
+    cameraTarget=(485.553, -148.458, 9.88823), viewOffsetX=6.53315, 
+    viewOffsetY=-53.92)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1779.6, 
+    farPlane=2875.44, width=1376.13, height=565.243, viewOffsetX=-169.099, 
+    viewOffsetY=-92.7334)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1784.79, 
+    farPlane=2841.51, width=1380.14, height=566.89, cameraPosition=(-1072.06, 
+    -797.608, 1423.12), cameraUpVector=(0.759635, 0.407852, 0.506569), 
+    cameraTarget=(484.065, -146.587, 12.4276), viewOffsetX=-169.592, 
+    viewOffsetY=-93.0037)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1853.13, 
+    farPlane=2773.17, width=500.515, height=205.585, viewOffsetX=-254.847, 
+    viewOffsetY=-149.379)
+session.Viewport(name='Viewport: 2', origin=(6.65000009536743, 
+    5.34814786911011), width=425.877075195312, height=187.748138427734)
+session.viewports['Viewport: 2'].makeCurrent()
+session.viewports['Viewport: 2'].maximize()
+session.viewports['Viewport: 1'].restore()
+session.viewports['Viewport: 2'].restore()
+session.viewports['Viewport: 1'].setValues(origin=(0.0, 5.34815979003906), 
+    width=236.629165649414, height=194.503692626953)
+session.viewports['Viewport: 2'].setValues(origin=(236.629165649414, 
+    5.34815979003906), width=236.629165649414, height=194.503692626953)
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 2'].setValues(displayedObject=a)
+session.viewports['Viewport: 2'].setValues(
+    displayedObject=session.odbs['C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/2_bolts.odb'])
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/1_bolt.odb')
+#: Model: C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/1_bolt.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       7
+#: Number of Node Sets:          8
+#: Number of Steps:              1
+session.viewports['Viewport: 2'].setValues(displayedObject=o3)
+session.viewports['Viewport: 2'].makeCurrent()
+session.viewports['Viewport: 2'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 2'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session. linkedViewportCommands.setValues(linkViewports=True)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1806.9, 
+    farPlane=2601.69, width=951.615, height=755.966, cameraPosition=(-236.574, 
+    -84.5917, 2053.98), cameraUpVector=(-0.0136707, 0.998115, 0.0598299))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1647.33, 
+    farPlane=2375.8, width=868.511, height=689.947, cameraPosition=(-219.812, 
+    -72.2152, 1874.39), cameraUpVector=(-0.0136707, 0.998115, 0.0598299), 
+    cameraTarget=(500, 50, 0.00012207))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1512.14, 
+    farPlane=2896.46, width=796.38, height=632.647, cameraPosition=(-1541.99, 
+    -312.886, 584.894), cameraUpVector=(0.0380441, 0.78286, 0.621033), 
+    cameraTarget=(552.202, 49.3329, -0.000244141))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1379.62, 
+    farPlane=2643.51, width=727.368, height=577.824, cameraPosition=(-1411.09, 
+    -280.549, 533.752), cameraUpVector=(0.0380435, 0.78286, 0.621034), 
+    cameraTarget=(500, 50, -9.15527e-05))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1571.89, 
+    farPlane=2836.71, width=827.849, height=657.646, cameraPosition=(-1418.82, 
+    -11.1802, 985.062), cameraUpVector=(0.271102, 0.761141, 0.589209), 
+    cameraTarget=(552.202, 49.333, -0.0001297))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1433.53, 
+    farPlane=2589.61, width=755.793, height=600.405, cameraPosition=(-1298.69, 
+    -5.22313, 898.932), cameraUpVector=(0.271101, 0.761141, 0.58921), 
+    cameraTarget=(500, 50.0001, -1.52588e-05))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1532.94, 
+    farPlane=2875.66, width=807.337, height=641.351, cameraPosition=(-1527.52, 
+    -637.081, 250.047), cameraUpVector=(-0.0795293, 0.545007, 0.834651), 
+    cameraTarget=(552.202, 49.333, -0.000183105))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1399.07, 
+    farPlane=2624.07, width=737.626, height=585.972, cameraPosition=(-1397.89, 
+    -576.399, 228.182), cameraUpVector=(-0.0795305, 0.545007, 0.834651), 
+    cameraTarget=(500, 50, -9.15527e-05))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1551.13, 
+    farPlane=2857.47, width=816.918, height=648.962, cameraPosition=(-1471.12, 
+    -410.286, 744.217), cameraUpVector=(0.136788, 0.632413, 0.762459), 
+    cameraTarget=(552.202, 49.333, -0.000106812))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1415.04, 
+    farPlane=2608.11, width=746.044, height=592.66, cameraPosition=(-1346.42, 
+    -369.433, 679.146), cameraUpVector=(0.136787, 0.632413, 0.762459), 
+    cameraTarget=(500, 50, -0.000137329))
+session.viewports['Viewport: 2'].makeCurrent()
+session.viewports['Viewport: 2'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1634.82, 
+    farPlane=2773.78, width=860.995, height=683.977, cameraPosition=(-1103.83, 
+    -438.384, 1370.63), cameraUpVector=(0.417239, 0.570757, 0.707212), 
+    cameraTarget=(552.202, 49.333, -3.05176e-05))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1495.8, 
+    farPlane=2612.32, width=788.625, height=626.486, cameraPosition=(-1003.08, 
+    -395.699, 1264.71), cameraUpVector=(0.417238, 0.570757, 0.707212), 
+    cameraTarget=(508.161, 49.3757, 13.9181))
+session.viewports['Viewport: 1'].view.setValues(width=805.726, height=640.071, 
+    viewOffsetX=-14.8682, viewOffsetY=-12.3805)
+session.viewports['Viewport: 2'].view.setValues(width=738.003, height=586.272, 
+    viewOffsetX=-13.6185, viewOffsetY=-11.3399)
+session.viewports['Viewport: 1'].view.setValues(width=761.572, height=604.995, 
+    viewOffsetX=-28.8311, viewOffsetY=-23.8585)
+session.viewports['Viewport: 2'].view.setValues(width=697.565, height=554.148, 
+    viewOffsetX=-26.408, viewOffsetY=-21.8533)
+session.viewports['Viewport: 1'].view.setValues(width=719.025, height=571.195, 
+    viewOffsetX=-42.063, viewOffsetY=-34.6802)
+session.viewports['Viewport: 2'].view.setValues(width=658.596, height=523.191, 
+    viewOffsetX=-38.5279, viewOffsetY=-31.7656)
+session.viewports['Viewport: 1'].view.setValues(width=678.734, height=539.188, 
+    viewOffsetX=-54.6111, viewOffsetY=-44.8906)
+session.viewports['Viewport: 2'].view.setValues(width=621.694, height=493.875, 
+    viewOffsetX=-50.0217, viewOffsetY=-41.118)
+session.viewports['Viewport: 1'].view.setValues(width=640.547, height=508.852, 
+    viewOffsetX=-66.5031, viewOffsetY=-54.5178)
+session.viewports['Viewport: 2'].view.setValues(width=586.719, height=466.091, 
+    viewOffsetX=-60.9145, viewOffsetY=-49.9364)
+session.viewports['Viewport: 1'].view.setValues(width=604.374, height=480.117, 
+    viewOffsetX=-77.7682, viewOffsetY=-63.6376)
+session.viewports['Viewport: 2'].view.setValues(width=553.588, height=439.772, 
+    viewOffsetX=-71.2333, viewOffsetY=-58.29)
+session.viewports['Viewport: 1'].view.setValues(width=570.125, height=452.909, 
+    viewOffsetX=-88.435, viewOffsetY=-72.1416)
+session.viewports['Viewport: 2'].view.setValues(width=522.218, height=414.852, 
+    viewOffsetX=-81.004, viewOffsetY=-66.0796)
+session.viewports['Viewport: 1'].view.setValues(width=537.708, height=427.157, 
+    viewOffsetX=-100.036, viewOffsetY=-78.9925)
+session.viewports['Viewport: 2'].view.setValues(width=492.528, height=391.265, 
+    viewOffsetX=-91.6302, viewOffsetY=-72.3551)
+session.viewports['Viewport: 1'].view.setValues(width=507.04, height=402.794, 
+    viewOffsetX=-113.082, viewOffsetY=-86.8378)
+session.viewports['Viewport: 2'].view.setValues(width=464.437, height=368.95, 
+    viewOffsetX=-103.581, viewOffsetY=-79.5415)
+session.viewports['Viewport: 1'].view.setValues(width=478.035, height=379.752, 
+    viewOffsetX=-125.53, viewOffsetY=-94.1842)
+session.viewports['Viewport: 2'].view.setValues(width=437.871, height=347.846, 
+    viewOffsetX=-114.983, viewOffsetY=-86.2709)
+session.viewports['Viewport: 1'].view.setValues(width=450.613, height=357.968, 
+    viewOffsetX=-137.298, viewOffsetY=-101.095)
+session.viewports['Viewport: 2'].view.setValues(width=412.754, height=327.893, 
+    viewOffsetX=-125.763, viewOffsetY=-92.6016)
+session.viewports['Viewport: 1'].view.setValues(width=424.696, height=337.379, 
+    viewOffsetX=-148.196, viewOffsetY=-107.627)
+session.viewports['Viewport: 2'].view.setValues(width=389.015, height=309.035, 
+    viewOffsetX=-135.745, viewOffsetY=-98.585)
+session.viewports['Viewport: 1'].view.setValues(width=400.209, height=317.927, 
+    viewOffsetX=-158.16, viewOffsetY=-113.768)
+session.viewports['Viewport: 2'].view.setValues(width=366.587, height=291.217, 
+    viewOffsetX=-144.872, viewOffsetY=-104.21)
+session.viewports['Viewport: 1'].view.setValues(width=377.08, height=299.553, 
+    viewOffsetX=-158.246, viewOffsetY=-117.686)
+session.viewports['Viewport: 2'].view.setValues(width=345.401, height=274.388, 
+    viewOffsetX=-144.952, viewOffsetY=-107.799)
+session.viewports['Viewport: 1'].view.setValues(width=355.239, height=282.203, 
+    viewOffsetX=-159.053, viewOffsetY=-121.712)
+session.viewports['Viewport: 2'].view.setValues(width=325.397, height=258.496, 
+    viewOffsetX=-145.691, viewOffsetY=-111.488)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1705.55, 
+    farPlane=2722.93, width=355.07, height=282.069, cameraPosition=(-1166.61, 
+    -493.154, 1286.17), cameraUpVector=(0.38229, 0.550874, 0.741884), 
+    cameraTarget=(544.615, 44.6912, 5.01912), viewOffsetX=-158.977, 
+    viewOffsetY=-121.654)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1560.01, 
+    farPlane=2567.76, width=325.119, height=258.275, cameraPosition=(-1061.59, 
+    -446.74, 1186.02), cameraUpVector=(0.38229, 0.550875, 0.741884), 
+    cameraTarget=(500.02, 44.0795, 16.8755), viewOffsetX=-145.567, 
+    viewOffsetY=-111.392)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1708.61, 
+    farPlane=2684.54, width=355.707, height=282.575, cameraPosition=(-1047.26, 
+    -696.725, 1307.71), cameraUpVector=(0.368805, 0.539839, 0.756675), 
+    cameraTarget=(558.658, 47.6005, -6.0401), viewOffsetX=-159.262, 
+    viewOffsetY=-121.872)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1561.26, 
+    farPlane=2529.21, width=325.38, height=258.483, cameraPosition=(-950.327, 
+    -636.484, 1206.09), cameraUpVector=(0.368805, 0.539839, 0.756675), 
+    cameraTarget=(515.179, 42.7627, 7.19259), viewOffsetX=-145.684, 
+    viewOffsetY=-111.481)
+session.viewports['Viewport: 2'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(INVARIANT, 
+    'Max. Principal'), )
+session.viewports['Viewport: 2'].odbDisplay.setPrimaryVariable(
+    variableLabel='TSAIW', outputPosition=INTEGRATION_POINT, )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1714.05, 
+    farPlane=2710.5, width=356.84, height=283.475, cameraPosition=(-1063.83, 
+    -1124.31, 952.459), cameraUpVector=(0.312731, 0.322068, 0.893572), 
+    cameraTarget=(555.057, 10.0195, -22.9546), viewOffsetX=-159.769, 
+    viewOffsetY=-122.26)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1563.86, 
+    farPlane=2554.89, width=325.923, height=258.914, cameraPosition=(-965.764, 
+    -1034.64, 875.299), cameraUpVector=(0.312732, 0.322068, 0.893572), 
+    cameraTarget=(511.582, 0.504845, -14.8445), viewOffsetX=-145.927, 
+    viewOffsetY=-111.667)
+session.viewports['Viewport: 1'].view.setValues(width=379.576, height=301.536, 
+    viewOffsetX=-167.037, viewOffsetY=-123.727)
+session.viewports['Viewport: 2'].view.setValues(width=346.707, height=275.425, 
+    viewOffsetX=-152.574, viewOffsetY=-113.013)
+session.viewports['Viewport: 1'].view.setValues(width=402.931, height=320.09, 
+    viewOffsetX=-174.41, viewOffsetY=-125.031)
+session.viewports['Viewport: 2'].view.setValues(width=368.039, height=292.371, 
+    viewOffsetX=-159.308, viewOffsetY=-114.203)
+session.viewports['Viewport: 1'].view.setValues(width=456.858, height=362.929, 
+    viewOffsetX=-191.56, viewOffsetY=-128.316)
+session.viewports['Viewport: 2'].view.setValues(width=417.294, height=331.5, 
+    viewOffsetX=-174.972, viewOffsetY=-117.204)
+session.viewports['Viewport: 1'].view.setValues(width=483.516, height=384.107, 
+    viewOffsetX=-198.067, viewOffsetY=-127.9)
+session.viewports['Viewport: 2'].view.setValues(width=441.642, height=350.842, 
+    viewOffsetX=-180.915, viewOffsetY=-116.823)
+session.viewports['Viewport: 1'].view.setValues(width=513.063, height=407.579, 
+    viewOffsetX=-206.168, viewOffsetY=-127.795)
+session.viewports['Viewport: 2'].view.setValues(width=468.629, height=372.28, 
+    viewOffsetX=-188.314, viewOffsetY=-116.727)
+session.viewports['Viewport: 1'].view.setValues(width=581.369, height=461.841, 
+    viewOffsetX=-226.66, viewOffsetY=-127.767)
+session.viewports['Viewport: 2'].view.setValues(width=531.017, height=421.842, 
+    viewOffsetX=-207.03, viewOffsetY=-116.701)
+session.viewports['Viewport: 1'].view.setValues(width=614.401, height=488.082, 
+    viewOffsetX=-236.304, viewOffsetY=-127.103)
+session.viewports['Viewport: 2'].view.setValues(width=561.185, height=445.807, 
+    viewOffsetX=-215.837, viewOffsetY=-116.094)
+session.viewports['Viewport: 1'].view.setValues(width=651.521, height=517.57, 
+    viewOffsetX=-247.357, viewOffsetY=-126.883)
+session.viewports['Viewport: 2'].view.setValues(width=595.088, height=472.74, 
+    viewOffsetX=-225.932, viewOffsetY=-115.893)
+session.viewports['Viewport: 1'].view.setValues(width=610.214, height=484.756, 
+    viewOffsetX=-250.338, viewOffsetY=-124.69)
+session.viewports['Viewport: 2'].view.setValues(width=557.357, height=442.766, 
+    viewOffsetX=-228.655, viewOffsetY=-113.889)
+session.viewports['Viewport: 1'].view.setValues(width=651.787, height=517.781, 
+    viewOffsetX=-247.411, viewOffsetY=-126.841)
+session.viewports['Viewport: 2'].view.setValues(width=595.331, height=472.933, 
+    viewOffsetX=-225.982, viewOffsetY=-115.854)
+session.viewports['Viewport: 1'].view.setValues(width=610.199, height=484.744, 
+    viewOffsetX=-250.609, viewOffsetY=-125.249)
+session.viewports['Viewport: 2'].view.setValues(width=557.342, height=442.755, 
+    viewOffsetX=-228.902, viewOffsetY=-114.399)
+session.viewports['Viewport: 1'].view.setValues(width=575.92, height=457.512, 
+    viewOffsetX=-255.722, viewOffsetY=-124.962)
+session.viewports['Viewport: 2'].view.setValues(width=526.035, height=417.884, 
+    viewOffsetX=-233.573, viewOffsetY=-114.138)
+session.viewports['Viewport: 1'].view.setValues(width=543.172, height=431.498, 
+    viewOffsetX=-260.479, viewOffsetY=-124.67)
+session.viewports['Viewport: 2'].view.setValues(width=496.126, height=394.124, 
+    viewOffsetX=-237.918, viewOffsetY=-113.871)
+session.viewports['Viewport: 1'].view.setValues(width=512.205, height=406.897, 
+    viewOffsetX=-264.987, viewOffsetY=-124.436)
+session.viewports['Viewport: 2'].view.setValues(width=467.842, height=371.655, 
+    viewOffsetX=-242.037, viewOffsetY=-113.659)
+session.viewports['Viewport: 1'].view.setValues(viewOffsetX=-265.781)
+session.viewports['Viewport: 2'].view.setValues(viewOffsetX=-242.763)
+session.viewports['Viewport: 1'].view.setValues(width=482.844, height=383.573, 
+    viewOffsetX=-269.284, viewOffsetY=-124.197)
+session.viewports['Viewport: 2'].view.setValues(width=441.026, height=350.352, 
+    viewOffsetX=-245.962, viewOffsetY=-113.441)
+session.viewports['Viewport: 1'].view.setValues(width=455.227, height=361.633, 
+    viewOffsetX=-273.461, viewOffsetY=-122.609)
+session.viewports['Viewport: 2'].view.setValues(width=415.801, height=330.314, 
+    viewOffsetX=-249.778, viewOffsetY=-111.99)
+session.viewports['Viewport: 1'].view.setValues(width=429.05, height=340.839, 
+    viewOffsetX=-277.237, viewOffsetY=-120.825)
+session.viewports['Viewport: 2'].view.setValues(width=391.893, height=311.321, 
+    viewOffsetX=-253.228, viewOffsetY=-110.361)
+session.viewports['Viewport: 1'].view.setValues(width=404.32, height=321.193, 
+    viewOffsetX=-280.747, viewOffsetY=-119.047)
+session.viewports['Viewport: 2'].view.setValues(width=369.306, height=293.378, 
+    viewOffsetX=-256.435, viewOffsetY=-108.738)
+session.viewports['Viewport: 1'].view.setValues(width=380.961, height=302.636, 
+    viewOffsetX=-283.947, viewOffsetY=-117.134)
+session.viewports['Viewport: 2'].view.setValues(width=347.97, height=276.428, 
+    viewOffsetX=-259.358, viewOffsetY=-106.99)
+session.viewports['Viewport: 1'].view.setValues(width=358.902, height=285.113, 
+    viewOffsetX=-286.915, viewOffsetY=-115.107)
+session.viewports['Viewport: 2'].view.setValues(width=327.822, height=260.423, 
+    viewOffsetX=-262.069, viewOffsetY=-105.139)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1718.5, 
+    farPlane=2713.07, width=360.7, height=286.541, cameraPosition=(-1072.06, 
+    -931.763, 1144.25), cameraUpVector=(0.336819, 0.427202, 0.839078), 
+    cameraTarget=(552.545, 27.0515, 3.95312), viewOffsetX=-288.352, 
+    viewOffsetY=-115.683)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1569.06, 
+    farPlane=2556.7, width=329.687, height=261.904, cameraPosition=(-973.422, 
+    -855.383, 1053.86), cameraUpVector=(0.336821, 0.427202, 0.839077), 
+    cameraTarget=(509.136, 19.591, 13.25), viewOffsetX=-263.56, 
+    viewOffsetY=-105.737)
+session.viewports['Viewport: 1'].view.setValues(width=383.686, height=304.801, 
+    viewOffsetX=-293.997, viewOffsetY=-116.808)
+session.viewports['Viewport: 2'].view.setValues(width=350.687, height=278.587, 
+    viewOffsetX=-268.713, viewOffsetY=-106.762)
+session.viewports['Viewport: 1'].view.setValues(width=407.287, height=323.55, 
+    viewOffsetX=-299.379, viewOffsetY=-117.759)
+session.viewports['Viewport: 2'].view.setValues(width=372.258, height=295.723, 
+    viewOffsetX=-273.631, viewOffsetY=-107.632)
+session.viewports['Viewport: 1'].view.setValues(width=432.312, height=343.43, 
+    viewOffsetX=-304.823, viewOffsetY=-118.869)
+session.viewports['Viewport: 2'].view.setValues(width=395.13, height=313.892, 
+    viewOffsetX=-278.607, viewOffsetY=-108.645)
+session.viewports['Viewport: 1'].view.setValues(width=405.405, height=322.055, 
+    viewOffsetX=-298.731, viewOffsetY=-117.122)
+session.viewports['Viewport: 2'].view.setValues(width=370.536, height=294.355, 
+    viewOffsetX=-273.038, viewOffsetY=-107.048)
+session.viewports['Viewport: 1'].view.setValues(width=432.39, height=343.492, 
+    viewOffsetX=-298.361, viewOffsetY=-118.828)
+session.viewports['Viewport: 2'].view.setValues(width=395.201, height=313.949, 
+    viewOffsetX=-272.701, viewOffsetY=-108.608)
+session.viewports['Viewport: 1'].view.setValues(width=458.807, height=364.478, 
+    viewOffsetX=-297.269, viewOffsetY=-119.748)
+session.viewports['Viewport: 2'].view.setValues(width=419.345, height=333.129, 
+    viewOffsetX=-271.701, viewOffsetY=-109.449)
+session.viewports['Viewport: 1'].view.setValues(width=486.862, height=386.764, 
+    viewOffsetX=-286.689, viewOffsetY=-118.251)
+session.viewports['Viewport: 2'].view.setValues(width=444.985, height=353.498, 
+    viewOffsetX=-262.031, viewOffsetY=-108.08)
+session.viewports['Viewport: 1'].view.setValues(width=456.421, height=362.583, 
+    viewOffsetX=-284.263, viewOffsetY=-117.653)
+session.viewports['Viewport: 2'].view.setValues(width=417.162, height=331.395, 
+    viewOffsetX=-259.812, viewOffsetY=-107.533)
+session.viewports['Viewport: 1'].view.setValues(width=430.289, height=341.823, 
+    viewOffsetX=-282.295, viewOffsetY=-117.897)
+session.viewports['Viewport: 2'].view.setValues(width=393.279, height=312.422, 
+    viewOffsetX=-258.014, viewOffsetY=-107.757)
+session.viewports['Viewport: 1'].view.setValues(width=405.483, height=322.117, 
+    viewOffsetX=-280.24, viewOffsetY=-118.13)
+session.viewports['Viewport: 2'].view.setValues(width=370.608, height=294.412, 
+    viewOffsetX=-256.138, viewOffsetY=-107.97)
+session.viewports['Viewport: 1'].view.setValues(width=382.057, height=303.507, 
+    viewOffsetX=-278.332, viewOffsetY=-118.38)
+session.viewports['Viewport: 2'].view.setValues(width=349.197, height=277.403, 
+    viewOffsetX=-254.394, viewOffsetY=-108.199)
+session.viewports['Viewport: 1'].view.setValues(width=407.35, height=323.6, 
+    viewOffsetX=-281.27, viewOffsetY=-118.585)
+session.viewports['Viewport: 2'].view.setValues(width=372.315, height=295.768, 
+    viewOffsetX=-257.08, viewOffsetY=-108.387)
+session.viewports['Viewport: 1'].view.setValues(width=381.989, height=303.453, 
+    viewOffsetX=-278.687, viewOffsetY=-118.447)
+session.viewports['Viewport: 2'].view.setValues(width=349.135, height=277.354, 
+    viewOffsetX=-254.718, viewOffsetY=-108.26)
+session.viewports['Viewport: 1'].view.setValues(width=359.937, height=285.935, 
+    viewOffsetX=-278.517, viewOffsetY=-118.678)
+session.viewports['Viewport: 2'].view.setValues(width=328.98, height=261.343, 
+    viewOffsetX=-254.563, viewOffsetY=-108.471)
+session.viewports['Viewport: 1'].view.setValues(width=339.049, height=269.342, 
+    viewOffsetX=-278.305, viewOffsetY=-118.874)
+session.viewports['Viewport: 2'].view.setValues(width=309.89, height=246.177, 
+    viewOffsetX=-254.37, viewOffsetY=-108.651)
+p = mdb.models['A4'].parts['Bolt']
+session.viewports['Viewport: 2'].setValues(displayedObject=p)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script_transverse.py', 
+    __main__.__dict__)
+#* SyntaxError: ("Non-ASCII character '\\xc3' in file 
+#* C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script_transverse.py on line 31, but no encoding declared; 
+#* see http://python.org/dev/peps/pep-0263/ for details", 
+#* ('C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script_transverse.py', 31, 0, None))
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script_transverse.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+#* Shell extrude feature failed
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script_transverse.py", line 187, in <module>
+#*     esize=5, Nx=1000
+#* File "C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script_transverse.py", line 41, in joint_4
+#*     prt.BaseShell(sketch=ske)
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script_transverse.py', 
+    __main__.__dict__)
+#* SyntaxError: ("Non-ASCII character '\\xe2' in file 
+#* C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script_transverse.py on line 44, but no encoding declared; 
+#* see http://python.org/dev/peps/pep-0263/ for details", 
+#* ('C:/Users/hakon/Skrivebord/Skole/Lettvekt 
+#* Design/A5/Scripts/script_transverse.py', 44, 0, None))
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 2'].setValues(displayedObject=a)
+session.viewports['Viewport: 2'].setValues(
+    displayedObject=session.odbs['C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/1_bolt.odb'])
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/1_bolt.odb')
+session.viewports['Viewport: 2'].setValues(displayedObject=o3)
+session.viewports['Viewport: 2'].makeCurrent()
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].setValues(origin=(85.8958358764648, 
+    -6.75555419921875))
+session.viewports['Viewport: 2'].makeCurrent()
+session.viewports['Viewport: 2'].setValues(origin=(-47.658332824707, 
+    -14.0740661621094))
+session.viewports['Viewport: 1'].setValues(origin=(236.629165649414, 
+    5.91111755371094))
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+session.viewports['Viewport: 1'].restore()
+session.viewports['Viewport: 1'].setValues(origin=(0.0, 5.34815979003906))
+session.viewports['Viewport: 2'].setValues(origin=(236.629165649414, 
+    5.34815979003906))
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/2_bolts.odb'])
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/1_bolt.odb')
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 2'].makeCurrent()
+a = mdb.models['A4'].rootAssembly
+session.viewports['Viewport: 2'].setValues(displayedObject=a)
+session.viewports['Viewport: 2'].setValues(
+    displayedObject=session.odbs['C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/1_bolt.odb'])
+o3 = session.openOdb(
+    name='C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Abaqus/2_bolts.odb')
+session.viewports['Viewport: 2'].setValues(displayedObject=o3)
+session.viewports['Viewport: 2'].makeCurrent()
+session.viewports['Viewport: 2'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1956.33, 
+    farPlane=2378.43, width=696.712, height=553.47, cameraPosition=(823.576, 
+    901.885, 1972.49), cameraUpVector=(-0.241521, 0.722272, -0.648067), 
+    cameraTarget=(556.327, 31.4259, -29.0709))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1852.44, 
+    farPlane=3019.58, width=500.327, height=397.461, cameraPosition=(-1671.21, 
+    355.793, 980.354), cameraUpVector=(0.723224, 0.0831783, 0.685587), 
+    cameraTarget=(266.548, -137.118, 65.1727), viewOffsetX=-254.751, 
+    viewOffsetY=-149.323)
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1478.03, 
+    farPlane=2918.83, width=777.205, height=617.414, cameraPosition=(-1551.64, 
+    -564.465, -160.858), cameraUpVector=(-0.254626, 0.705517, 0.66137))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1483.04, 
+    farPlane=2925.55, width=781.054, height=620.472, cameraPosition=(-1559.58, 
+    -561.63, -161.287), cameraUpVector=(-0.254626, 0.705517, 0.66137), 
+    cameraTarget=(552.202, 49.3329, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1594.51, 
+    farPlane=2802.35, width=838.452, height=666.069, cameraPosition=(-1305.21, 
+    19.1889, 1172.1), cameraUpVector=(0.445546, 0.533908, 0.718631), 
+    cameraTarget=(554.523, 44.8723, -3.05176e-05))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1597.85, 
+    farPlane=2810.74, width=841.522, height=668.507, cameraPosition=(-1312.49, 
+    23.5813, 1175.23), cameraUpVector=(0.445546, 0.533908, 0.718631), 
+    cameraTarget=(552.202, 49.333, 0.000274658))
+session.viewports['Viewport: 1'].view.setValues(width=785.409, height=623.931, 
+    viewOffsetX=-4.8707, viewOffsetY=-8.02542)
+session.viewports['Viewport: 2'].view.setValues(width=788.366, height=626.28, 
+    viewOffsetX=-4.88903, viewOffsetY=-8.05563)
+session.viewports['Viewport: 1'].view.setValues(width=742.3, height=589.685, 
+    viewOffsetX=-9.89352, viewOffsetY=-16.1102)
+session.viewports['Viewport: 2'].view.setValues(width=745.094, height=591.905, 
+    viewOffsetX=-9.93074, viewOffsetY=-16.1709)
+session.viewports['Viewport: 1'].view.setValues(width=700.829, height=556.741, 
+    viewOffsetX=-14.8132, viewOffsetY=-24.1499)
+session.viewports['Viewport: 2'].view.setValues(width=703.472, height=558.84, 
+    viewOffsetX=-14.869, viewOffsetY=-24.2409)
+session.viewports['Viewport: 1'].view.setValues(width=661.553, height=525.54, 
+    viewOffsetX=-19.5285, viewOffsetY=-31.7738)
+session.viewports['Viewport: 2'].view.setValues(width=664.052, height=527.525, 
+    viewOffsetX=-19.6023, viewOffsetY=-31.8938)
+session.viewports['Viewport: 1'].view.setValues(width=624.329, height=495.969, 
+    viewOffsetX=-23.9972, viewOffsetY=-38.9989)
+session.viewports['Viewport: 2'].view.setValues(width=626.691, height=497.845, 
+    viewOffsetX=-24.088, viewOffsetY=-39.1465)
+session.viewports['Viewport: 1'].view.setValues(width=589.07, height=467.959, 
+    viewOffsetX=-28.2303, viewOffsetY=-45.8432)
+session.viewports['Viewport: 2'].view.setValues(width=591.301, height=469.731, 
+    viewOffsetX=-28.3373, viewOffsetY=-46.0169)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1593.29, 
+    farPlane=2836.38, width=577.982, height=459.15, cameraPosition=(-1506.79, 
+    -333.307, 716.574), cameraUpVector=(0.201854, 0.495734, 0.844691), 
+    cameraTarget=(539.828, 42.272, 7.0811), viewOffsetX=-27.6989, 
+    viewOffsetY=-44.9803)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1598.01, 
+    farPlane=2843.54, width=580.598, height=461.229, cameraPosition=(-1514.63, 
+    -329.859, 718.501), cameraUpVector=(0.201854, 0.495734, 0.844691), 
+    cameraTarget=(537.445, 46.7217, 7.11131), viewOffsetX=-27.8243, 
+    viewOffsetY=-45.1839)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2002.92, 
+    farPlane=2392.9, width=726.58, height=577.197, cameraPosition=(409.004, 
+    -2079.99, 542.916), cameraUpVector=(-0.338539, 0.2503, 0.907051), 
+    cameraTarget=(544.738, 47.6591, 6.45729), viewOffsetX=-34.8202, 
+    viewOffsetY=-56.5446)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2015.61, 
+    farPlane=2391.94, width=732.322, height=581.759, cameraPosition=(406.282, 
+    -2081.19, 544.375), cameraUpVector=(-0.338538, 0.250298, 0.907052), 
+    cameraTarget=(542.376, 52.1313, 6.48481), viewOffsetX=-35.0954, 
+    viewOffsetY=-56.9915)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1586.32, 
+    farPlane=2722.96, width=575.456, height=457.144, cameraPosition=(2180.12, 
+    -878.973, 1070.93), cameraUpVector=(-0.52315, 0.0435032, 0.85113), 
+    cameraTarget=(511.802, 67.9767, -2.89977), viewOffsetX=-27.5778, 
+    viewOffsetY=-44.7837)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1592.63, 
+    farPlane=2728.02, width=578.641, height=459.674, cameraPosition=(2182.07, 
+    -876.938, 1073.78), cameraUpVector=(-0.523147, 0.0435024, 0.851131), 
+    cameraTarget=(509.302, 72.5351, -2.91163), viewOffsetX=-27.7305, 
+    viewOffsetY=-45.0316)
+session.viewports['Viewport: 1'].view.setValues(width=621.142, height=493.437, 
+    viewOffsetX=-36.2385, viewOffsetY=-37.2298)
+session.viewports['Viewport: 2'].view.setValues(width=624.689, height=496.255, 
+    viewOffsetX=-36.4456, viewOffsetY=-37.4424)
+session.viewports['Viewport: 1'].view.setValues(width=657.733, height=522.505, 
+    viewOffsetX=-45.2356, viewOffsetY=-27.89)
+session.viewports['Viewport: 2'].view.setValues(width=661.478, height=525.48, 
+    viewOffsetX=-45.4932, viewOffsetY=-28.0488)
+session.viewports['Viewport: 1'].view.setValues(width=744.643, height=591.547, 
+    viewOffsetX=-65.9243, viewOffsetY=-7.02831)
+session.viewports['Viewport: 2'].view.setValues(width=748.879, height=594.912, 
+    viewOffsetX=-66.2994, viewOffsetY=-7.06834)
+session.viewports['Viewport: 1'].view.setValues(width=785.146, height=623.722, 
+    viewOffsetX=-64.3906, viewOffsetY=-12.0124)
+session.viewports['Viewport: 2'].view.setValues(width=789.602, height=627.262, 
+    viewOffsetX=-64.7561, viewOffsetY=-12.0807)
+session.viewports['Viewport: 1'].view.setValues(width=831.778, height=660.767, 
+    viewOffsetX=-62.2299, viewOffsetY=-20.7926)
+session.viewports['Viewport: 2'].view.setValues(width=836.494, height=664.513, 
+    viewOffsetX=-62.5827, viewOffsetY=-20.9105)
+session.viewports['Viewport: 1'].view.setValues(width=778.101, height=618.125, 
+    viewOffsetX=-69.3443, viewOffsetY=-5.38863)
+session.viewports['Viewport: 2'].view.setValues(width=782.507, height=621.626, 
+    viewOffsetX=-69.7371, viewOffsetY=-5.4192)
+session.viewports['Viewport: 1'].view.setValues(width=735.494, height=584.279, 
+    viewOffsetX=-76.7397, viewOffsetY=9.04701)
+session.viewports['Viewport: 2'].view.setValues(width=739.666, height=587.593, 
+    viewOffsetX=-77.175, viewOffsetY=9.09827)
+session.viewports['Viewport: 1'].view.setValues(width=694.409, height=551.64, 
+    viewOffsetX=-83.6947, viewOffsetY=22.4777)
+session.viewports['Viewport: 2'].view.setValues(width=698.352, height=554.773, 
+    viewOffsetX=-84.1699, viewOffsetY=22.6053)
+session.viewports['Viewport: 1'].view.setValues(width=655.504, height=520.734, 
+    viewOffsetX=-89.5017, viewOffsetY=34.458)
+session.viewports['Viewport: 2'].view.setValues(width=659.229, height=523.694, 
+    viewOffsetX=-90.0104, viewOffsetY=34.6538)
+session.viewports['Viewport: 1'].view.setValues(width=618.629, height=491.441, 
+    viewOffsetX=-95.4259, viewOffsetY=45.4318)
+session.viewports['Viewport: 2'].view.setValues(width=622.149, height=494.237, 
+    viewOffsetX=-95.9689, viewOffsetY=45.6902)
+session.viewports['Viewport: 1'].view.setValues(width=583.7, height=463.693, 
+    viewOffsetX=-101.082, viewOffsetY=55.7376)
+session.viewports['Viewport: 2'].view.setValues(width=587.024, height=466.334, 
+    viewOffsetX=-101.658, viewOffsetY=56.0549)
+session.viewports['Viewport: 1'].view.setValues(width=550.626, height=437.419, 
+    viewOffsetX=-106.48, viewOffsetY=65.3692)
+session.viewports['Viewport: 2'].view.setValues(width=553.765, height=439.913, 
+    viewOffsetX=-107.087, viewOffsetY=65.7418)
+session.viewports['Viewport: 1'].view.setValues(width=519.323, height=412.552, 
+    viewOffsetX=-111.707, viewOffsetY=74.366)
+session.viewports['Viewport: 2'].view.setValues(width=522.286, height=414.905, 
+    viewOffsetX=-112.344, viewOffsetY=74.7901)
+session.viewports['Viewport: 1'].view.setValues(width=489.707, height=389.024, 
+    viewOffsetX=-116.652, viewOffsetY=82.8781)
+session.viewports['Viewport: 2'].view.setValues(width=492.503, height=391.246, 
+    viewOffsetX=-117.318, viewOffsetY=83.3512)
+session.viewports['Viewport: 1'].view.setValues(width=461.696, height=366.773, 
+    viewOffsetX=-120.876, viewOffsetY=89.51)
+session.viewports['Viewport: 2'].view.setValues(width=464.335, height=368.869, 
+    viewOffsetX=-121.567, viewOffsetY=90.0214)
+session.viewports['Viewport: 1'].view.setValues(width=435.214, height=345.736, 
+    viewOffsetX=-124.836, viewOffsetY=95.7133)
+session.viewports['Viewport: 2'].view.setValues(width=437.703, height=347.713, 
+    viewOffsetX=-125.55, viewOffsetY=96.2606)
+session.viewports['Viewport: 1'].view.setValues(width=410.186, height=325.853, 
+    viewOffsetX=-128.548, viewOffsetY=101.545)
+session.viewports['Viewport: 2'].view.setValues(width=412.533, height=327.717, 
+    viewOffsetX=-129.284, viewOffsetY=102.126)
+session.viewports['Viewport: 1'].view.setValues(width=386.538, height=307.067, 
+    viewOffsetX=-132.085, viewOffsetY=107.055)
+session.viewports['Viewport: 2'].view.setValues(width=388.751, height=308.825, 
+    viewOffsetX=-132.841, viewOffsetY=107.668)
+session.viewports['Viewport: 1'].view.setValues(width=364.201, height=289.322, 
+    viewOffsetX=-135.426, viewOffsetY=111.98)
+session.viewports['Viewport: 2'].view.setValues(width=366.288, height=290.98, 
+    viewOffsetX=-136.202, viewOffsetY=112.621)
+session.viewports['Viewport: 1'].view.setValues(width=343.108, height=272.566, 
+    viewOffsetX=-138.607, viewOffsetY=116.604)
+session.viewports['Viewport: 2'].view.setValues(width=345.075, height=274.129, 
+    viewOffsetX=-139.401, viewOffsetY=117.272)
+session.viewports['Viewport: 1'].view.setValues(width=323.196, height=256.748, 
+    viewOffsetX=-141.634, viewOffsetY=120.92)
+session.viewports['Viewport: 2'].view.setValues(width=325.05, height=258.221, 
+    viewOffsetX=-142.446, viewOffsetY=121.613)
+session.viewports['Viewport: 1'].view.setValues(width=304.403, height=241.818, 
+    viewOffsetX=-144.514, viewOffsetY=124.923)
+session.viewports['Viewport: 2'].view.setValues(width=306.15, height=243.206, 
+    viewOffsetX=-145.344, viewOffsetY=125.64)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1721.99, 
+    farPlane=2632.26, width=317.565, height=252.274, cameraPosition=(2018.08, 
+    -769.105, 1391.21), cameraUpVector=(-0.630657, 0.153335, 0.760763), 
+    cameraTarget=(531.652, 50.1244, -6.11277), viewOffsetX=-150.763, 
+    viewOffsetY=130.325)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1728.75, 
+    farPlane=2637.04, width=319.306, height=253.658, cameraPosition=(2019.62, 
+    -766.803, 1394.91), cameraUpVector=(-0.630655, 0.153335, 0.760764), 
+    cameraTarget=(529.236, 54.6078, -6.1383), viewOffsetX=-151.59, 
+    viewOffsetY=131.039)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1639.14, 
+    farPlane=2635.29, width=302.286, height=240.137, cameraPosition=(2199.96, 
+    -556.238, 1226.27), cameraUpVector=(-0.471295, 0.401602, 0.785236), 
+    cameraTarget=(513.857, -0.0123831, -70.183), viewOffsetX=-143.51, 
+    viewOffsetY=124.055)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1644.61, 
+    farPlane=2641.02, width=303.765, height=241.312, cameraPosition=(2201.96, 
+    -553.446, 1229.43), cameraUpVector=(-0.471293, 0.401603, 0.785238), 
+    cameraTarget=(511.366, 4.26033, -70.478), viewOffsetX=-144.212, 
+    viewOffsetY=124.661)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1829.36, 
+    farPlane=2600.67, width=337.365, height=268.004, cameraPosition=(1765.9, 
+    -958.762, 1563.55), cameraUpVector=(-0.450193, 0.595927, 0.664979), 
+    cameraTarget=(575.627, -57.3285, -50.0736), viewOffsetX=-160.164, 
+    viewOffsetY=138.451)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1836.91, 
+    farPlane=2604.96, width=339.284, height=269.528, cameraPosition=(1766.83, 
+    -957.128, 1567.64), cameraUpVector=(-0.450191, 0.595927, 0.664981), 
+    cameraTarget=(573.394, -53.2944, -50.285), viewOffsetX=-161.075, 
+    viewOffsetY=139.237)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2150.69, 
+    farPlane=2502.26, width=396.624, height=315.079, cameraPosition=(777.78, 
+    -1529.46, 1720.44), cameraUpVector=(0.224039, 0.805755, 0.548238), 
+    cameraTarget=(505.442, -251.011, -47.1929), viewOffsetX=-188.297, 
+    viewOffsetY=162.77)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2160.92, 
+    farPlane=2504.8, width=399.13, height=317.07, cameraPosition=(775.97, 
+    -1529.64, 1724.95), cameraUpVector=(0.22404, 0.805752, 0.548242), 
+    cameraTarget=(502.914, -247.796, -47.3925), viewOffsetX=-189.487, 
+    viewOffsetY=163.797)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2099.16, 
+    farPlane=2795.9, width=387.122, height=307.531, cameraPosition=(-597.723, 
+    -1470.39, 1572.17), cameraUpVector=(0.468578, 0.560866, 0.682543), 
+    cameraTarget=(351.345, -308.041, -34.4914), viewOffsetX=-183.786, 
+    viewOffsetY=158.87)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2108.7, 
+    farPlane=2800.18, width=389.484, height=309.408, cameraPosition=(-603.438, 
+    -1470.5, 1576.3), cameraUpVector=(0.468573, 0.560863, 0.682548), 
+    cameraTarget=(348.162, -305.073, -34.6351), viewOffsetX=-184.908, 
+    viewOffsetY=159.839)
+session.viewports['Viewport: 1'].view.setValues(width=412.08, height=327.357, 
+    viewOffsetX=-189.609, viewOffsetY=155.811)
+session.viewports['Viewport: 2'].view.setValues(width=414.595, height=329.356, 
+    viewOffsetX=-190.767, viewOffsetY=156.761)
+session.viewports['Viewport: 1'].view.setValues(width=437.534, height=347.578, 
+    viewOffsetX=-195.307, viewOffsetY=152.16)
+session.viewports['Viewport: 2'].view.setValues(width=440.203, height=349.699, 
+    viewOffsetX=-196.499, viewOffsetY=153.088)
+session.viewports['Viewport: 1'].view.setValues(width=464.541, height=369.033, 
+    viewOffsetX=-201.328, viewOffsetY=148.336)
+session.viewports['Viewport: 2'].view.setValues(width=467.374, height=371.283, 
+    viewOffsetX=-202.556, viewOffsetY=149.24)
+session.viewports['Viewport: 1'].view.setValues(width=493.153, height=391.762, 
+    viewOffsetX=-207.705, viewOffsetY=144.356)
+session.viewports['Viewport: 2'].view.setValues(width=496.159, height=394.15, 
+    viewOffsetX=-208.972, viewOffsetY=145.235)
+session.viewports['Viewport: 1'].view.setValues(width=523.46, height=415.838, 
+    viewOffsetX=-214.461, viewOffsetY=140.14)
+session.viewports['Viewport: 2'].view.setValues(width=526.648, height=418.371, 
+    viewOffsetX=-215.768, viewOffsetY=140.993)
+session.viewports['Viewport: 1'].view.setValues(width=555.552, height=441.332, 
+    viewOffsetX=-225.011, viewOffsetY=134.231)
+session.viewports['Viewport: 2'].view.setValues(width=558.934, height=444.019, 
+    viewOffsetX=-226.381, viewOffsetY=135.048)
+session.viewports['Viewport: 1'].view.setValues(width=589.526, height=468.321, 
+    viewOffsetX=-236.305, viewOffsetY=127.975)
+session.viewports['Viewport: 2'].view.setValues(width=593.113, height=471.171, 
+    viewOffsetX=-237.743, viewOffsetY=128.753)
+session.viewports['Viewport: 1'].view.setValues(width=625.481, height=496.884, 
+    viewOffsetX=-247.902, viewOffsetY=121.445)
+session.viewports['Viewport: 2'].view.setValues(width=629.284, height=499.905, 
+    viewOffsetX=-249.41, viewOffsetY=122.183)
+session.viewports['Viewport: 1'].view.setValues(width=586.286, height=465.747, 
+    viewOffsetX=-265.601, viewOffsetY=117.678)
+session.viewports['Viewport: 2'].view.setValues(width=589.848, height=468.577, 
+    viewOffsetX=-267.215, viewOffsetY=118.392)
+session.viewports['Viewport: 1'].view.setValues(width=552.816, height=439.158, 
+    viewOffsetX=-283.523, viewOffsetY=115.069)
+session.viewports['Viewport: 2'].view.setValues(width=556.177, height=441.829, 
+    viewOffsetX=-285.247, viewOffsetY=115.768)
+session.viewports['Viewport: 1'].view.setValues(width=521.017, height=413.897, 
+    viewOffsetX=-299.756, viewOffsetY=112.851)
+session.viewports['Viewport: 2'].view.setValues(width=524.187, height=416.416, 
+    viewOffsetX=-301.58, viewOffsetY=113.537)
+session.viewports['Viewport: 1'].view.setValues(width=490.98, height=390.036, 
+    viewOffsetX=-311.051, viewOffsetY=111.511)
+session.viewports['Viewport: 2'].view.setValues(width=493.969, height=392.411, 
+    viewOffsetX=-312.945, viewOffsetY=112.189)
+session.viewports['Viewport: 1'].view.setValues(width=462.607, height=367.497, 
+    viewOffsetX=-321.719, viewOffsetY=110.281)
+session.viewports['Viewport: 2'].view.setValues(width=465.426, height=369.736, 
+    viewOffsetX=-323.679, viewOffsetY=110.952)
+session.viewports['Viewport: 1'].view.setValues(width=435.816, height=346.213, 
+    viewOffsetX=-331.793, viewOffsetY=109.119)
+session.viewports['Viewport: 2'].view.setValues(width=438.472, height=348.324, 
+    viewOffsetX=-333.816, viewOffsetY=109.784)
+session.viewports['Viewport: 1'].view.setValues(width=410.523, height=326.121, 
+    viewOffsetX=-341.832, viewOffsetY=108.117)
+session.viewports['Viewport: 2'].view.setValues(width=413.027, height=328.11, 
+    viewOffsetX=-343.917, viewOffsetY=108.776)
+session.viewports['Viewport: 1'].view.setValues(width=386.652, height=307.157, 
+    viewOffsetX=-351.891, viewOffsetY=107.35)
+session.viewports['Viewport: 2'].view.setValues(width=389.011, height=309.031, 
+    viewOffsetX=-354.039, viewOffsetY=108.004)
+session.viewports['Viewport: 1'].view.setValues(width=364.127, height=289.263, 
+    viewOffsetX=-361.384, viewOffsetY=106.626)
+session.viewports['Viewport: 2'].view.setValues(width=366.35, height=291.029, 
+    viewOffsetX=-363.59, viewOffsetY=107.276)
+session.viewports['Viewport: 1'].view.setValues(width=342.877, height=272.383, 
+    viewOffsetX=-372.517, viewOffsetY=106.048)
+session.viewports['Viewport: 2'].view.setValues(width=344.971, height=274.046, 
+    viewOffsetX=-374.793, viewOffsetY=106.695)
+session.viewports['Viewport: 1'].view.setValues(width=322.821, height=256.45, 
+    viewOffsetX=-383.246, viewOffsetY=105.399)
+session.viewports['Viewport: 2'].view.setValues(width=324.793, height=258.017, 
+    viewOffsetX=-385.588, viewOffsetY=106.043)
+session.viewports['Viewport: 1'].view.setValues(width=303.935, height=241.447, 
+    viewOffsetX=-393.419, viewOffsetY=104.797)
+session.viewports['Viewport: 2'].view.setValues(width=305.793, height=242.923, 
+    viewOffsetX=-395.824, viewOffsetY=105.437)
+session.viewports['Viewport: 1'].view.setValues(width=323.807, height=257.233, 
+    viewOffsetX=-400.714, viewOffsetY=99.2203)
+session.viewports['Viewport: 2'].view.setValues(width=325.786, height=258.806, 
+    viewOffsetX=-403.164, viewOffsetY=99.8263)
+session.viewports['Viewport: 1'].view.setValues(width=343.948, height=273.233, 
+    viewOffsetX=-408.023, viewOffsetY=92.5853)
+session.viewports['Viewport: 2'].view.setValues(width=346.05, height=274.903, 
+    viewOffsetX=-410.517, viewOffsetY=93.1505)
+session.viewports['Viewport: 1'].view.setValues(width=365.333, height=290.221, 
+    viewOffsetX=-416.037, viewOffsetY=85.4497)
+session.viewports['Viewport: 2'].view.setValues(width=367.565, height=291.995, 
+    viewOffsetX=-418.579, viewOffsetY=85.9711)
+session.viewports['Viewport: 1'].view.setValues(width=388.009, height=308.236, 
+    viewOffsetX=-424.562, viewOffsetY=77.8827)
+session.viewports['Viewport: 2'].view.setValues(width=390.379, height=310.118, 
+    viewOffsetX=-427.155, viewOffsetY=78.3577)
+session.viewports['Viewport: 1'].view.setValues(width=364.108, height=289.248, 
+    viewOffsetX=-426.73, viewOffsetY=75.708)
+session.viewports['Viewport: 2'].view.setValues(width=366.33, height=291.014, 
+    viewOffsetX=-429.335, viewOffsetY=76.1695)
+session.viewports['Viewport: 1'].view.setValues(width=342.878, height=272.383, 
+    viewOffsetX=-430.792, viewOffsetY=73.9477)
+session.viewports['Viewport: 2'].view.setValues(width=344.972, height=274.047, 
+    viewOffsetX=-433.423, viewOffsetY=74.3986)
+session.viewports['Viewport: 1'].view.setValues(width=322.835, height=256.461, 
+    viewOffsetX=-435.284, viewOffsetY=72.4322)
+session.viewports['Viewport: 2'].view.setValues(width=324.807, height=258.028, 
+    viewOffsetX=-437.944, viewOffsetY=72.8741)
+session.viewports['Viewport: 1'].view.setValues(width=303.935, height=241.447, 
+    viewOffsetX=-440.05, viewOffsetY=71.1668)
+session.viewports['Viewport: 2'].view.setValues(width=305.793, height=242.923, 
+    viewOffsetX=-442.74, viewOffsetY=71.6011)
+session.viewports['Viewport: 1'].view.setValues(width=286.115, height=227.291, 
+    viewOffsetX=-444.652, viewOffsetY=70.0616)
+session.viewports['Viewport: 2'].view.setValues(width=287.865, height=228.681, 
+    viewOffsetX=-447.371, viewOffsetY=70.4893)
+session.viewports['Viewport: 1'].view.setValues(width=269.318, height=213.947, 
+    viewOffsetX=-449.173, viewOffsetY=69.0612)
+session.viewports['Viewport: 2'].view.setValues(width=270.965, height=215.256, 
+    viewOffsetX=-451.921, viewOffsetY=69.4829)
+session.viewports['Viewport: 1'].view.setValues(width=286.879, height=227.897, 
+    viewOffsetX=-445.94, viewOffsetY=70.1035)
+session.viewports['Viewport: 2'].view.setValues(width=288.634, height=229.292, 
+    viewOffsetX=-448.669, viewOffsetY=70.5317)
+session.viewports['Viewport: 1'].view.setValues(width=304.778, height=242.117, 
+    viewOffsetX=-441.157, viewOffsetY=71.2415)
+session.viewports['Viewport: 2'].view.setValues(width=306.643, height=243.598, 
+    viewOffsetX=-443.855, viewOffsetY=71.6765)
+session.viewports['Viewport: 1'].view.setValues(width=323.786, height=257.216, 
+    viewOffsetX=-439.168, viewOffsetY=71.9617)
+session.viewports['Viewport: 2'].view.setValues(width=325.765, height=258.789, 
+    viewOffsetX=-441.853, viewOffsetY=72.401)
+session.viewports['Viewport: 1'].view.setValues(width=343.948, height=273.233, 
+    viewOffsetX=-436.617, viewOffsetY=72.8002)
+session.viewports['Viewport: 2'].view.setValues(width=346.05, height=274.903, 
+    viewOffsetX=-439.286, viewOffsetY=73.2445)
+session.viewports['Viewport: 1'].view.setValues(width=365.333, height=290.222, 
+    viewOffsetX=-433.496, viewOffsetY=73.6895)
+session.viewports['Viewport: 2'].view.setValues(width=367.565, height=291.995, 
+    viewOffsetX=-436.145, viewOffsetY=74.139)
+session.viewports['Viewport: 1'].view.setValues(width=342.845, height=272.357, 
+    viewOffsetX=-435.036, viewOffsetY=72.7511)
+session.viewports['Viewport: 2'].view.setValues(width=344.939, height=274.021, 
+    viewOffsetX=-437.693, viewOffsetY=73.1948)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2165.52, 
+    farPlane=3102.69, width=352.875, height=280.325, cameraPosition=(-1408.92, 
+    -654.333, 1641.94), cameraUpVector=(0.468315, 0.612349, 0.636954), 
+    cameraTarget=(156.297, -290.721, 141.598), viewOffsetX=-447.762, 
+    viewOffsetY=74.8794)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2172.51, 
+    farPlane=3111.14, width=354.564, height=281.666, cameraPosition=(-1417.11, 
+    -652.255, 1646.56), cameraUpVector=(0.468308, 0.612349, 0.636959), 
+    cameraTarget=(152.269, -287.688, 142.226), viewOffsetX=-449.905, 
+    viewOffsetY=75.2371)
+session.viewports['Viewport: 1'].view.setValues(width=375.133, height=298.007, 
+    viewOffsetX=-443.044, viewOffsetY=73.1466)
+session.viewports['Viewport: 2'].view.setValues(width=376.941, height=299.443, 
+    viewOffsetX=-445.18, viewOffsetY=73.4986)
+session.viewports['Viewport: 1'].view.setValues(width=398.409, height=316.497, 
+    viewOffsetX=-435.136, viewOffsetY=70.6072)
+session.viewports['Viewport: 2'].view.setValues(width=400.328, height=318.022, 
+    viewOffsetX=-437.232, viewOffsetY=70.9467)
+session.viewports['Viewport: 1'].view.setValues(width=423.095, height=336.108, 
+    viewOffsetX=-426.582, viewOffsetY=67.9166)
+session.viewports['Viewport: 2'].view.setValues(width=425.132, height=337.726, 
+    viewOffsetX=-428.636, viewOffsetY=68.2429)
+session.viewports['Viewport: 1'].view.setValues(width=449.262, height=356.895, 
+    viewOffsetX=-417.291, viewOffsetY=65.0646)
+session.viewports['Viewport: 2'].view.setValues(width=451.424, height=358.612, 
+    viewOffsetX=-419.299, viewOffsetY=65.377)
+session.viewports['Viewport: 1'].view.setValues(width=476.992, height=378.924, 
+    viewOffsetX=-408.36, viewOffsetY=62.421)
+session.viewports['Viewport: 2'].view.setValues(width=479.285, height=380.746, 
+    viewOffsetX=-410.324, viewOffsetY=62.7205)
+session.viewports['Viewport: 1'].view.setValues(width=506.371, height=402.262, 
+    viewOffsetX=-398.898, viewOffsetY=59.7299)
+session.viewports['Viewport: 2'].view.setValues(width=508.804, height=404.196, 
+    viewOffsetX=-400.815, viewOffsetY=60.0163)
+session.viewports['Viewport: 1'].view.setValues(width=537.49, height=426.983, 
+    viewOffsetX=-388.799, viewOffsetY=56.8794)
+session.viewports['Viewport: 2'].view.setValues(width=540.071, height=429.034, 
+    viewOffsetX=-390.666, viewOffsetY=57.1519)
+session.viewports['Viewport: 1'].view.setValues(width=570.442, height=453.161, 
+    viewOffsetX=-378.023, viewOffsetY=53.902)
+session.viewports['Viewport: 2'].view.setValues(width=573.18, height=455.336, 
+    viewOffsetX=-379.837, viewOffsetY=54.16)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2152.8, 
+    farPlane=3139.16, width=575.492, height=457.172, cameraPosition=(-1431.91, 
+    -263.789, 1749.31), cameraUpVector=(0.543791, 0.627873, 0.556837), 
+    cameraTarget=(121, -228.96, 193.553), viewOffsetX=-381.369, 
+    viewOffsetY=54.3792)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2158.62, 
+    farPlane=3148.91, width=577.945, height=459.122, cameraPosition=(-1440.23, 
+    -260.568, 1754.31), cameraUpVector=(0.543785, 0.627874, 0.556842), 
+    cameraTarget=(116.813, -225.661, 194.412), viewOffsetX=-382.995, 
+    viewOffsetY=54.6104)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2121.38, 
+    farPlane=2972.44, width=567.094, height=450.501, cameraPosition=(-1015.77, 
+    -776.976, 1871.22), cameraUpVector=(0.661627, 0.481906, 0.57447), 
+    cameraTarget=(204.67, -336.819, 96.4207), viewOffsetX=-375.804, 
+    viewOffsetY=53.5856)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2128.57, 
+    farPlane=2979.95, width=569.9, height=452.73, cameraPosition=(-1022.84, 
+    -775.307, 1876.36), cameraUpVector=(0.661622, 0.481905, 0.574477), 
+    cameraTarget=(200.848, -333.994, 96.8355), viewOffsetX=-377.663, 
+    viewOffsetY=53.8501)
+session.viewports['Viewport: 1'].view.setValues(width=540.397, height=429.293, 
+    viewOffsetX=-6.33469, viewOffsetY=-4.73302)
+session.viewports['Viewport: 2'].view.setValues(width=536.024, height=425.819, 
+    viewOffsetX=-384.17, viewOffsetY=49.1873)
+session.viewports['Viewport: 1'].view.setValues(width=576.068, height=457.63, 
+    viewOffsetX=0, viewOffsetY=0)
+session.viewports['Viewport: 2'].view.setValues(width=571.716, height=454.173, 
+    viewOffsetX=-378.866, viewOffsetY=54.0217)
+session.viewports['Viewport: 1'].view.setValues(width=540.044, height=429.012, 
+    viewOffsetX=-6.33055, viewOffsetY=-4.72992)
+session.viewports['Viewport: 2'].view.setValues(width=535.949, height=425.76, 
+    viewOffsetX=-384.117, viewOffsetY=49.1805)
+session.viewports['Viewport: 1'].view.setValues(width=509.027, height=404.373, 
+    viewOffsetX=-11.9683, viewOffsetY=-9.20111)
+session.viewports['Viewport: 2'].view.setValues(width=505.171, height=401.309, 
+    viewOffsetX=-390.746, viewOffsetY=44.8906)
+session.viewports['Viewport: 1'].view.setValues(width=479.608, height=381.002, 
+    viewOffsetX=-17.2558, viewOffsetY=-13.4233)
+session.viewports['Viewport: 2'].view.setValues(width=475.976, height=378.117, 
+    viewOffsetX=-396.883, viewOffsetY=40.8272)
+session.viewports['Viewport: 1'].view.setValues(width=451.832, height=358.936, 
+    viewOffsetX=-22.1805, viewOffsetY=-17.3757)
+session.viewports['Viewport: 2'].view.setValues(width=448.412, height=356.219, 
+    viewOffsetX=-402.615, viewOffsetY=37.025)
+session.viewports['Viewport: 1'].view.setValues(width=425.61, height=338.106, 
+    viewOffsetX=-26.6688, viewOffsetY=-21.0743)
+session.viewports['Viewport: 2'].view.setValues(width=422.389, height=335.547, 
+    viewOffsetX=-407.866, viewOffsetY=33.4679)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2168.41, 
+    farPlane=3025.89, width=425.42, height=337.955, cameraPosition=(-1250.25, 
+    -602.213, 1779.65), cameraUpVector=(0.660613, 0.427644, 0.617019), 
+    cameraTarget=(170.2, 55.8128, -4.57782), viewOffsetX=-26.6569, 
+    viewOffsetY=-21.0649)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2163.99, 
+    farPlane=3046, width=425.211, height=337.789, cameraPosition=(-1279.39, 
+    -608.064, 1780.64), cameraUpVector=(0.650583, 0.437229, 0.620945), 
+    cameraTarget=(127.413, -325.06, 107.41), viewOffsetX=-410.59, 
+    viewOffsetY=33.6915)
+session.viewports['Viewport: 1'].view.setValues(width=452.61, height=359.555, 
+    viewOffsetX=-26.8842, viewOffsetY=-19.8898)
+session.viewports['Viewport: 2'].view.setValues(width=452.284, height=359.296, 
+    viewOffsetX=-410.753, viewOffsetY=34.8623)
+session.viewports['Viewport: 1'].view.setValues(width=480.516, height=381.724, 
+    viewOffsetX=-27.1367, viewOffsetY=-18.5999)
+session.viewports['Viewport: 2'].view.setValues(width=480.172, height=381.45, 
+    viewOffsetX=-410.223, viewOffsetY=36.0396)
+session.viewports['Viewport: 1'].view.setValues(width=510.114, height=405.236, 
+    viewOffsetX=-27.4061, viewOffsetY=-17.2346)
+session.viewports['Viewport: 2'].view.setValues(width=509.747, height=404.944, 
+    viewOffsetX=-409.686, viewOffsetY=37.289)
+session.viewports['Viewport: 1'].view.setValues(width=541.463, height=430.139, 
+    viewOffsetX=-28.5767, viewOffsetY=-15.8666)
+session.viewports['Viewport: 2'].view.setValues(width=541.071, height=429.828, 
+    viewOffsetX=-410.001, viewOffsetY=38.5342)
+session.viewports['Viewport: 1'].view.setValues(width=613.84, height=487.636, 
+    viewOffsetX=-31.3018, viewOffsetY=-12.8145)
+session.viewports['Viewport: 2'].view.setValues(width=613.394, height=487.282, 
+    viewOffsetX=-411.818, viewOffsetY=41.455)
+session.viewports['Viewport: 1'].view.setValues(width=649.439, height=515.916, 
+    viewOffsetX=-32.6075, viewOffsetY=-11.1496)
+session.viewports['Viewport: 2'].view.setValues(width=648.962, height=515.537, 
+    viewOffsetX=-411.032, viewOffsetY=42.8208)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2211.32, 
+    farPlane=3512.13, width=671.748, height=533.639, cameraPosition=(-2253.33, 
+    610.94, 182.197), cameraUpVector=(0.135915, -0.264327, 0.954808), 
+    cameraTarget=(51.2122, 149.029, -149.233), viewOffsetX=-33.7276, 
+    viewOffsetY=-11.5326)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=2306.67, 
+    farPlane=3597.59, width=701.799, height=557.511, cameraPosition=(-2424.36, 
+    492.736, -162.464), cameraUpVector=(0.04175, -0.138868, 0.989431), 
+    cameraTarget=(-324.698, -153.909, -341.823), viewOffsetX=-444.497, 
+    viewOffsetY=46.3072)
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1665.01, 
+    farPlane=2731.84, width=875.529, height=695.523, cameraPosition=(-799.727, 
+    -61.7527, 1728.5), cameraUpVector=(0.398512, 0.841772, 0.364153))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1669.08, 
+    farPlane=2739.52, width=879.03, height=698.304, cameraPosition=(-805.662, 
+    -57.5767, 1733.12), cameraUpVector=(0.398512, 0.841772, 0.364153), 
+    cameraTarget=(552.202, 49.3329, 0))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1519.17, 
+    farPlane=2877.68, width=798.84, height=634.601, cameraPosition=(-1517.04, 
+    -456.205, 539.089), cameraUpVector=(0.0653476, 0.593148, 0.802437), 
+    cameraTarget=(554.522, 44.8722, -0.00012207))
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1524.01, 
+    farPlane=2884.59, width=802.626, height=637.608, cameraPosition=(-1524.89, 
+    -453.083, 540.533), cameraUpVector=(0.065348, 0.593148, 0.802437), 
+    cameraTarget=(552.202, 49.3328, -0.000274658))
+session.viewports['Viewport: 1'].view.setValues(width=758.605, height=602.638, 
+    viewOffsetX=-12.7365, viewOffsetY=-1.80675)
+session.viewports['Viewport: 2'].view.setValues(width=762.159, height=605.462, 
+    viewOffsetX=-12.7962, viewOffsetY=-1.81521)
+session.viewports['Viewport: 1'].view.setValues(width=716.135, height=568.899, 
+    viewOffsetX=-24.9226, viewOffsetY=-3.29999)
+session.viewports['Viewport: 2'].view.setValues(width=719.498, height=571.571, 
+    viewOffsetX=-25.0397, viewOffsetY=-3.31549)
+session.viewports['Viewport: 1'].view.setValues(width=676.189, height=537.166, 
+    viewOffsetX=-36.5407, viewOffsetY=-4.50966)
+session.viewports['Viewport: 2'].view.setValues(width=679.368, height=539.692, 
+    viewOffsetX=-36.7125, viewOffsetY=-4.53086)
+session.viewports['Viewport: 1'].view.setValues(width=638.289, height=507.059, 
+    viewOffsetX=-47.6039, viewOffsetY=-5.36227)
+session.viewports['Viewport: 2'].view.setValues(width=641.294, height=509.446, 
+    viewOffsetX=-47.828, viewOffsetY=-5.38752)
+session.viewports['Viewport: 1'].view.setValues(width=602.375, height=478.528, 
+    viewOffsetX=-57.9975)
+session.viewports['Viewport: 2'].view.setValues(width=605.214, height=480.784, 
+    viewOffsetX=-58.2709)
+session.viewports['Viewport: 1'].view.setValues(width=568.355, height=451.503, 
+    viewOffsetX=-67.9292, viewOffsetY=-4.79243)
+session.viewports['Viewport: 2'].view.setValues(width=571.037, height=453.634, 
+    viewOffsetX=-68.2497, viewOffsetY=-4.81505)
+session.viewports['Viewport: 1'].view.setValues(width=536.143, height=425.914, 
+    viewOffsetX=-77.2926, viewOffsetY=-4.35629)
+session.viewports['Viewport: 2'].view.setValues(width=538.677, height=427.926, 
+    viewOffsetX=-77.6578, viewOffsetY=-4.37687)
+session.viewports['Viewport: 1'].view.setValues(width=505.657, height=401.695, 
+    viewOffsetX=-86.155, viewOffsetY=-3.94349)
+session.viewports['Viewport: 2'].view.setValues(width=508.048, height=403.595, 
+    viewOffsetX=-86.5624, viewOffsetY=-3.96214)
+session.viewports['Viewport: 1'].view.setValues(width=476.814, height=378.782, 
+    viewOffsetX=-94.5398, viewOffsetY=-3.55295)
+session.viewports['Viewport: 2'].view.setValues(width=479.071, height=380.576, 
+    viewOffsetX=-94.9874, viewOffsetY=-3.56977)
+session.viewports['Viewport: 1'].view.setValues(width=449.536, height=357.113, 
+    viewOffsetX=-102.47, viewOffsetY=-3.14905)
+session.viewports['Viewport: 2'].view.setValues(width=451.666, height=358.805, 
+    viewOffsetX=-102.955, viewOffsetY=-3.16397)
+session.viewports['Viewport: 1'].view.setValues(width=423.747, height=336.626, 
+    viewOffsetX=-110.352, viewOffsetY=-2.79976)
+session.viewports['Viewport: 2'].view.setValues(width=425.757, height=338.222, 
+    viewOffsetX=-110.875, viewOffsetY=-2.81304)
+session.viewports['Viewport: 1'].view.setValues(width=399.374, height=317.264, 
+    viewOffsetX=-117.802, viewOffsetY=-2.56168)
+session.viewports['Viewport: 2'].view.setValues(width=401.269, height=318.77, 
+    viewOffsetX=-118.361, viewOffsetY=-2.57384)
+session.viewports['Viewport: 1'].view.setValues(width=376.345, height=298.97, 
+    viewOffsetX=-124.84, viewOffsetY=-2.33675)
+session.viewports['Viewport: 2'].view.setValues(width=378.133, height=300.39, 
+    viewOffsetX=-125.433, viewOffsetY=-2.34785)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1604.09, 
+    farPlane=2776.61, width=377.35, height=299.768, cameraPosition=(-1467.3, 
+    -485.007, 655.076), cameraUpVector=(0.116114, 0.572515, 0.811631), 
+    cameraTarget=(561.383, 42.7813, -7.44848), viewOffsetX=-125.173, 
+    viewOffsetY=-2.34298)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1609.32, 
+    farPlane=2783.05, width=379.168, height=301.212, cameraPosition=(-1475.01, 
+    -481.967, 656.826), cameraUpVector=(0.116118, 0.572514, 0.811631), 
+    cameraTarget=(559.092, 47.233, -7.48067), viewOffsetX=-125.776, 
+    viewOffsetY=-2.35427)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1613.2, 
+    farPlane=2744.85, width=379.493, height=301.47, cameraPosition=(-1367.11, 
+    -449.776, 900.473), cameraUpVector=(0.172787, 0.654188, 0.736331), 
+    cameraTarget=(573.181, 53.7452, -2.18478), viewOffsetX=-125.884, 
+    viewOffsetY=-2.35629)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1618.4, 
+    farPlane=2751.24, width=381.307, height=302.912, cameraPosition=(-1374.53, 
+    -446.626, 902.883), cameraUpVector=(0.17279, 0.654185, 0.736332), 
+    cameraTarget=(570.94, 58.243, -2.19483), viewOffsetX=-126.486, 
+    viewOffsetY=-2.36755)
+session.viewports['Viewport: 1'].view.setValues(width=462.696, height=367.567, 
+    viewOffsetX=-103.654, viewOffsetY=14.5857)
+session.viewports['Viewport: 2'].view.setValues(width=464.908, height=369.324, 
+    viewOffsetX=-104.149, viewOffsetY=14.6555)
+session.viewports['Viewport: 1'].view.setValues(width=488.093, height=387.742, 
+    viewOffsetX=-94.9755, viewOffsetY=20.4555)
+session.viewports['Viewport: 2'].view.setValues(width=490.42, height=389.591, 
+    viewOffsetX=-95.4283, viewOffsetY=20.553)
+session.viewports['Viewport: 1'].view.setValues(width=517.904, height=411.425, 
+    viewOffsetX=-86.4826, viewOffsetY=26.761)
+session.viewports['Viewport: 2'].view.setValues(width=520.372, height=413.385, 
+    viewOffsetX=-86.8946, viewOffsetY=26.8885)
+session.viewports['Viewport: 1'].view.setValues(width=549.284, height=436.353, 
+    viewOffsetX=-77.6676, viewOffsetY=33.3438)
+session.viewports['Viewport: 2'].view.setValues(width=551.899, height=438.43, 
+    viewOffsetX=-78.0373, viewOffsetY=33.5025)
+session.viewports['Viewport: 1'].view.setValues(width=582.467, height=462.713, 
+    viewOffsetX=-69.3021, viewOffsetY=39.8408)
+session.viewports['Viewport: 2'].view.setValues(width=585.236, height=464.913, 
+    viewOffsetX=-69.6316, viewOffsetY=40.0302)
+session.viewports['Viewport: 1'].view.setValues(width=617.532, height=490.569, 
+    viewOffsetX=-78.5482, viewOffsetY=37.0291)
+session.viewports['Viewport: 2'].view.setValues(width=620.465, height=492.9, 
+    viewOffsetX=-78.9213, viewOffsetY=37.205)
+session.viewports['Viewport: 1'].view.setValues(width=699.203, height=555.449, 
+    viewOffsetX=-99.7373, viewOffsetY=30.8357)
+session.viewports['Viewport: 2'].view.setValues(width=702.521, height=558.085, 
+    viewOffsetX=-100.211, viewOffsetY=30.982)
+session.viewports['Viewport: 1'].view.setValues(width=651.695, height=517.709, 
+    viewOffsetX=-108.653, viewOffsetY=21.8632)
+session.viewports['Viewport: 2'].view.setValues(width=654.779, height=520.158, 
+    viewOffsetX=-109.167, viewOffsetY=21.9666)
+session.viewports['Viewport: 1'].view.setValues(width=615.632, height=489.06, 
+    viewOffsetX=-118.457, viewOffsetY=13.6945)
+session.viewports['Viewport: 2'].view.setValues(width=618.55, height=491.378, 
+    viewOffsetX=-119.018, viewOffsetY=13.7594)
+session.viewports['Viewport: 1'].view.setValues(width=580.861, height=461.438, 
+    viewOffsetX=-127.686, viewOffsetY=5.80225)
+session.viewports['Viewport: 2'].view.setValues(width=583.618, height=463.628, 
+    viewOffsetX=-128.292, viewOffsetY=5.82976)
+session.viewports['Viewport: 1'].view.setValues(width=547.974, height=435.312, 
+    viewOffsetX=-136.434, viewOffsetY=-1.67066)
+session.viewports['Viewport: 2'].view.setValues(width=550.578, height=437.381, 
+    viewOffsetX=-137.083, viewOffsetY=-1.67861)
+session.viewports['Viewport: 1'].view.setValues(width=516.843, height=410.581, 
+    viewOffsetX=-144.793, viewOffsetY=-8.74435)
+session.viewports['Viewport: 2'].view.setValues(width=519.301, height=412.534, 
+    viewOffsetX=-145.481, viewOffsetY=-8.78596)
+session.viewports['Viewport: 1'].view.setValues(width=487.386, height=387.181, 
+    viewOffsetX=-153.033, viewOffsetY=-15.4375)
+session.viewports['Viewport: 2'].view.setValues(width=489.706, height=389.024, 
+    viewOffsetX=-153.762, viewOffsetY=-15.511)
+session.viewports['Viewport: 1'].view.setValues(width=459.525, height=365.048, 
+    viewOffsetX=-161.731, viewOffsetY=-20.921)
+session.viewports['Viewport: 2'].view.setValues(width=461.715, height=366.788, 
+    viewOffsetX=-162.502, viewOffsetY=-21.0207)
+session.viewports['Viewport: 1'].view.setValues(width=433.183, height=344.122, 
+    viewOffsetX=-170.382, viewOffsetY=-26.1723)
+session.viewports['Viewport: 2'].view.setValues(width=435.249, height=345.763, 
+    viewOffsetX=-171.194, viewOffsetY=-26.2971)
+session.viewports['Viewport: 1'].view.setValues(width=408.284, height=324.342, 
+    viewOffsetX=-178.713, viewOffsetY=-31.1359)
+session.viewports['Viewport: 2'].view.setValues(width=410.233, height=325.891, 
+    viewOffsetX=-179.566, viewOffsetY=-31.2845)
+session.viewports['Viewport: 1'].view.setValues(width=384.758, height=305.653, 
+    viewOffsetX=-186.701, viewOffsetY=-35.7965)
+session.viewports['Viewport: 2'].view.setValues(width=386.596, height=307.113, 
+    viewOffsetX=-187.593, viewOffsetY=-35.9675)
+session.viewports['Viewport: 1'].view.setValues(width=362.534, height=287.998, 
+    viewOffsetX=-195.097, viewOffsetY=-40.3382)
+session.viewports['Viewport: 2'].view.setValues(width=364.267, height=289.375, 
+    viewOffsetX=-196.03, viewOffsetY=-40.5311)
+session.viewports['Viewport: 1'].view.setValues(width=341.548, height=271.327, 
+    viewOffsetX=-203.052, viewOffsetY=-44.7323)
+session.viewports['Viewport: 2'].view.setValues(width=343.182, height=272.625, 
+    viewOffsetX=-204.023, viewOffsetY=-44.9463)
+session.viewports['Viewport: 1'].view.setValues(width=321.734, height=255.587, 
+    viewOffsetX=-210.489, viewOffsetY=-48.9796)
+session.viewports['Viewport: 2'].view.setValues(width=323.274, height=256.81, 
+    viewOffsetX=-211.497, viewOffsetY=-49.2141)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1621.91, 
+    farPlane=2652.81, width=322.306, height=256.041, cameraPosition=(-1147.2, 
+    -484.757, 1179.99), cameraUpVector=(0.233183, 0.704715, 0.670076), 
+    cameraTarget=(608.791, 74.1191, -18.8513), viewOffsetX=-210.863, 
+    viewOffsetY=-49.0666)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1627.36, 
+    farPlane=2658.59, width=323.892, height=257.301, cameraPosition=(-1153.97, 
+    -481.67, 1183.12), cameraUpVector=(0.233186, 0.704713, 0.670078), 
+    cameraTarget=(606.7, 78.7029, -18.932), viewOffsetX=-211.901, 
+    viewOffsetY=-49.3081)
+session.viewports['Viewport: 1'].view.setValues(width=302.97, height=240.68, 
+    viewOffsetX=-204.128, viewOffsetY=-47.0885)
+session.viewports['Viewport: 2'].view.setValues(width=304.46, height=241.864, 
+    viewOffsetX=-205.132, viewOffsetY=-47.32)
+session.viewports['Viewport: 1'].view.setValues(width=322.935, height=256.54, 
+    viewOffsetX=-211.55, viewOffsetY=-49.3255)
+session.viewports['Viewport: 2'].view.setValues(width=324.523, height=257.802, 
+    viewOffsetX=-212.591, viewOffsetY=-49.5682)
+session.viewports['Viewport: 1'].view.setValues(width=342.86, height=272.369, 
+    viewOffsetX=-218.902, viewOffsetY=-51.7277)
+session.viewports['Viewport: 2'].view.setValues(width=344.546, height=273.708, 
+    viewOffsetX=-219.978, viewOffsetY=-51.982)
+session.viewports['Viewport: 1'].view.setValues(width=388.834, height=308.891, 
+    viewOffsetX=-236.984, viewOffsetY=-58.1389)
+session.viewports['Viewport: 2'].view.setValues(width=390.744, height=310.408, 
+    viewOffsetX=-238.148, viewOffsetY=-58.4246)
+session.viewports['Viewport: 1'].view.setValues(width=411.739, height=327.086, 
+    viewOffsetX=-245.927, viewOffsetY=-61.6462)
+session.viewports['Viewport: 2'].view.setValues(width=413.759, height=328.691, 
+    viewOffsetX=-247.134, viewOffsetY=-61.9487)
+session.viewports['Viewport: 1'].view.setValues(width=437.005, height=347.158, 
+    viewOffsetX=-253.155, viewOffsetY=-66.1427)
+session.viewports['Viewport: 2'].view.setValues(width=439.148, height=348.86, 
+    viewOffsetX=-254.396, viewOffsetY=-66.467)
+session.viewports['Viewport: 1'].view.setValues(width=463.709, height=368.372, 
+    viewOffsetX=-259.166, viewOffsetY=-71.7333)
+session.viewports['Viewport: 2'].view.setValues(width=465.98, height=370.176, 
+    viewOffsetX=-260.436, viewOffsetY=-72.0848)
+session.viewports['Viewport: 1'].view.setValues(width=491.968, height=390.821, 
+    viewOffsetX=-264.898, viewOffsetY=-78.076)
+session.viewports['Viewport: 2'].view.setValues(width=494.377, height=392.734, 
+    viewOffsetX=-266.194, viewOffsetY=-78.4582)
+session.viewports['Viewport: 1'].view.setValues(width=521.864, height=414.57, 
+    viewOffsetX=-270.182, viewOffsetY=-85.4266)
+session.viewports['Viewport: 2'].view.setValues(width=524.416, height=416.597, 
+    viewOffsetX=-271.504, viewOffsetY=-85.8443)
+session.viewports['Viewport: 1'].view.setValues(width=553.478, height=439.685, 
+    viewOffsetX=-274.117, viewOffsetY=-94.3989)
+session.viewports['Viewport: 2'].view.setValues(width=556.182, height=441.833, 
+    viewOffsetX=-275.457, viewOffsetY=-94.8602)
+session.viewports['Viewport: 1'].view.setValues(width=586.898, height=466.234, 
+    viewOffsetX=-276.358, viewOffsetY=-103.121)
+session.viewports['Viewport: 2'].view.setValues(width=589.763, height=468.51, 
+    viewOffsetX=-277.708, viewOffsetY=-103.624)
+session.viewports['Viewport: 1'].view.setValues(width=622.214, height=494.289, 
+    viewOffsetX=-278.593, viewOffsetY=-112.518)
+session.viewports['Viewport: 2'].view.setValues(width=625.248, height=496.699, 
+    viewOffsetX=-279.952, viewOffsetY=-113.066)
+session.viewports['Viewport: 1'].view.setValues(width=582.75, height=462.938, 
+    viewOffsetX=-279.738, viewOffsetY=-117.614)
+session.viewports['Viewport: 2'].view.setValues(width=585.588, height=465.193, 
+    viewOffsetX=-281.1, viewOffsetY=-118.187)
+session.viewports['Viewport: 1'].view.setValues(width=550.024, height=436.94, 
+    viewOffsetX=-282.919, viewOffsetY=-123.335)
+session.viewports['Viewport: 2'].view.setValues(width=552.706, height=439.072, 
+    viewOffsetX=-284.299, viewOffsetY=-123.937)
+session.viewports['Viewport: 1'].view.setValues(width=518.768, height=412.111, 
+    viewOffsetX=-285.757, viewOffsetY=-128.694)
+session.viewports['Viewport: 2'].view.setValues(width=521.3, height=414.122, 
+    viewOffsetX=-287.153, viewOffsetY=-129.322)
+session.viewports['Viewport: 1'].view.setValues(width=489.208, height=388.629, 
+    viewOffsetX=-288.156, viewOffsetY=-133.768)
+session.viewports['Viewport: 2'].view.setValues(width=491.599, height=390.528, 
+    viewOffsetX=-289.564, viewOffsetY=-134.421)
+session.viewports['Viewport: 1'].view.setValues(width=461.249, height=366.417, 
+    viewOffsetX=-289.935, viewOffsetY=-138.354)
+session.viewports['Viewport: 2'].view.setValues(width=463.505, height=368.21, 
+    viewOffsetX=-291.354, viewOffsetY=-139.031)
+session.viewports['Viewport: 1'].view.setValues(width=434.812, height=345.416, 
+    viewOffsetX=-291.553, viewOffsetY=-142.558)
+session.viewports['Viewport: 2'].view.setValues(width=436.941, height=347.107, 
+    viewOffsetX=-292.98, viewOffsetY=-143.256)
+session.viewports['Viewport: 1'].view.setValues(width=409.824, height=325.566, 
+    viewOffsetX=-292.989, viewOffsetY=-146.405)
+session.viewports['Viewport: 2'].view.setValues(width=411.832, height=327.161, 
+    viewOffsetX=-294.424, viewOffsetY=-147.123)
+session.viewports['Viewport: 1'].view.setValues(width=386.213, height=306.809, 
+    viewOffsetX=-290.987, viewOffsetY=-141.139)
+session.viewports['Viewport: 2'].view.setValues(width=388.107, height=308.313, 
+    viewOffsetX=-292.414, viewOffsetY=-141.831)
+session.viewports['Viewport: 1'].view.setValues(width=363.909, height=289.09, 
+    viewOffsetX=-288.711, viewOffsetY=-136.388)
+session.viewports['Viewport: 2'].view.setValues(width=365.694, height=290.509, 
+    viewOffsetX=-290.128, viewOffsetY=-137.058)
+session.viewports['Viewport: 1'].view.setValues(width=342.846, height=272.358, 
+    viewOffsetX=-286.043, viewOffsetY=-132.139)
+session.viewports['Viewport: 2'].view.setValues(width=344.529, height=273.695, 
+    viewOffsetX=-287.448, viewOffsetY=-132.788)
+session.viewports['Viewport: 1'].view.setValues(width=322.96, height=256.56, 
+    viewOffsetX=-282.816, viewOffsetY=-128.326)
+session.viewports['Viewport: 2'].view.setValues(width=324.546, height=257.821, 
+    viewOffsetX=-284.206, viewOffsetY=-128.956)
+session.viewports['Viewport: 1'].view.setValues(width=304.19, height=241.649, 
+    viewOffsetX=-278.275, viewOffsetY=-124.96)
+session.viewports['Viewport: 2'].view.setValues(width=305.685, height=242.837, 
+    viewOffsetX=-279.643, viewOffsetY=-125.575)
+session.viewports['Viewport: 1'].view.setValues(width=286.477, height=227.578, 
+    viewOffsetX=-274.467, viewOffsetY=-123.083)
+session.viewports['Viewport: 2'].view.setValues(width=287.887, height=228.698, 
+    viewOffsetX=-275.817, viewOffsetY=-123.688)
+session.viewports['Viewport: 1'].view.setValues(width=269.767, height=214.304, 
+    viewOffsetX=-270.914, viewOffsetY=-121.478)
+session.viewports['Viewport: 2'].view.setValues(width=271.095, height=215.358, 
+    viewOffsetX=-272.248, viewOffsetY=-122.076)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1627.86, 
+    farPlane=2600.99, width=269.783, height=214.317, cameraPosition=(-1045.99, 
+    -457.742, 1287.33), cameraUpVector=(0.264474, 0.727257, 0.633365), 
+    cameraTarget=(625.228, 85.0836, -33.8174), viewOffsetX=-270.931, 
+    viewOffsetY=-121.485)
+session.viewports['Viewport: 2'].view.setValues(nearPlane=1633.28, 
+    farPlane=2606.59, width=271.103, height=215.365, cameraPosition=(-1052.47, 
+    -454.567, 1290.72), cameraUpVector=(0.264476, 0.727254, 0.633367), 
+    cameraTarget=(623.205, 89.7132, -33.9607), viewOffsetX=-272.256, 
+    viewOffsetY=-122.079)
+session.viewports['Viewport: 1'].view.setValues(width=306.585, height=243.552, 
+    viewOffsetX=-273.34, viewOffsetY=-120.383)
+session.viewports['Viewport: 2'].view.setValues(width=308.086, height=244.744, 
+    viewOffsetX=-274.678, viewOffsetY=-120.972)
+session.viewports['Viewport: 1'].view.setValues(width=324.953, height=258.144, 
+    viewOffsetX=-273.604, viewOffsetY=-119.353)
+session.viewports['Viewport: 2'].view.setValues(width=326.542, height=259.406, 
+    viewOffsetX=-274.941, viewOffsetY=-119.936)
+session.viewports['Viewport: 1'].view.setValues(width=345.057, height=274.115, 
+    viewOffsetX=-274.399, viewOffsetY=-118.535)
+session.viewports['Viewport: 2'].view.setValues(width=346.743, height=275.454, 
+    viewOffsetX=-275.74, viewOffsetY=-119.114)
+session.viewports['Viewport: 1'].view.setValues(width=366.34, height=291.021, 
+    viewOffsetX=-275.224, viewOffsetY=-117.686)
+session.viewports['Viewport: 2'].view.setValues(width=368.128, height=292.442, 
+    viewOffsetX=-276.568, viewOffsetY=-118.261)
+session.viewports['Viewport: 1'].view.setValues(width=388.887, height=308.933, 
+    viewOffsetX=-276.099, viewOffsetY=-116.788)
+session.viewports['Viewport: 2'].view.setValues(width=390.784, height=310.44, 
+    viewOffsetX=-277.446, viewOffsetY=-117.358)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='TSAIW', outputPosition=INTEGRATION_POINT, )
+execfile(
+    'C:/Users/hakon/Skrivebord/Skole/Lettvekt Design/A5/Scripts/script.py', 
+    __main__.__dict__)
+#: The model "A4" has been created.
+
+---------- RUNTIME EXCEPTION HAS OCCURRED ----------
+*** ERROR: ABAQUS/ABQcaeG rank 0 received the ABORT signal
+ FAULT
+
+---------- RUNTIME EXCEPTION HAS OCCURRED ----------
+*** ERROR: ABAQUS/ABQcaeK rank 0 received the ABORT signal

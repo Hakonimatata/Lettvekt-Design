@@ -1,0 +1,29 @@
+<Description>
+   ABAQUS/ABQcaeG rank 0 received the ABORT signal
+
+</Description>
+
+<Context>
+   ABQcaeG
+</Context>
+
+<Callstack>
+</Callstack>
+
+<Memory>
+   <Current>              88 MB </Current>
+   <Resident>            102 MB </Resident>
+   <Physical>           8021 MB </Physical>
+   <Limit>                 0 MB </Limit>
+   <Accessible>         8021 MB </Accessible>
+   <Allocator>            DL    </Allocator>
+</Memory>
+
+<Directories>
+  <current> C:\Users\hakon\Skrivebord\Skole\Lettvekt Design\A5\Abaqus </current> <free>    143 GB </free>   <used>    332 GB </used> 
+     <temp> C:\Users\hakon\AppData\Local\Temp </temp>    <free>    143 GB </free>
+</Directories>
+
+<Installation>
+</Installation>
+
