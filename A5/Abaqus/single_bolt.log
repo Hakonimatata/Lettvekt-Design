@@ -3,9 +3,9 @@ Abaqus JOB single_bolt
 Abaqus 2022
 Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server abaqus.lisens.ntnu.no.
-<807 out of 1000 licenses remain available>.
+<735 out of 1000 licenses remain available>.
 Begin Analysis Input File Processor
-24.04.2025 11:05:04
+30.04.2025 10:46:38
 Run pre.exe
 
  ***WARNING: Interactive messaging has been requested for this analysis run, 
@@ -13,10 +13,10 @@ Run pre.exe
              no messages will be sent to Abaqus/CAE for this phase of the 
              analysis.
 Warning: Failed initial connection to umbrella
-24.04.2025 11:05:22
+30.04.2025 10:46:57
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-24.04.2025 11:05:22
+30.04.2025 10:46:57
 Run standard.exe
 Warning: Failed initial connection to umbrella
 
@@ -24,11 +24,11 @@ Warning: Failed initial connection to umbrella
              but initialization of the messaging system has failed.  Therefore 
              no messages will be sent to Abaqus/CAE for this phase of the 
              analysis.
-24.04.2025 11:05:43
+30.04.2025 10:47:19
 End Abaqus/Standard Analysis
 Begin SIM Wrap-up
-24.04.2025 11:05:44
+30.04.2025 10:47:21
 Run SMASimUtility.exe
-24.04.2025 11:05:44
+30.04.2025 10:47:21
 End SIM Wrap-up
 Abaqus JOB single_bolt COMPLETED

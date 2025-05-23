@@ -206,4 +206,6 @@ layup1 = [ {'mat':'CFRP' , 'ori':  0  , 'thi':0.6, 'region': 'faces-all'},
 
 
 
-joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, esize=5, Nx=1000, second_bolt=False)
+# joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, esize=5, Nx=1000, second_bolt=False)
+# joint_4(modelname='A4', L=1000, W=100, e=50, r=10, layup=layup1, esize=5, Nx=1000, second_bolt=True)
+joint_4(modelname='A4', L=1000, W=100/2, e=50, r=10, layup=layup1, esize=5, Nx=1000, second_bolt=False)
